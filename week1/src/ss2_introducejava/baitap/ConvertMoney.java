@@ -1,4 +1,4 @@
-package ss2.baitap;
+package ss2_introducejava.baitap;
 import java.util.Scanner;
 public class ConvertMoney {
     public static void main(String[] args) {
