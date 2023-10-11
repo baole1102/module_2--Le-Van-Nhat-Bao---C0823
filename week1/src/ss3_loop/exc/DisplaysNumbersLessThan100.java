@@ -6,7 +6,7 @@ public class DisplaysNumbersLessThan100 {
         System.out.println("Hiển thị số nguyên tố < 100");
         int count = 0;
         for (int i = 0; i < 100; i++) {
-            for (int j = 1; j < 100; j++) {
+            for (int j = 1; j < i; j++) {
                 if (i % j == 0) {
                     count++;
                 }

@@ -2,6 +2,7 @@ package ss3_loop.exc;
 
 import java.util.Arrays;
 
+
 public class MergeArrays {
     public static void main(String[] args) {
         int[] arrOne = {1,2,3,4,5};
@@ -13,7 +14,7 @@ public class MergeArrays {
             sumArr[i]=arrOne[i];
         }
         for (int i = 5 ; i < sumArr.length ; i++) {
-            sumArr[i] = arrTwo[i-arrTwo.length];
+            sumArr[i] = arrTwo[i-arrOne.length];
         }
         System.out.print(Arrays.toString(sumArr));
     }
