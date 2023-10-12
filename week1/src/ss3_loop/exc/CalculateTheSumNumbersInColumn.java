@@ -23,12 +23,7 @@ public class CalculateTheSumNumbersInColumn {
         int numberColumn = scanner.nextInt();
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (j == numberColumn ){
-                    sum += arr[i][j];
-                }
-            }
-
+            sum += arr[i][numberColumn ];
         }
         System.out.println("Tổng các số tại cột "+ numberColumn + " là: "+ sum);
     }

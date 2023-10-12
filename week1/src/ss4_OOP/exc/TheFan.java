@@ -12,6 +12,7 @@ public class TheFan {
     TheFan() {
     }
 
+
     private int getSpeed() {
         return speed;
     }

@@ -22,11 +22,7 @@ public class SumTheNumbersOnDiagonalOfMatrix {
         System.out.println(Arrays.deepToString(arr));
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (i == j){
-                    sum += arr[i][j];
-                }
-            }
+            sum += arr[i][i];
         }
         System.out.println("Tổng đường chéo chính là: "+ sum);
     }

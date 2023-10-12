@@ -29,7 +29,7 @@ public class QuadraticEquation {
     }
     public void checkDenta(){
         if (getDiscriminant()>=0){
-            System.out.println("The equation has two roots "+ getRoot1() +"and "+getRoot2());
+            System.out.println("The equation has two roots "+ getRoot1() +" and "+getRoot2());
         }else {
             System.out.println("The equation has no roots");
         }
