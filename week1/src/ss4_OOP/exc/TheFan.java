@@ -1,10 +1,10 @@
 package ss4_OOP.exc;
 
 public class TheFan {
-    private int slow = 1;
+    final int slow = 1;
+    final int medium = 2;
+    final int fast = 3;
     private int speed = slow;
-    private int medium = 2;
-    private int fast = 3;
     private boolean on = false;
     private double radius = 5.0;
     private String color = "blue";
@@ -33,11 +33,11 @@ public class TheFan {
         return fast;
     }
 
-    public boolean setOn() {
+    public boolean getOn() {
         return on = true;
     }
 
-    public boolean setOff() {
+    public boolean getOff() {
         return on = false;
     }
 
@@ -49,18 +49,6 @@ public class TheFan {
         return color;
     }
 
-    public void setSlow(int slow) {
-        this.slow = slow;
-    }
-
-    public void setMedium(int medium) {
-        this.medium = medium;
-    }
-
-    public void setFast(int fast) {
-        this.fast = fast;
-    }
-
     public void setRadius(double radius) {
         this.radius = radius;
     }
@@ -69,11 +57,11 @@ public class TheFan {
         this.color = color;
     }
 
-    public String toString () {
+    public String toString() {
         if (!on) {
-           return ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is off");
+            return ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is off");
         } else {
-            return  ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is on");
+            return ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is on");
         }
     }
 

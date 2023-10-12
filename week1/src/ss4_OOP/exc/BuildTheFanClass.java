@@ -1,18 +1,18 @@
 package ss4_OOP.exc;
 
-public class BuildTheFanClass {
-    public static void main(String[] args) {
-        TheFan fan1 = new TheFan();
-        TheFan fan2 = new TheFan();
-        fan1.setSpeed(3);
-        fan1.setRadius(10);
-        fan1.setColor("yellow");
-        fan1.setOn();
-        fan2.setSpeed(1);
-        fan2.setRadius(5);
-        fan2.setColor("blue");
-        fan2.setOff();
-        System.out.println("fan1: "+fan1);
-        System.out.println("fan2: "+fan2);
+class Counter2 {
+    static int count = 0;
+
+    /*se lay bo nho chi mot lan và giu lai gia tri cua no */
+    /*ket qua thuc hien in ra 3 dong cac gia tri : 1,2,3 */
+    Counter2() {
+        count++;
+        System.out.println(count);
+    }
+
+    public static void main(String args[]) {
+        Counter2 c1 = new Counter2();
+        Counter2 c2 = new Counter2();
+        Counter2 c3 = new Counter2();
     }
 }
