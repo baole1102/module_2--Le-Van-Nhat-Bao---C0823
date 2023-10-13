@@ -59,7 +59,7 @@ public class TheFan {
 
     public String toString() {
         if (!on) {
-            return ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is off");
+            return (" Color: " + color + " Radius: " + radius + "\n fan is off");
         } else {
             return ("Speed: " + speed + " Color: " + color + " Radius: " + radius + "\n fan is on");
         }
