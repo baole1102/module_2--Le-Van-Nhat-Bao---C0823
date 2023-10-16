@@ -1,8 +1,8 @@
 package ss7_AbstractclassandInterface.exc.BT1;
 
 public class Square extends Rectangle {
-    Square(){}
-    Square (double side){
+    protected Square(){}
+    protected Square (double side){
         super(side,side);
     }
     Square(double side, String color, boolean filled){
@@ -35,6 +35,5 @@ public class Square extends Rectangle {
         return "A Square with side = "
                 + getSide()
                 + " Area = " +getArea();
-
     }
 }

@@ -1,6 +1,6 @@
 package ss7_AbstractclassandInterface.exc.BT1;
 
-public class Shape {
+public abstract class Shape {
     private String color = "green";
     private boolean filled = true;
 
