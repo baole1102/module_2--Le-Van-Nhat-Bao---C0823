@@ -7,15 +7,23 @@ import java.awt.*;
 
 public class TestNewSquare {
     public static void main(String[] args) {
-        NewSquare[] newSquare = new NewSquare[2];
-        newSquare [0] = new NewSquare(5);
-        newSquare [1] = new NewSquare();
-        for (NewSquare square : newSquare){
+        Square[] newSquare = new NewSquare[2];
+        newSquare[0] = new NewSquare(5);
+        newSquare[1] = new NewSquare();
+//        for (NewSquare square : newSquare){
+//            System.out.println(square.getArea());
+//            if (square instanceof Colorable){
+//                System.out.println(((Colorable)square).howToColor());
+//            }
+//        }
+
+        for (Square square : newSquare) {
             System.out.println(square.getArea());
-            if (square instanceof Colorable){
-                System.out.println(((Colorable)square).howToColor());
+            if (square instanceof Colorable) {
+                System.out.println(((Colorable) square).howToColor());
             }
         }
+
 
 //        for (int i =0 ; i < newSquare.length; i++){
 //            if (newSquare[i] instanceof Square ){

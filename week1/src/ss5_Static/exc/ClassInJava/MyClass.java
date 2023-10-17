@@ -2,11 +2,10 @@ package ss5_Static.exc.ClassInJava;
 
 public class MyClass {
     static public int X = 2;
-
     public static void main(String[] args) {
-        MyClass o1 = new MyClass();
-        MyClass o2 = new MyClass();
+        MyClass object1 = new MyClass();
+        MyClass object2 = new MyClass();
         MyClass.X = 5;
-        System.out.printf("x=%d, y=%d, z=%d", o1.X, o2.X, MyClass.X);
+        System.out.printf("x=%d, y=%d, z=%d", object1.X, object2.X, MyClass.X);
     }
 }

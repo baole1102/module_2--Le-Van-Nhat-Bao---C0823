@@ -5,6 +5,5 @@ public class BuildClassInJava {
     Student test = new Student();
     test.setName("Bao");
     test.setClasses("CO4");
-
     }
 }
