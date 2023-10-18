@@ -1,34 +1,16 @@
 package ss8_cleancode.exc;
 
-public class TennisGame {
-    public static final char ADDITION = '+';
+public class TennisGame extends TennisGameTest {
     public static final char SUBTRACTION = '-';
-    public static final char MULTIPLICATION = '*';
-    public static final char DIVISION = '/';
+    public TennisGame(){}
+    public TennisGame(int firstNamePlayer, int secondNamePlayer) {
+        super(firstNamePlayer, secondNamePlayer);
+    }
 
-    public static String getScore(String firstNamePlayer, String secondNamePlayer, int firstScore, int secondScore) {
+    public static String checkCondition (int firstScore, int secondScore){
         String score = "";
         int tempScore = 0;
-
-        if (firstScore == secondScore) {
-            switch (firstScore) {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                case 3:
-                    score = "Forty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-            }
-        } else if (firstScore >= 4 || secondScore >= 4) {
+        if (firstScore >= 4 || secondScore >= 4) {
             int minusResult = firstScore - secondScore;
             if (minusResult == 1) {
                 score = "Advantage player1";
@@ -39,7 +21,8 @@ public class TennisGame {
             } else {
                 score = "Win for player2";
             }
-        } else {
+        }
+        else {
             for (int i = 1; i < 3; i++) {
                 if (i == 1) {
                     tempScore = firstScore;
@@ -63,6 +46,32 @@ public class TennisGame {
                 }
             }
         }
+        return score;
+    }
+
+    public static String getScore(String firstNamePlayer, String secondNamePlayer, int firstScore, int secondScore) {
+        String score = "";
+//        int tempScore = 0;
+
+        if (firstScore == secondScore) {
+            switch (firstScore) {
+                case 0:
+                    score = "Love-All";
+                    break;
+                case 1:
+                    score = "Fifteen-All";
+                    break;
+                case 2:
+                    score = "Thirty-All";
+                    break;
+                case 3:
+                    score = "Forty-All";
+                    break;
+                default:
+                    score = "Deuce";
+                    break;
+            }
+        } else checkCondition( firstScore,  secondScore);
         return score;
     }
 }
