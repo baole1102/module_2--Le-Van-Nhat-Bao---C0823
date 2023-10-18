@@ -12,17 +12,30 @@ public class MyList<E> {
     }
 
     public MyList(int capacity) {
-
+        if (capacity >= 0) {
+            elements = new Object[capacity];
+        } else {
+            throw new IllegalArgumentException("capacity " + capacity);
+        }
     }
 
-    private void ensureCapa() {
-        int newSize = elements.length * 2;
-        elements = Arrays.copyOf(elements, newSize);
+    private void ensureCapa(int mincapacity) {
+        if (mincapacity >= 0) {
+            int newSize = elements.length + mincapacity;
+            elements = Arrays.copyOf(elements, newSize);
+        } else {
+            throw new IndexOutOfBoundsException("mincapacity" + mincapacity);
+        }
     }
 
     public void add(int index, E e) {
+        if (index > elements.length) {
+            throw new IllegalArgumentException("index: " + index);
+        } else if (elements.length == size) {
+            ensureCapa(3);
+        }
         for (int i = size - 1; i >= index; i--) {
-            elements[i + 1] = elements[i];
+            elements[i] = elements[i - 1];
         }
         elements[index] = e;
         size++;
@@ -53,7 +66,45 @@ public class MyList<E> {
     public int size() {
         return this.size;
     }
-//    public E clone (){
-////    return
-//    }
+
+    public MyList<E> clone() {
+        MyList<E> v = new MyList<>();
+        v.elements = Arrays.copyOf(elements, size);
+        v.size = size;
+        return v;
+    }
+
+    public boolean contains(E o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elements[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indexOf(E o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elements[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void clear() {
+        size = 0;
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = null;
+        }
+    }
+
+    public boolean add(E e) {
+        if (size == elements.length) {
+            ensureCapa(3);
+        }
+        elements[size] = e;
+        size++;
+        return true;
+    }
 }

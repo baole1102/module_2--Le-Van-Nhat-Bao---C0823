@@ -33,13 +33,18 @@ public class MyListTest   {
         Student student2 = new Student(3, "Tran Kim Tieu Vi");
 
         MyList<Student> studentMyList = new MyList<>();
+        MyList<Student> newStudentMyList = new MyList<>();
         studentMyList.add(0,student);
         studentMyList.add(1,student1);
         studentMyList.add(2,student2);
+        studentMyList.remove(2);
+
+        newStudentMyList = studentMyList.clone();
         for (int i = 0; i < studentMyList.size();i++){
             Student student3 = studentMyList.get(i);
             System.out.println(student3.getId());
             System.out.println(student3.getName());
         }
+
     }
 }
