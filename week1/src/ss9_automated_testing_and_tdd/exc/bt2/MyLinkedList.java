@@ -149,22 +149,6 @@ public class MyLinkedList<E> {
     public int size() {
         return numNodes;
     }
-//    public void ensureCapacity(int minCapacity) {
-//        Node temp = head;
-//        if (numNodes >= minCapacity) {
-//            return;
-//        }
-//        for (int i = 0; i < numNodes - 1; i++) {
-//            temp = temp.next;
-//        }
-//        if (temp.next == null) {
-//            int addSpace = numNodes + minCapacity;
-//            numNodes = (numNodes, addSpace);
-//        } else {
-//            throw new IllegalArgumentException("minCapacity: " + minCapacity);
-//        }
-//    }
-
     public class Node {
         private Node next;
         private Object data;

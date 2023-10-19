@@ -2,7 +2,7 @@ package ss9_automated_testing_and_tdd.exc.bt1;
 
 import java.util.Arrays;
 
-public class MyList<E> {
+    public class MyList<E> {
     private int size = 0;
     static final int DEFAULT_CAPACITY = 10;
     private Object elements[];
