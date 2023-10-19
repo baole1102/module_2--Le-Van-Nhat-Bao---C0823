@@ -1,4 +1,4 @@
-package ss8_cleancode.exc;
+package ss8_cleancode.exc.bt1;
 import java.util.Arrays;
 import java.util.Collection;
 public class TennisGameTest {

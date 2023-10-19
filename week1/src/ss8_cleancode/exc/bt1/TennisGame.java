@@ -1,4 +1,4 @@
-package ss8_cleancode.exc;
+package ss8_cleancode.exc.bt1;
 
 public class TennisGame extends TennisGameTest {
     public static final char SUBTRACTION = '-';

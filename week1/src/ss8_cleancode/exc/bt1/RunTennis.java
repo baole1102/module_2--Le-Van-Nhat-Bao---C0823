@@ -1,4 +1,4 @@
-package ss8_cleancode.exc;
+package ss8_cleancode.exc.bt1;
 
 public class RunTennis {
     public static void main(String[] args) {

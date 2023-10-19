@@ -1,12 +1,10 @@
 package ss7_abstractclassandInterface.exc.bt2;
 
-import ss7_abstractclassandInterface.exc.bt1.Square;
-
-public class NewSquare extends Square implements Colorable {
-    public NewSquare() {
+public class Square extends ss7_abstractclassandInterface.exc.bt1.Square implements Colorable {
+    public Square() {
     }
 
-    public NewSquare(double side) {
+    public Square(double side) {
         super(side);
     }
 
