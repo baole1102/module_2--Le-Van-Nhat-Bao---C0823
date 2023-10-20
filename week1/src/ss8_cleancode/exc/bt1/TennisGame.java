@@ -2,6 +2,16 @@ package ss8_cleancode.exc.bt1;
 
 public class TennisGame {
     public static final char SUBTRACTION = '-';
+    public static final int NUMBER_ZERO = 0;
+    public static final int NUMBER_ONE = 1;
+    public static final int NUMBER_TWO = 2;
+    public static final int NUMBER_THREE = 3;
+    public static final String ALL_VALUE = "ALL";
+    public static final String VALUE_LOVE = "Love";
+    public static final String VALUE_FIFTEEN = "Fifteen";
+    public static final String VALUE_THIRTY = "Thirty";
+    public static final String VALUE_FORTY = "Forty";
+
 
     public static String getScore(String firstPlayer, String secondPlayer, int scoreOne, int scoreTwo) {
         if (scoreOne == scoreTwo) {
@@ -15,14 +25,14 @@ public class TennisGame {
 
     private static String getEqualScore(int score) {
         switch (score) {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            case 3:
-                return "Forty-All";
+            case NUMBER_ZERO:
+                return VALUE_LOVE + " - "+ ALL_VALUE;
+            case NUMBER_ONE:
+                return VALUE_FIFTEEN + " - "+ ALL_VALUE;
+            case NUMBER_TWO:
+                return VALUE_THIRTY + " - "+ ALL_VALUE;
+            case NUMBER_THREE:
+                return VALUE_FORTY + " - "+ ALL_VALUE;
             default:
                 return "Deuce";
         }
@@ -49,17 +59,17 @@ public class TennisGame {
                 score += SUBTRACTION;
             }
             switch (tempScore) {
-                case 0:
-                    score += "Love";
+                case NUMBER_ZERO:
+                    score += VALUE_LOVE;
                     break;
-                case 1:
-                    score += "Fifteen";
+                case NUMBER_ONE:
+                    score += VALUE_FIFTEEN;
                     break;
-                case 2:
-                    score += "Thirty";
+                case NUMBER_TWO:
+                    score += VALUE_THIRTY;
                     break;
-                case 3:
-                    score += "Forty";
+                case NUMBER_THREE:
+                    score += VALUE_FORTY;
                     break;
             }
         }
