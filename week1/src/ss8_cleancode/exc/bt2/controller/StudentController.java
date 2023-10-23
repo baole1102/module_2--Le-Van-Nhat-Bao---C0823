@@ -9,5 +9,11 @@ public class StudentController {
     public void addStudent(){
         iStudentService.addStudent();
     }
+    public void deleteStudent(){
+        iStudentService.deleteStudent();
+    }
+    public void editStudent(){
+        iStudentService.editStudent();
+    }
 
 }

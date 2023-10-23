@@ -4,4 +4,6 @@ public interface IStudentRepository {
     void showList();
 
     void addStudent();
+    void deleteStudent();
+    void editStudent();
 }

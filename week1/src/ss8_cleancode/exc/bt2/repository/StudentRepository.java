@@ -1,24 +1,19 @@
 package ss8_cleancode.exc.bt2.repository;
+
 import ss8_cleancode.exc.bt2.model.Student;
 
 import javax.sound.midi.Soundbank;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StudentRepository implements IStudentRepository{
-    int size = 5;
-    private static Student[] students = new Student[5];
-    static {
-        students[0] = new Student(1,"Dụng");
-        students[1] = new Student(2,"Tuấn");
-        students[2] = new Student(3,"Vi");
-        students[3] = new Student(4,"Độ");
-        students[4] = new Student(5,"Hải");
-    }
+public class StudentRepository  implements IStudentRepository {
+    ArrayList<Student> studentArrayList = new ArrayList<>();
+
 
     @Override
     public void showList() {
-        for (Student s: students) {
+        for (Student s : studentArrayList) {
             System.out.println(s);
         }
     }
@@ -26,23 +21,42 @@ public class StudentRepository implements IStudentRepository{
     @Override
     public void addStudent() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap id sinh vien");
+        int id = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Nhap ten sinh vien");
         String name = scanner.nextLine();
-        System.out.println("Nhap id sinh vien");
-        int identify = scanner.nextInt();
-        if (students.length >= size){
-            ensureCapa(1);
-        }
-        students[size] = new Student(identify,name);
-        size++;
+        Student student = new Student(id, name);
+        studentArrayList.add(student);
 
     }
-    public void ensureCapa(int capacity){
-        if (capacity >= 0){
-            int newSize = students.length + capacity;
-            students = Arrays.copyOf(students,newSize);
-        }else {
-            throw  new IllegalArgumentException("Erro capacity: "+capacity);
+
+    @Override
+    public void deleteStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap id sinh vien can xoa");
+        int identify = scanner.nextInt();
+        for (int i = 0; i < studentArrayList.size(); i++) {
+            if (studentArrayList.get(i).getId() == identify) {
+                studentArrayList.remove(i);
+            }
+        }
+    }
+
+    public void editStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap id sinh vien can sua");
+        int identify = scanner.nextInt();
+        for (int i = 0; i < studentArrayList.size(); i++) {
+            if (studentArrayList.get(i).getId() == identify) {
+                System.out.println("Nhap id sinh vien");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println("Nhap ten sinh vien");
+                String name = scanner.nextLine();
+                studentArrayList.get(i).setId(id);
+                studentArrayList.get(i).setName(name);
+            }
         }
     }
 

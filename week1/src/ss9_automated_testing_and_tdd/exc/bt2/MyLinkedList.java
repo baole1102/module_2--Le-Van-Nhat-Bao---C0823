@@ -5,6 +5,18 @@ import ss9_automated_testing_and_tdd.exc.bt1.MyList;
 import java.util.Arrays;
 
 public class MyLinkedList<E> {
+    public class Node {
+        private Node next;
+        private Object data;
+
+        public Node(Object data) {
+            this.data = data;
+        }
+
+        public Object getData() {
+            return data;
+        }
+    }
     private Node head;
     public int numNodes = 0;
 
@@ -149,16 +161,5 @@ public class MyLinkedList<E> {
     public int size() {
         return numNodes;
     }
-    public class Node {
-        private Node next;
-        private Object data;
 
-        public Node(Object data) {
-            this.data = data;
-        }
-
-        public Object getData() {
-            return data;
-        }
-    }
 }

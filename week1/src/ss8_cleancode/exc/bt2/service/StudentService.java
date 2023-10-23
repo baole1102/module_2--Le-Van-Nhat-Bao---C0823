@@ -13,4 +13,16 @@ public class StudentService implements IStudentService {
     public void addStudent() {
         iStudentRepository.addStudent();
     }
+
+    @Override
+    public void deleteStudent() {
+        iStudentRepository.deleteStudent();
+    }
+
+    @Override
+    public void editStudent() {
+        iStudentRepository.editStudent();
+    }
+
+
 }
