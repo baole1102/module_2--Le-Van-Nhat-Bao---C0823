@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManager implements IProductRepository {
-    ArrayList<Product> arrayList = new ArrayList<>();
+   private static ArrayList<Product> arrayList = new ArrayList<>();
 
     public void add() {
         Scanner sc = new Scanner(System.in);
@@ -31,16 +31,17 @@ public class ProductManager implements IProductRepository {
 
     public void deleteProduct() {
         Scanner sc = new Scanner(System.in);
+        int flag = 1;
+        int choice;
         System.out.println("Nhập id muốn xóa");
         int code = Integer.parseInt(sc.nextLine());
-        int flag = 1;
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i).getCode() == code) {
                 flag = 1;
-                System.out.println("Vui lòng chọn chức năng:\n" +
+                System.out.println("Bạn có muốn xóa không:\n" +
                         "1. Yes.\n" +
                         "2. No.");
-                int choice = Integer.parseInt(sc.nextLine());
+                 choice = Integer.parseInt(sc.nextLine());
                 switch (choice) {
                     case 1:
                         arrayList.remove(i);
@@ -75,17 +76,20 @@ public class ProductManager implements IProductRepository {
     }
 
     public void editProduct() {
+        int codeProduct;
+        String nameProduct;
+        double priceProduct;
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập id sản phẩm muốn sửa");
         int choice = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i).getCode() == choice) {
                 System.out.println("Nhập id sản phẩm");
-                int codeProduct = Integer.parseInt(sc.nextLine());
+                codeProduct = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập tên sản phẩm");
-                String nameProduct = sc.nextLine();
+                nameProduct = sc.nextLine();
                 System.out.println("Nhập giá sản phẩm");
-                double priceProduct = Double.parseDouble(sc.nextLine());
+                priceProduct = Double.parseDouble(sc.nextLine());
                 arrayList.get(i).setCode(codeProduct);
                 arrayList.get(i).setNameProduct(nameProduct);
                 arrayList.get(i).setPrice(priceProduct);

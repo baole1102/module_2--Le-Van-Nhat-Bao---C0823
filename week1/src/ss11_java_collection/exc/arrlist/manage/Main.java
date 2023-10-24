@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ProductController productController = new ProductController();
+        int choice;
         do {
             System.out.println("Vui lòng chọn chức năng:\n" +
                     "1. Thêm sản phẩm.\n" +
@@ -16,7 +17,7 @@ public class Main {
                     "6. Sắp xếp sản phẩm. \n" +
                     "7. Thoát. \n");
             Scanner scanner = new Scanner(System.in);
-            int choice = Integer.parseInt(scanner.nextLine());
+            choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
                     productController.add();
