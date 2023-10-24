@@ -8,13 +8,14 @@ public class CountTheNumber {
         String string = "Bao Dep Trai";
         String newString = string.toLowerCase();
         String newContent = "";
+        int count;
         for (int i = 0; i < newString.length(); i++) {
             newContent += newString.charAt(i);
         }
         System.out.println(newContent);
         for (int i = 0; i < newContent.length(); i++) {
             if (integerMap.containsKey(newContent.charAt(i))) {
-                int count = integerMap.get(newContent.charAt(i));
+                 count = integerMap.get(newContent.charAt(i));
                 integerMap.put(newContent.charAt(i), count + 1);
             } else {
                 integerMap.put(newContent.charAt(i), 1);

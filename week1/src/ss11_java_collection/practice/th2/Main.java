@@ -18,7 +18,7 @@ public class Main {
             System.out.println(student.toString());
         }
         System.out.println("...........Set");
-        HashSet<Student> students = new HashSet<Student>();
+        HashSet<Student> students   = new HashSet<Student>();
         students.add(student1);
         students.add(student2);
         students.add(student3);
