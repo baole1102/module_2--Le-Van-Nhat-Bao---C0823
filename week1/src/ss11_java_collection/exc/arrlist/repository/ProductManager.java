@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManager implements IProductRepository {
-   private static ArrayList<Product> arrayList = new ArrayList<>();
+    private static ArrayList<Product> arrayList = new ArrayList<>();
 
     public void add() {
         Scanner sc = new Scanner(System.in);
@@ -41,7 +41,7 @@ public class ProductManager implements IProductRepository {
                 System.out.println("Bạn có muốn xóa không:\n" +
                         "1. Yes.\n" +
                         "2. No.");
-                 choice = Integer.parseInt(sc.nextLine());
+                choice = Integer.parseInt(sc.nextLine());
                 switch (choice) {
                     case 1:
                         arrayList.remove(i);
@@ -61,16 +61,15 @@ public class ProductManager implements IProductRepository {
         Scanner sc = new Scanner(System.in);
         System.out.println("Tên sản phẩm bạn muốn tìm kiếm");
         String nameProduct = sc.nextLine();
-        int flag = 1;
+        boolean isFlag = false;
         for (int i = 0; i < arrayList.size(); i++) {
-            flag = 1;
             if (arrayList.get(i).getNameProduct().equals(nameProduct)) {
                 System.out.println("Sản phẩm bạn đang tìm kiếm: ");
                 System.out.println(arrayList.get(i).toString());
-                break;
+                isFlag = true;
             }
         }
-        if (flag != 1) {
+        if (!isFlag) {
             System.out.println("Không có sản phẩm");
         }
     }
