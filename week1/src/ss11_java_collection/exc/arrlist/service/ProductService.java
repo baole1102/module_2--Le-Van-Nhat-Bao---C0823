@@ -12,8 +12,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void add() {
-        iProductRepository.add();
+    public void addProduct() {
+        iProductRepository.addProduct();
     }
 
     @Override
@@ -32,18 +32,18 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void ArrangeToUpper() {
-        iProductRepository.ArrangeToUpper();
+    public void arrangeToUpper() {
+        iProductRepository.arrangeToUpper();
     }
 
     @Override
-    public void ArrangToLower() {
-        iProductRepository.ArrangToLower();
+    public void arrangeToLower() {
+        iProductRepository.arrangeToLower();
     }
 
     @Override
-    public void Arrange() {
-        iProductRepository.Arrange();
+    public void arrangeProduct() {
+        iProductRepository.arrangeProduct();
     }
 
 

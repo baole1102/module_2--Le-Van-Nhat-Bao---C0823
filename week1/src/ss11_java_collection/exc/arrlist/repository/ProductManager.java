@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ProductManager implements IProductRepository {
     private static ArrayList<Product> arrayList = new ArrayList<>();
 
-    public void add() {
+    public void addProduct() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập mã sản phẩm");
         int codeProduct = Integer.parseInt(sc.nextLine());
@@ -97,27 +97,27 @@ public class ProductManager implements IProductRepository {
     }
 
 
-    public void ArrangeToUpper() {
+    public void arrangeToUpper() {
         Comparator comparator = new Comparetor(true);
         Collections.sort(arrayList, comparator);
     }
 
-    public void ArrangToLower() {
+    public void arrangeToLower() {
         Comparator comparator = new Comparetor(false);
         Collections.sort(arrayList, comparator);
     }
 
-    public void Arrange() {
+    public void arrangeProduct() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Chọn thứ tự muốn sắp xếp \n" + "1. Sắp xếp tăng dần \n" +
                 "2. Sắp xếp giảm dần");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:
-                ArrangeToUpper();
+                arrangeToUpper();
                 break;
             case 2:
-                ArrangToLower();
+                arrangeToLower();
                 break;
         }
     }

@@ -24,6 +24,7 @@ public class SearchAlgorithm {
         }
         return -1;
     }
+
     public static void main(String[] args) {
         int left = 0;
         int right = arr.length - 1;

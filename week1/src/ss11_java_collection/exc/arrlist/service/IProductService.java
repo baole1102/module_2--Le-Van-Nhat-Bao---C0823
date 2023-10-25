@@ -2,11 +2,11 @@ package ss11_java_collection.exc.arrlist.service;
 
 public interface IProductService {
     void  showList();
-    void add();
+    void addProduct();
     void deleteProduct();
     void searchProduct();
     void editProduct();
-    void ArrangeToUpper();
-    void ArrangToLower();
-    void Arrange();
+    void arrangeToUpper();
+    void arrangeToLower();
+    void arrangeProduct();
 }

@@ -20,7 +20,7 @@ public class Main {
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    productController.add();
+                    productController.addProduct();
                     break;
                 case 2:
                     productController.editProduct();
@@ -35,7 +35,7 @@ public class Main {
                     productController.searchProduct();
                     break;
                 case 6:
-                    productController.Arrange();
+                    productController.addProduct();
                     break;
                 case 7:
                     System.out.println("Hẹn gặp lại");

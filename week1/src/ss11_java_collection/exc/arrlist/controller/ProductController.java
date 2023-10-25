@@ -11,8 +11,8 @@ public class ProductController {
     }
 
 
-    public void add() {
-        iProductService.add();
+    public void addProduct() {
+        iProductService.addProduct();
     }
 
     public void deleteProduct() {
@@ -30,16 +30,16 @@ public class ProductController {
     }
 
 
-    public void ArrangeToUpper() {
-        iProductService.ArrangeToUpper();
+    public void arrangeToUpper() {
+        iProductService.arrangeToUpper();
     }
 
-    public void ArrangToLower() {
-        iProductService.ArrangToLower();
+    public void arrangeToLower() {
+        iProductService.arrangeToLower();
     }
 
     public void Arrange() {
-        iProductService.Arrange();
+        iProductService.arrangeProduct();
     }
 
 }
