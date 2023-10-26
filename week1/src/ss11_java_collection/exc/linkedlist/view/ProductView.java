@@ -12,11 +12,7 @@ public class ProductView {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         ProductController productController = new ProductController();
-        Integer code;
-        String str;
-        Product product;
         int choice;
-        Product isSuccess;
         do {
             System.out.println("Vui lòng chọn chức năng:\n" +
                     "1. Thêm sản phẩm.\n" +
@@ -31,7 +27,6 @@ public class ProductView {
             switch (choice) {
                 case 1:
                     addProduct(productController);
-
                     break;
                 case 2:
                     editProduct(productController);
@@ -101,11 +96,11 @@ public class ProductView {
     }
 
     private static void editProduct(ProductController productController) {
-        Product isSuccess;
+        Product product;
         Integer code;
         code = inputCode();
-        isSuccess = productController.findById(code);
-        if (isSuccess != null){
+        product = productController.findById(code);
+        if (product != null){
            // System.out.println("Ban co muon xoa"+ +"nay khong");
             productController.editProduct(code, inputInformation());
             System.out.println("Sua thanh cong");
@@ -117,15 +112,15 @@ public class ProductView {
     private static void deleteProduct(ProductController productController) {
         Integer code;
         int choice;
-        Product isSuccess;
+        Product product;
         code = inputCode();
         System.out.println("Ban co muon xoa san pham nay khong");
         System.out.println("1. Yes \n"+"2. No");
         choice = Integer.parseInt(scanner.nextLine());
         switch (choice){
             case 1:
-                 isSuccess = productController.findById(code);
-                if (isSuccess != null){
+                product = productController.findById(code);
+                if (product != null){
                     System.out.println("Xoa thanh cong");
                 }else {
                     System.out.println("Khong tim thay code");

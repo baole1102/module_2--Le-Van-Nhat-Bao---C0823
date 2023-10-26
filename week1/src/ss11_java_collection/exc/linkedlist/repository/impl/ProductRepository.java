@@ -6,10 +6,7 @@ import ss11_java_collection.exc.linkedlist.repository.IProductRepository;
 import ss11_java_collection.exc.linkedlist.until.Comparetor;
 
 import javax.sound.sampled.Port;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class ProductRepository implements IProductRepository {
     private static List<Product> products = new ArrayList<>();
@@ -33,7 +30,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public void deleteByCode(Integer code) {
         for (Product product : products) {
-            if (product.getCode() == code) {
+            if (Objects.equals(product.getCode(), code)) {
                 products.remove(product);
                 break;
             }
@@ -43,7 +40,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public Product findByCode(Integer code) {
         for (Product product : products) {
-            if (product.getCode() == code) {
+            if (Objects.equals(product.getCode(), code)) {
                 return product;
             }
         }
@@ -85,7 +82,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public void editProduct(Integer code,Product product) {
         for (Product product1 : products) {
-            if (product1.getCode() == code) {
+            if (Objects.equals(product1.getCode(), code)) {
                 product1.setNameProduct(product.getNameProduct());
                 product1.setPrice(product.getPrice());
                 break;

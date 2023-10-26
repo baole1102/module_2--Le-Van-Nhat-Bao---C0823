@@ -8,7 +8,7 @@ public class InsertionSort {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter list size");
         int size = Integer.parseInt(scanner.nextLine());
-        int [] list = new int[size];
+        int[] list = new int[size];
         System.out.println("Enter " + list.length + " values:");
         for (int i = 0; i < list.length; i++) {
             list[i] = scanner.nextInt();
@@ -19,16 +19,18 @@ public class InsertionSort {
         }
         arrangeAlgorithm(list);
         System.out.println();
-        System.out.println("Last list after sort insertion: " +Arrays.toString(list));
+        System.out.println("Last list after sort insertion: " + Arrays.toString(list));
     }
-    public static void arrangeAlgorithm( int [] list){
+
+    public static void arrangeAlgorithm(int[] list) {
         int firstValue;
         int index;
-        for (int i = 0; i < list.length; i++) {
+        int arrLength = list.length;
+        for (int i = 0; i < arrLength; i++) {
             firstValue = list[i];
             index = i;
-            while (index > 0 && firstValue < list[index-1]){
-                list[index] = list[index-1];
+            while (index > 0 && firstValue < list[index - 1]) {
+                list[index] = list[index - 1];
                 index--;
             }
             list[index] = firstValue;
