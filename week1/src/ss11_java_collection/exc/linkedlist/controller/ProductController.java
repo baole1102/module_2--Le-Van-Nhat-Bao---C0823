@@ -35,8 +35,7 @@ private IProductService iProductService = new ProductService();
     public void sortLower() {
         iProductService.sortLower();
     }
-
-    public Product editProduct(Product product) {
-       return iProductService.editProduct(product);
+    public void editProduct(Integer code ,Product product) {
+        iProductService.editProduct(code,product);
     }
 }

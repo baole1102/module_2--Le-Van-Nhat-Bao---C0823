@@ -52,9 +52,9 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product editProduct(Product product) {
-     iProductRepository.editProduct(product);
-        return product;
+    public void editProduct(Integer code,Product product) {
+        iProductRepository.editProduct(code,product);
     }
+
 
 }

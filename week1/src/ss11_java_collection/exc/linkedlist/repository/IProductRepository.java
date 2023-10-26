@@ -21,6 +21,8 @@ public interface IProductRepository {
     void sortUpper();
 
     void sortLower();
+    void editProduct ( Integer code,Product product);
 
-    void editProduct(Product product);
+
+
 }

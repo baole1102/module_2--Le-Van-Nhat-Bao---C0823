@@ -21,5 +21,5 @@ public interface IProductService {
 
     void sortLower();
 
-    Product editProduct(Product product);
+    void editProduct(Integer code,Product product);
 }
