@@ -3,7 +3,7 @@ package ss13_arrange_algorithm.exc.bt1;
 import java.util.Arrays;
 
 public class IllustrationOfTheAlgorithm {
-    static int[] list = {3, 2, 7, 1, 9, 5, 6, 8};
+   private static int[] list = {3, 2, 7, 1, 9, 5, 6, 8};
 
     public static void arrangeAlgorithm(int[] list) {
         int firstValue;
