@@ -2,7 +2,7 @@ package ss12_search_algorithm.pratice.th1;
 
 public class AlgorithmComplexityTest {
     public static void main(String[] args) {
-        System.out.println("Enter a string:");
+        System.out.println("Initial String: ");
         String inputString = "Baodeptrai";
         System.out.println(inputString);
         int[] frequentChar = new int[255];

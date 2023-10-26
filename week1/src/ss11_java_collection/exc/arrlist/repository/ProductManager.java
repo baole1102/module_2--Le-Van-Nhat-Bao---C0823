@@ -1,6 +1,5 @@
 package ss11_java_collection.exc.arrlist.repository;
 
-
 import ss11_java_collection.exc.arrlist.model.Product;
 
 import java.util.ArrayList;
@@ -9,22 +8,19 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManager implements IProductRepository {
-    private static ArrayList<Product> arrayList = new ArrayList<>();
+    private static ArrayList<Product> products = new ArrayList<>();
 
-    public void addProduct() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập mã sản phẩm");
-        int codeProduct = Integer.parseInt(sc.nextLine());
-        System.out.println("Nhập tên sản phẩm");
-        String nameProduct = sc.nextLine();
-        System.out.println("Nhập giá sản phẩm");
-        double priceProduct = Double.parseDouble(sc.nextLine());
-        Product product = new Product(codeProduct, nameProduct, priceProduct);
-        arrayList.add(product);
+    static {
+        products.add(new Product(1, "Dien thoai", 56l));
+        products.add(new Product(2, "May tinh", 100l));
+        products.add(new Product(3, "Quan ao", 20l));
+    }
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
     public void showList() {
-        for (Product s : arrayList) {
+        for (Product s : products) {
             System.out.println(s);
         }
     }
@@ -35,8 +31,8 @@ public class ProductManager implements IProductRepository {
         int choice;
         System.out.println("Nhập id muốn xóa");
         int code = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i).getCode() == code) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getCode() == code) {
                 flag = 1;
                 System.out.println("Bạn có muốn xóa không:\n" +
                         "1. Yes.\n" +
@@ -44,7 +40,7 @@ public class ProductManager implements IProductRepository {
                 choice = Integer.parseInt(sc.nextLine());
                 switch (choice) {
                     case 1:
-                        arrayList.remove(i);
+                        products.remove(i);
                         break;
                     case 0:
                         System.out.println("Hẹn gặp lại");
@@ -62,10 +58,10 @@ public class ProductManager implements IProductRepository {
         System.out.println("Tên sản phẩm bạn muốn tìm kiếm");
         String nameProduct = sc.nextLine();
         boolean isFlag = false;
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i).getNameProduct().equals(nameProduct)) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getNameProduct().equals(nameProduct)) {
                 System.out.println("Sản phẩm bạn đang tìm kiếm: ");
-                System.out.println(arrayList.get(i).toString());
+                System.out.println(products.get(i).toString());
                 isFlag = true;
             }
         }
@@ -81,17 +77,17 @@ public class ProductManager implements IProductRepository {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập id sản phẩm muốn sửa");
         int choice = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i).getCode() == choice) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getCode() == choice) {
                 System.out.println("Nhập id sản phẩm");
                 codeProduct = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập tên sản phẩm");
                 nameProduct = sc.nextLine();
                 System.out.println("Nhập giá sản phẩm");
                 priceProduct = Double.parseDouble(sc.nextLine());
-                arrayList.get(i).setCode(codeProduct);
-                arrayList.get(i).setNameProduct(nameProduct);
-                arrayList.get(i).setPrice(priceProduct);
+                products.get(i).setCode(codeProduct);
+                products.get(i).setNameProduct(nameProduct);
+                //  arrayList.get(i).setPrice(priceProduct);
             }
         }
     }
@@ -99,12 +95,12 @@ public class ProductManager implements IProductRepository {
 
     public void arrangeToUpper() {
         Comparator comparator = new Comparetor(true);
-        Collections.sort(arrayList, comparator);
+        Collections.sort(products, comparator);
     }
 
     public void arrangeToLower() {
         Comparator comparator = new Comparetor(false);
-        Collections.sort(arrayList, comparator);
+        Collections.sort(products, comparator);
     }
 
     public void arrangeProduct() {

@@ -1,5 +1,6 @@
 package ss11_java_collection.exc.arrlist.service;
 
+import src.models.Product;
 import ss11_java_collection.exc.arrlist.repository.IProductRepository;
 import ss11_java_collection.exc.arrlist.repository.ProductManager;
 
@@ -12,8 +13,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void addProduct() {
-        iProductRepository.addProduct();
+    public void addProduct(Product product) {
+        iProductRepository.addProduct(product);
     }
 
     @Override

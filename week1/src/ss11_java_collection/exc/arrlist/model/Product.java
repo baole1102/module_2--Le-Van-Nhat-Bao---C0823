@@ -2,12 +2,20 @@ package ss11_java_collection.exc.arrlist.model;
 
 public class Product {
     private String nameProduct;
-    private int code;
-    private double price;
+    private Integer code;
+    private Long price;
 
-    public Product(int code, String nameProduct, double price) {
+    public Product() {
+    }
+
+    public Product(Integer code, String nameProduct, Long price) {
         this.nameProduct = nameProduct;
         this.code = code;
+        this.price = price;
+    }
+
+    public Product(String nameProduct, Long price) {
+        this.nameProduct = nameProduct;
         this.price = price;
     }
 
@@ -23,7 +31,7 @@ public class Product {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
@@ -31,7 +39,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

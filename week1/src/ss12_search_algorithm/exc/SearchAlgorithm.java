@@ -3,11 +3,11 @@ package ss12_search_algorithm.exc;
 import java.util.Arrays;
 
 public class SearchAlgorithm {
-    private static int[] arr = {1, 7, 5, 17, 14, 20, 50, 29};
+    private static int[] array = {1, 7, 5, 17, 14, 20, 50, 29};
 
     public static void arrangArr() {
-        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
     }
 
     public static int binarySearch(int[] arr, int left, int right, int value) {
@@ -27,9 +27,9 @@ public class SearchAlgorithm {
 
     public static void main(String[] args) {
         int left = 0;
-        int right = arr.length - 1;
+        int right = array.length - 1;
         int value = 5;
         arrangArr();
-        System.out.println(binarySearch(arr, left, right, value));
+        System.out.println(binarySearch(array, left, right, value));
     }
 }

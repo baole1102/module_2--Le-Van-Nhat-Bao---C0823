@@ -1,5 +1,6 @@
 package ss11_java_collection.exc.arrlist.controller;
 
+import ss11_java_collection.exc.arrlist.model.Product;
 import ss11_java_collection.exc.arrlist.service.IProductService;
 import ss11_java_collection.exc.arrlist.service.ProductService;
 
@@ -11,8 +12,8 @@ public class ProductController {
     }
 
 
-    public void addProduct() {
-        iProductService.addProduct();
+    public void addProduct(Product product) {
+        iProductService.addProduct(product);
     }
 
     public void deleteProduct() {
