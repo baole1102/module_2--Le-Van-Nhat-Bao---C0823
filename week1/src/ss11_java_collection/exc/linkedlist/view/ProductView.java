@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class ProductView {
     private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         ProductController productController = new ProductController();
         int choice;
@@ -63,14 +64,23 @@ public class ProductView {
 
     private static void arrangProduct(ProductController productController) {
         int choice;
-        System.out.println("1. Sap xep tang dan \n"+ "2. Sap xep giam dan");
+        List<Product> products;
+        System.out.println("1. Sap xep tang dan \n" + "2. Sap xep giam dan");
         choice = Integer.parseInt(scanner.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 productController.sortUpper();
+                products = productController.showList();
+                for (Product product : products) {
+                    System.out.println(product);
+                }
                 break;
             case 2:
                 productController.sortLower();
+                products = productController.showList();
+                for (Product product : products) {
+                    System.out.println(product);
+                }
                 break;
         }
     }
@@ -84,12 +94,12 @@ public class ProductView {
 
     private static void showList(ProductController productController) {
         List<Product> products = productController.showList();
-        if(products.isEmpty()) {
+        if (products.isEmpty()) {
             System.out.println("Không có sản phẩm nào trong kho");
         } else {
             System.out.println("---------------");
             System.out.println("Danh sách sản phẩm");
-            for(Product temp: products) {
+            for (Product temp : products) {
                 System.out.println(temp);
             }
         }
@@ -100,11 +110,11 @@ public class ProductView {
         Integer code;
         code = inputCode();
         product = productController.findById(code);
-        if (product != null){
-           // System.out.println("Ban co muon xoa"+ +"nay khong");
+        if (product != null) {
+            // System.out.println("Ban co muon xoa"+ +"nay khong");
             productController.editProduct(code, inputInformation());
             System.out.println("Sua thanh cong");
-        }else {
+        } else {
             System.out.println("Khong tim thay san pham");
         }
     }
@@ -115,14 +125,14 @@ public class ProductView {
         Product product;
         code = inputCode();
         System.out.println("Ban co muon xoa san pham nay khong");
-        System.out.println("1. Yes \n"+"2. No");
+        System.out.println("1. Yes \n" + "2. No");
         choice = Integer.parseInt(scanner.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 product = productController.findById(code);
-                if (product != null){
+                if (product != null) {
                     System.out.println("Xoa thanh cong");
-                }else {
+                } else {
                     System.out.println("Khong tim thay code");
                 }
                 break;
@@ -137,7 +147,7 @@ public class ProductView {
         String name = scanner.nextLine();
         System.out.println("Nhap gia san pham");
         Long price = Long.valueOf(scanner.nextLine());
-        return new Product(name,price);
+        return new Product(name, price);
     }
 
     private static Integer inputCode() {

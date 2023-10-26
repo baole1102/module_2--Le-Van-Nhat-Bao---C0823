@@ -65,18 +65,12 @@ public class ProductRepository implements IProductRepository {
     public void sortUpper() {
         Comparator comparator = new Comparetor(true);
         Collections.sort(products, comparator);
-        for (Product product : products) {
-            System.out.println(product);
-        }
     }
 
     @Override
     public void sortLower() {
         Comparator comparator = new Comparetor(false);
         Collections.sort(products, comparator);
-        for (Product product : products) {
-            System.out.println(product);
-        }
     }
 
     @Override
