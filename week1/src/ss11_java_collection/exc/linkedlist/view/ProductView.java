@@ -2,6 +2,7 @@ package ss11_java_collection.exc.linkedlist.view;
 
 import ss11_java_collection.exc.linkedlist.controller.ProductController;
 import ss11_java_collection.exc.linkedlist.module.Product;
+import ss11_java_collection.exc.linkedlist.until.CheckExeption;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 public class ProductView {
     private static Scanner scanner = new Scanner(System.in);
+  private static   CheckExeption checkExeption = new CheckExeption();
 
     public static void main(String[] args) {
         ProductController productController = new ProductController();
@@ -144,15 +146,15 @@ public class ProductView {
 
     private static Product inputInformation() {
         System.out.println("Nhap ten san pham");
-        String name = scanner.nextLine();
+        String name = checkExeption.checkName();
         System.out.println("Nhap gia san pham");
-        Long price = Long.valueOf(scanner.nextLine());
+        Long price = checkExeption.checkPrice();
         return new Product(name, price);
     }
 
     private static Integer inputCode() {
-        System.out.println("Nhap code san pham");
-        return Integer.valueOf(scanner.nextLine());
+        System.out.println("Nhap id san pham");
+        return checkExeption.checkId();
     }
 }
 
