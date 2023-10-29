@@ -12,6 +12,7 @@ public class CopyFileText {
     public List<String> readFile() {
         List<String> list = new ArrayList<>();
         try {
+            
             File file = new File("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt1\\source file");
             if (!file.exists()) {
                 throw new FileNotFoundException();
