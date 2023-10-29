@@ -1,4 +1,4 @@
-package ss15_Text_File.exc.bt2;
+package ss15_text_file.exc.bt2;
 
 public class Country {
     private int id;

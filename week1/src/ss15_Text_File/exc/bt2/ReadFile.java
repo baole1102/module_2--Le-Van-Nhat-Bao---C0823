@@ -1,4 +1,4 @@
-package ss15_Text_File.exc.bt2;
+package ss15_text_file.exc.bt2;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,21 +11,21 @@ public class ReadFile {
     public List<Country> readFile(){
         List<Country> list = new ArrayList<>();
        try {
-           File file = new File("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt2\\cvs");
+           File file = new File("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_text_file\\exc\\bt2\\cvs");
            if (!file.exists()){
                throw new FileNotFoundException();
            }
-           FileReader fr = new FileReader( file);
-           BufferedReader br = new BufferedReader(fr);
+           FileReader fileReader = new FileReader( file);
+           BufferedReader bufferedReader = new BufferedReader(fileReader);
            String line = "";
-           while ((line = br.readLine())!= null){
+           while ((line = bufferedReader.readLine())!= null){
              String[] newList = line.split(",");
              int id = Integer.parseInt(newList[0]);
              String code = newList[1];
              String name = newList[2];
              list.add(new Country(id,code,name));
            }
-           br.close();
+           bufferedReader.close();
        }catch (Exception e){
            System.out.println("File khong ton tai");
        }
@@ -51,9 +51,9 @@ public class ReadFile {
 //        list.add(country5);
 //        list.add(country6);
 //        list.add(country7);
-        ReadFile rf = new ReadFile();
-        rf.readFile();
-        System.out.println(rf.readFile());
+        ReadFile readFile = new ReadFile();
+        readFile.readFile();
+        System.out.println(readFile.readFile());
     }
 
 }

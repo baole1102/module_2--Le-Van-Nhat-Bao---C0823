@@ -1,4 +1,4 @@
-package ss15_Text_File.exc.bt1;
+package ss15_text_file.exc.bt1;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,13 +16,13 @@ public class CopyFileText {
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
-            while ((line = br.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
-            br.close();
+            bufferedReader.close();
         } catch (Exception e) {
             System.out.println("File khong ton tai");
         }
@@ -45,12 +45,12 @@ public class CopyFileText {
                 }
             } while (true);
             if (!isBoolean) {
-                FileWriter fw = new FileWriter("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt1\\target file");
-                BufferedWriter bw = new BufferedWriter(fw);
+                FileWriter fileWriter = new FileWriter("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt1\\target file");
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 for (String str : list) {
-                    bw.write(str);
+                    bufferedWriter.write(str);
                 }
-                bw.close();
+                bufferedWriter.close();
                 System.out.println("Finish");
             }
         } catch (Exception e) {
@@ -71,10 +71,10 @@ public class CopyFileText {
     }
 
     public static void main(String[] args) {
-        CopyFileText cft = new CopyFileText();
-        List<String> list = cft.readFile();
-        int valueMax = cft.maxWord(list);
-        cft.writeFile(list);
+        CopyFileText fileText = new CopyFileText();
+        List<String> list = fileText.readFile();
+        int valueMax = fileText.maxWord(list);
+        fileText.writeFile(list);
         System.out.println("Tong so ky tu trong chuoi la: " + valueMax);
     }
 
