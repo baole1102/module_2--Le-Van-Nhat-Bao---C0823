@@ -9,10 +9,7 @@ import java.util.List;
 public class  ProductService implements IProductService {
 IProductRepository iProductRepository = new ProductRepository();
 
-    @Override
-    public void showList() {
-        iProductRepository.showList();
-    }
+
 
     @Override
     public void addProduct(Product product) {
@@ -22,6 +19,11 @@ IProductRepository iProductRepository = new ProductRepository();
     @Override
     public Product findName(String name) {
         return iProductRepository.findName(name);
+    }
+
+    @Override
+    public List<Product> showList() {
+        return iProductRepository.showList();
     }
 
 

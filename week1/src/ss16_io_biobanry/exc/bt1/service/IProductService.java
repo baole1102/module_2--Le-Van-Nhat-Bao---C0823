@@ -6,10 +6,12 @@ import java.util.List;
 
 public interface IProductService {
 
-    void showList();
+
 
     void addProduct(Product product);
 
 
     Product findName(String name);
+
+    List<Product> showList();
 }

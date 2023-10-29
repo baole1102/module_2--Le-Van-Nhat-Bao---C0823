@@ -12,11 +12,11 @@ import java.util.Scanner;
 public class ProductMain {
     private static Scanner scanner = new Scanner(System.in);
     private static CheckCondintion checkCondintion = new CheckCondintion();
-    private static List<Product> products = new ArrayList<>();
+    private static List<Product> products;
+    private static Product product;
 
     public static void main(String[] args) {
         ProductController productController = new ProductController();
-        Product product;
         int id;
         do {
             System.out.println("Quan ly san pham");
@@ -29,7 +29,14 @@ public class ProductMain {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    productController.showList();
+                    products = productController.showList();
+                    if (products.isEmpty()){
+                        System.out.println("Danh sach rong!!!");
+                    }else {
+                        for (Product temp: products){
+                            System.out.println(temp);
+                        }
+                    }
                     break;
                 case 2:
                     id = inputId();

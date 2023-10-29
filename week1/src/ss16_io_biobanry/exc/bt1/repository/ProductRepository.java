@@ -7,17 +7,11 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository{
     private static List<Product> products = new ArrayList<>();
-//    static {
-//        products.add(new Product(1,"Quan ao",500,"TQ","New"));
-//        products.add(new Product(2,"Bikini",600,"VN","New"));
-//        products.add(new Product(3,"Giay",700,"HQ","New"));
-//        products.add(new Product(4,"Mu",800,"NB","New"));
-//    }
-    @Override
-    public void showList() {
-        for (Product product:products){
-            System.out.println(product);
-        }
+    static {
+        products.add(new Product(1,"Quan ao",500,"TQ","New"));
+        products.add(new Product(2,"Bikini",600,"VN","New"));
+        products.add(new Product(3,"Giay",700,"HQ","New"));
+        products.add(new Product(4,"Mu",800,"NB","New"));
     }
 
     @Override
@@ -33,6 +27,11 @@ public class ProductRepository implements IProductRepository{
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Product> showList() {
+        return products;
     }
 
 
