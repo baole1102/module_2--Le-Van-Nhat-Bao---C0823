@@ -13,7 +13,7 @@ public class CopyFileText {
         List<String> list = new ArrayList<>();
         try {
             
-            File file = new File("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt1\\source file");
+            File file = new File("ss15_text_file/exc/bt1/source file");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -46,7 +46,7 @@ public class CopyFileText {
                 }
             } while (true);
             if (!isBoolean) {
-                FileWriter fileWriter = new FileWriter("D:\\module_2--Le-Van-Nhat-Bao---C0823\\week1\\src\\ss15_Text_File\\exc\\bt1\\target file");
+                FileWriter fileWriter = new FileWriter("ss15_text_file/exc/bt1/target file");
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 for (String str : list) {
                     bufferedWriter.write(str);
