@@ -12,8 +12,8 @@ IProductRepository iProductRepository = new ProductRepository();
 
 
     @Override
-    public void addProduct(Product product) {
-        iProductRepository.addProduct(product);
+    public void addProduct(List<Product> products) {
+        iProductRepository.addProduct(products);
     }
 
     @Override

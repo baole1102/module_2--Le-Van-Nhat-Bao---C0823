@@ -8,7 +8,7 @@ public interface IProductService {
 
 
 
-    void addProduct(Product product);
+    void addProduct(List<Product> products);
 
 
     Product findName(String name);

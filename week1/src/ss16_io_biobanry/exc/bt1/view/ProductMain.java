@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductMain {
-    private static Scanner scanner = new Scanner(System.in);
-    private static CheckCondintion checkCondintion = new CheckCondintion();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final CheckCondintion checkCondintion = new CheckCondintion();
     private static List<Product> products;
     private static Product product;
 
@@ -24,77 +24,77 @@ public class ProductMain {
             System.out.println("1. Xem thong tin san pham \n" +
                     "2. Them san pham \n" +
                     "3. Tim kiem san pham \n" +
-                    "4. Luu thong tin san pham vao file \n" +
-                    "5. Thoat");
+                    "4. Thoat");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    products = productController.showList();
-                    if (products.isEmpty()){
-                        System.out.println("Danh sach rong!!!");
-                    }else {
-                        for (Product temp: products){
-                            System.out.println(temp);
-                        }
-                    }
+                    showProduct(productController);
                     break;
                 case 2:
-                    id = inputId();
-                    product = inputInfor();
-                    product.setId(id);
-                    productController.addProduct(product);
-                    System.out.println("Them thanh cong");
+                    addProduct(productController);
                     break;
                 case 3:
-                    if (products.isEmpty()){
-                        System.out.println("Khong co san pham nao");
-                    }else {
-                        System.out.println("Nhap ten san pham muon tim");
-                        String name = checkCondintion.checkName();
-                        product = productController.findName(name);
-                        if (product == null){
-                            System.out.println("Khong co san pham");
-                        }else {
-                            System.out.println("San pham cua ban dang tim!!");
-                            System.out.println(product);
-                        }
-                    }
+                    searchProduct(productController);
                     break;
                 case 4:
-                    if (products.isEmpty()){
-                        System.out.println("Khong co san pham nao!!!");
-                        break;
-                    }else {
-                        System.out.println("Nhap ten file");
-                        scanner.nextLine();
-                        String nameFile = scanner.nextLine();
-                        File file = new File(nameFile);
-                        writeFile(file);
-                    }
-                    break;
-                case 5:
                     System.out.println("Hen gap lai");
                     System.exit(1);
             }
         } while (true);
     }
 
+    private static void showProduct(ProductController productController) {
+        products = productController.showList();
+        if (products.isEmpty()){
+            System.out.println("Danh sach rong!!!");
+        }else {
+            for (Product temp: products){
+                System.out.println(temp);
+            }
+        }
+    }
+
+    private static void addProduct(ProductController productController) {
+        int id;
+        id = inputId();
+        product = inputInfor();
+        product.setId(id);
+        productController.addProduct(products);
+        System.out.println("Them thanh cong");
+    }
+
+    private static void searchProduct(ProductController productController) {
+        if (products.isEmpty()){
+            System.out.println("Khong co san pham nao");
+        }else {
+            System.out.println("Nhap ten san pham muon tim");
+            String name = CheckCondintion.checkName();
+            product = productController.findName(name);
+            if (product == null){
+                System.out.println("Khong co san pham");
+            }else {
+                System.out.println("San pham cua ban dang tim!!");
+                System.out.println(product);
+            }
+        }
+    }
+
     private static Product inputInfor() {
         System.out.println("Nhap ten san pham");
-        String name = checkCondintion.checkName();
+        String name = CheckCondintion.checkName();
         System.out.println("Nhap gia san pham");
-        Double price = checkCondintion.checkPrice();
+        Double price = CheckCondintion.checkPrice();
         System.out.println("Nhap hang san xuat");
-        String address = checkCondintion.checkName();
+        String address = CheckCondintion.checkName();
         System.out.println("Nhap mo ta san pham");
-        String description = checkCondintion.checkName();
+        String description = CheckCondintion.checkName();
         return new Product(name, price, address, description);
     }
 
     private static int inputId() {
         System.out.println("Nhap id san pham");
         while (true){
-            int id =  checkCondintion.checkId();
+            int id =  CheckCondintion.checkId();
             boolean isBoolean = false;
             for (Product product: products){
                 if (product.getId() == id){
@@ -109,19 +109,5 @@ public class ProductMain {
         }
 
     }
-    private static void writeFile(File file){
-        try {
-            OutputStream os = new FileOutputStream(file);
-            ObjectOutputStream oos = new ObjectOutputStream(os);
-            for (Product product1: products) {
-                oos.writeObject(product1);
-            }
-            oos.flush();
-            oos.close();
-            System.out.println("Luu thanh cong");
-        }catch (Exception e){
-            System.out.println("File ton tai");
-            e.printStackTrace();
-        }
-    }
+
 }

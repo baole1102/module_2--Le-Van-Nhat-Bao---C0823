@@ -1,6 +1,7 @@
 package ss16_io_biobanry.exc.bt1.repository;
 
 import ss16_io_biobanry.exc.bt1.module.Product;
+import ss16_io_biobanry.exc.bt1.util.WriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,10 @@ public class ProductRepository implements IProductRepository{
     }
 
     @Override
-    public void addProduct(Product product) {
-        products.add(product);
+    public void addProduct(List<Product> products) {
+      //  products.add(product);
+        WriteFile.writeFile(products);
+
     }
 
     @Override

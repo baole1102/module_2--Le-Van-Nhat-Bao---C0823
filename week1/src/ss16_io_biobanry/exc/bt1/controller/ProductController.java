@@ -12,8 +12,8 @@ public class ProductController {
 
 
 
-    public void addProduct(Product product) {
-        iProductService.addProduct(product);
+    public void addProduct(List<Product> products) {
+        iProductService.addProduct(products);
     }
 
 
