@@ -25,4 +25,21 @@ public class WriteFile {
             throw new RuntimeException(e);
         }
     }
+    public static List<Product> readFile(List<Product> products){
+        try {
+            InputStream inputStream = new FileInputStream(PATH);
+           ObjectInputStream objectIntputStream = new ObjectInputStream(inputStream);
+            products = (List<Product>) objectIntputStream.readObject();
+            System.out.println(products);
+            objectIntputStream.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File ton tai");
+            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
 }

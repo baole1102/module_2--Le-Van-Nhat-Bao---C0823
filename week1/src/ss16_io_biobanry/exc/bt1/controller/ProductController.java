@@ -10,18 +10,15 @@ import java.util.List;
 public class ProductController {
     IProductService iProductService = new ProductService() ;
 
-
-
-    public void addProduct(List<Product> products) {
-        iProductService.addProduct(products);
-    }
-
-
     public Product findName(String name) {
         return iProductService.findName(name);
     }
 
     public List<Product> showList() {
         return iProductService.showList();
+    }
+
+    public void addProduct(Product product) {
+        iProductService.addProduct(product);
     }
 }

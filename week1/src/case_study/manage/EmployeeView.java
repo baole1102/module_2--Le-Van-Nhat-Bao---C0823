@@ -50,12 +50,24 @@ public class EmployeeView {
                                }
                                break;
                            case 2:
-                               id = inputId();
-                               employee = inputInfor();
-                               employee.setCode(id);
-                               employeeController.addEmployee(employee);
-                               System.out.println("Add Succesful!!");
-                               break;
+                                id = inputId();
+                               System.out.println(id);
+//                               while (true){
+//                                   id = inputId();
+//                                   employee = employeeController.findId(id);
+//                                   System.out.println(employee);
+//                                   if (employee == null){
+//
+//                                       System.out.println("Have a id other employee. You should input new id");
+//                                       break;
+//                                   }else {
+//                                       employee = inputInfor();
+//                                       employee.setCode(id);
+//                                       employeeController.addEmployee(employee);
+//                                       System.out.println("Add Succesful!!");
+//                                       break;
+//                                   }
+//                               }
                            case 3:
                                id = inputId();
                                employee = employeeController.findId(id);
@@ -81,7 +93,7 @@ public class EmployeeView {
                                 }
                                break;
                            case 5:
-                               employees = employeeController.showList();
+                              employees = employeeController.showList();
                                if (employees.isEmpty()){
                                    System.out.println("Employee List isEmpty");
                                }else {
@@ -91,7 +103,7 @@ public class EmployeeView {
                                    if (employee == null){
                                        System.out.println("Cant find this name");
                                    }else {
-                                       System.out.println("This is: ");
+                                       System.out.println("This is list employee: ");
                                        System.out.println(employee);
                                    }
                                }
@@ -144,6 +156,17 @@ public class EmployeeView {
 
     private static int inputId() {
         System.out.println("Input id employee");
-        return EmployeeCondition.checkNumber();
+        int  id;
+      while (true){
+            id =  EmployeeCondition.checkNumber();
+          employee = employeeController.findId(id);
+          if (employee == null){
+
+          } else {
+              return id;
+          }
+      }
+
+
     }
 }

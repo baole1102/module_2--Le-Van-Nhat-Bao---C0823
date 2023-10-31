@@ -39,6 +39,9 @@ public class ProductMain {
                 case 4:
                     System.out.println("Hen gap lai");
                     System.exit(1);
+                case 5:
+
+                    break;
             }
         } while (true);
     }
@@ -59,7 +62,7 @@ public class ProductMain {
         id = inputId();
         product = inputInfor();
         product.setId(id);
-        productController.addProduct(products);
+        productController.addProduct(product);
         System.out.println("Them thanh cong");
     }
 

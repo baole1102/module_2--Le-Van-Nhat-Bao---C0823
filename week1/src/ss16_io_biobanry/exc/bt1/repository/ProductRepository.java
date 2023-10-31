@@ -15,12 +15,7 @@ public class ProductRepository implements IProductRepository{
         products.add(new Product(4,"Mu",800,"NB","New"));
     }
 
-    @Override
-    public void addProduct(List<Product> products) {
-      //  products.add(product);
-        WriteFile.writeFile(products);
 
-    }
 
     @Override
     public Product findName(String name) {
@@ -35,6 +30,13 @@ public class ProductRepository implements IProductRepository{
     @Override
     public List<Product> showList() {
         return products;
+
+    }
+
+    @Override
+    public void addProduct(Product product) {
+        products.add(product);
+        WriteFile.writeFile(products);
     }
 
 

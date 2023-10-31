@@ -7,30 +7,39 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CopyFileText {
-        private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public List<String> readFile() {
         List<String> list = new ArrayList<>();
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
         try {
-            
             File file = new File("ss15_text_file/exc/bt1/source file");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
-            bufferedReader.close();
         } catch (Exception e) {
             System.out.println("File khong ton tai");
+        } finally {
+            try {
+                bufferedReader.close();
+                fileReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return list;
     }
 
     public void writeFile(List<String> list) {
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
             boolean isBoolean = false;
             System.out.println("Do you want copy this file? Y/ N");
@@ -46,8 +55,8 @@ public class CopyFileText {
                 }
             } while (true);
             if (!isBoolean) {
-                FileWriter fileWriter = new FileWriter("ss15_text_file/exc/bt1/target file");
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                fileWriter = new FileWriter("ss15_text_file/exc/bt1/target file");
+                bufferedWriter = new BufferedWriter(fileWriter);
                 for (String str : list) {
                     bufferedWriter.write(str);
                 }
@@ -56,6 +65,13 @@ public class CopyFileText {
             }
         } catch (Exception e) {
             System.out.println("File ko ton tai");
+        } finally {
+            try {
+                fileWriter.close();
+                bufferedWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

@@ -8,10 +8,10 @@ public interface IProductRepository {
 
 
 
-    void addProduct(List<Product> products);
-
 
     Product findName(String name);
 
     List<Product> showList();
+
+    void addProduct(Product product);
 }

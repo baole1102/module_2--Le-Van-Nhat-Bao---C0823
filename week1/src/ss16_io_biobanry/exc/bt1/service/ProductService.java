@@ -11,10 +11,6 @@ IProductRepository iProductRepository = new ProductRepository();
 
 
 
-    @Override
-    public void addProduct(List<Product> products) {
-        iProductRepository.addProduct(products);
-    }
 
     @Override
     public Product findName(String name) {
@@ -24,6 +20,11 @@ IProductRepository iProductRepository = new ProductRepository();
     @Override
     public List<Product> showList() {
         return iProductRepository.showList();
+    }
+
+    @Override
+    public void addProduct(Product product) {
+        iProductRepository.addProduct(product);
     }
 
 
