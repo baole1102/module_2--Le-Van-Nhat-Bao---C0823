@@ -94,6 +94,7 @@ public class EmployeeView {
                     employee = inputInfor();
                     employee.setCode(id);
                     employeeController.addEmployee(employee);
+                    System.out.println("Add Completed!!");
                      break;
                 case 3:
                     id = inputId();
@@ -151,9 +152,9 @@ public class EmployeeView {
         System.out.println("Input gender employee");
         String gender = EmployeeCondition.checkString();
         System.out.println("Input identify employee");
-        int identify = EmployeeCondition.checkIndentify();
+        long identify = EmployeeCondition.checkIndentify();
         System.out.println("Input number employee");
-        int number  = EmployeeCondition.checkNumberPhone();
+        long number  = EmployeeCondition.checkNumberPhone();
         System.out.println("Input email employee");
         String email  = EmployeeCondition.checkMail();
         System.out.println("Input level employee");

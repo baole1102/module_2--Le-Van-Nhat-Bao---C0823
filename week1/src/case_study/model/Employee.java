@@ -5,8 +5,8 @@ public class Employee {
     private String name;
     private String date;
     private String gender;
-    private int identify;
-    private int number;
+    private long identify;
+    private long number;
     private String email;
     private String level;
     private String position;
@@ -15,8 +15,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String date, String gender, int identify,
-                    int number, String email, String level, String position, double salary) {
+    public Employee(String name, String date, String gender, long identify,
+                    long number, String email, String level, String position, double salary) {
         this.name = name;
         this.date = date;
         this.gender = gender;
@@ -28,8 +28,8 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(String code, String name, String date, String gender, int identify,
-                    int number, String email, String level, String position, double salary) {
+    public Employee(String code, String name, String date, String gender, long identify,
+                    long number, String email, String level, String position, double salary) {
         this.code = code;
         this.name = name;
         this.date = date;
@@ -74,19 +74,19 @@ public class Employee {
         this.gender = gender;
     }
 
-    public int getIdentify() {
+    public long getIdentify() {
         return identify;
     }
 
-    public void setIdentify(int identify) {
+    public void setIdentify(long identify) {
         this.identify = identify;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(long number) {
         this.number = number;
     }
 
@@ -125,7 +125,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "code=" + code +
+                "code='" + code +
                 ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
                 ", gender='" + gender + '\'' +
@@ -137,4 +137,5 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
 }

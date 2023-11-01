@@ -1,4 +1,1 @@
-Employee{code=1, name='Bao', date='11/02/2001', gender='Male', identify=11, number=4, email='levannhatbao29@gmail.com', level='Ki Su', position='Top', salary=2000.0}
-Employee{code=2, name='Do', date='02/05/2002', gender='Male', identify=12, number=5, email='levando@gmail.com', level='Student', position='Bottom', salary=1000.0}
-Employee{code=3, name='Vi', date='20/09/2009', gender='FeMale', identify=13, number=6, email='tieuvi@gmail.com', level='Student', position='Bottom', salary=3000.0}
-Employee{code=5, name='a', date='11/02/2001', gender='male', identify=54, number=45, email='levannhatbao29@g.com', level='a', position='a', salary=5.0}
+Employee{NV-1234, nao', 11/02/2001', Male', 123456789, 987654321, levannhatbao29@gmail.com', Top', Leader', 9888.0}

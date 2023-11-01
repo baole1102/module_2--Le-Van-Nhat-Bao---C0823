@@ -7,7 +7,7 @@ import case_study.service.IEmployeeService;
 import java.util.List;
 
 public class EmployeeController {
-    IEmployeeService iEmployeeService = new EmployeeService();
+   private IEmployeeService iEmployeeService = new EmployeeService();
     public List<Employee> showList() {
         return iEmployeeService.showList();
     }

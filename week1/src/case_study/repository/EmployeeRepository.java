@@ -2,6 +2,7 @@ package case_study.repository;
 
 import case_study.model.Employee;
 import case_study.untils.DocFile;
+import case_study.untils.ReadFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +11,15 @@ import java.util.Objects;
 public class EmployeeRepository implements IEmployeeRepository {
     private static List<Employee> employees = new ArrayList<>();
 
-    static {
-        employees.add(new Employee("NV-1000", "Bao", "11/02/2001", "Male", 11, 4, "levannhatbao29@gmail.com", "Ki Su", "Top", 2000));
-        employees.add(new Employee("NV-1000", "Do", "02/05/2002", "Male", 12, 5, "levando@gmail.com", "Student", "Bottom", 1000));
-        employees.add(new Employee("NV-1000", "Vi", "20/09/2009", "FeMale", 13, 6, "tieuvi@gmail.com", "Student", "Bottom", 3000));
-    }
+//    static {
+//        employees.add(new Employee("NV-1000", "Bao", "11/02/2001", "Male", 11, 4, "levannhatbao29@gmail.com", "Ki Su", "Top", 2000));
+//        employees.add(new Employee("NV-1000", "Do", "02/05/2002", "Male", 12, 5, "levando@gmail.com", "Student", "Bottom", 1000));
+//        employees.add(new Employee("NV-1000", "Vi", "20/09/2009", "FeMale", 13, 6, "tieuvi@gmail.com", "Student", "Bottom", 3000));
+//    }
 
     @Override
     public List<Employee> showList() {
-        return employees;
+        return ReadFile.readFile();
     }
 
     @Override

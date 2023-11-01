@@ -104,27 +104,27 @@ public class EmployeeCondition {
             }
         }
     }
-    public static int checkIndentify(){
+    public static long checkIndentify(){
         do {
             try {
                 String input = (scanner.nextLine());
                 if (!input.matches("^[0-9]\\d{8,11}$")){
                     throw new NumberFormatException();
                 }
-                return Integer.parseInt(input);
+                return Long.parseLong(input);
             }catch (NumberFormatException e){
                 System.err.println("You need input less than 9 numbers");
             }
         }while (true);
     }
-    public static int checkNumberPhone(){
+    public static long checkNumberPhone(){
         while (true){
             try {
                 String input = scanner.nextLine();
                 if (!input.matches("^0\\d{9}$")){
                     throw new NumberFormatException();
                 }
-                return Integer.parseInt(input);
+                return Long.parseLong(input);
             }catch (NumberFormatException e){
                 System.err.println("You need input less than 10 numbers");
             }

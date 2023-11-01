@@ -7,7 +7,7 @@ import case_study.repository.IEmployeeRepository;
 import java.util.List;
 
 public class EmployeeService implements IEmployeeService{
-    IEmployeeRepository iEmployeeRepository =   new EmployeeRepository();
+   private IEmployeeRepository iEmployeeRepository =  new EmployeeRepository();
 
 
     @Override
