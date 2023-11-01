@@ -1,5 +1,8 @@
 package case_study.untils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -36,6 +39,34 @@ public class EmployeeCondition {
             }catch (NumberFormatException e){
                 System.err.println("Require input number. Enter again!!");
             }
+        }
+    }
+    public static String checkDate(){
+        while (true){
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+            Date date = null;
+            try {
+                date = simpleDateFormat.parse(scanner.nextLine());
+            } catch (ParseException e) {
+                System.err.println("Require input email. Enter again!!");
+               e.printStackTrace();
+            }
+            return simpleDateFormat.format(date);
+        }
+    }
+    public static String checkMail(){
+        while (true){
+            String input = scanner.nextLine();
+           try {
+               if (input.matches("^[a-zA-Z0-9]+[a-zA-Z0-9]*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)$")){
+                   return input;
+               }else {
+                   System.out.println("You should input like pattern!! Input Again");
+               }
+           }catch (InputMismatchException e){
+               e.printStackTrace();
+           }
         }
     }
 }

@@ -18,6 +18,7 @@ public class ProductMain {
     public static void main(String[] args) {
         ProductController productController = new ProductController();
         int id;
+        int choice;
         do {
             System.out.println("Quan ly san pham");
             System.out.println("-----------------------");
@@ -25,7 +26,7 @@ public class ProductMain {
                     "2. Them san pham \n" +
                     "3. Tim kiem san pham \n" +
                     "4. Thoat");
-            int choice = scanner.nextInt();
+             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     showProduct(productController);
@@ -96,9 +97,11 @@ public class ProductMain {
 
     private static int inputId() {
         System.out.println("Nhap id san pham");
+        int id;
+        boolean isBoolean;
         while (true){
-            int id =  CheckCondintion.checkId();
-            boolean isBoolean = false;
+             id =  CheckCondintion.checkId();
+             isBoolean = false;
             for (Product product: products){
                 if (product.getId() == id){
                     System.out.println("Trung id san pham khac roi");
@@ -110,7 +113,6 @@ public class ProductMain {
                 return id;
             }
         }
-
     }
 
 }

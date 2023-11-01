@@ -24,7 +24,6 @@ public class ReadFile {
                 String name = newList[2];
                 list.add(new Country(id, code, name));
             }
-            bufferedReader.close();
         } catch (Exception e) {
             System.out.println("File khong ton tai");
         } finally {

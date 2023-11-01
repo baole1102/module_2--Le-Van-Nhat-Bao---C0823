@@ -11,10 +11,10 @@ public class CopyFileText {
 
     public List<String> readFile() {
         List<String> list = new ArrayList<>();
+        File file = new File("ss15_text_file/exc/bt1/source file");
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         try {
-            File file = new File("ss15_text_file/exc/bt1/source file");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -60,7 +60,6 @@ public class CopyFileText {
                 for (String str : list) {
                     bufferedWriter.write(str);
                 }
-                bufferedWriter.close();
                 System.out.println("Finish");
             }
         } catch (Exception e) {
@@ -93,6 +92,6 @@ public class CopyFileText {
         int valueMax = fileText.maxWord(list);
         fileText.writeFile(list);
         System.out.println("Tong so ky tu trong chuoi la: " + valueMax);
+        System.out.println(fileText.readFile());
     }
-
 }

@@ -24,8 +24,8 @@ public class EmployeeController {
        return iEmployeeService.findName(name);
     }
 
-    public Employee findId(int id) {
-        return iEmployeeService.findId(id);
+    public boolean findId(int id) {
+       return   iEmployeeService.findId(id);
     }
 
     public void editEmployee(int id, Employee employee) {

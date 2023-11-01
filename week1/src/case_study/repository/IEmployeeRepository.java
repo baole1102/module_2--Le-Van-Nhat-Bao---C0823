@@ -11,7 +11,7 @@ public interface IEmployeeRepository {
 
     void remove(int id);
 
-    Employee findId(int id);
+    boolean findId(int id);
 
     Employee findName(String name);
 

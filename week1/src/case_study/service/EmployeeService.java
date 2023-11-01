@@ -22,8 +22,8 @@ public class EmployeeService implements IEmployeeService{
 
     @Override
     public Boolean remove(int id) {
-        Employee employee = iEmployeeRepository.findId(id);
-        if (employee == null){
+        boolean employee = iEmployeeRepository.findId(id);
+        if (!employee){
             return false;
         }else {
             iEmployeeRepository.remove(id);
@@ -37,7 +37,7 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee findId(int id) {
+    public boolean findId(int id) {
         return iEmployeeRepository.findId(id);
     }
 

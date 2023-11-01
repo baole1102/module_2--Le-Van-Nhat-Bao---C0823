@@ -42,7 +42,7 @@ public class EmployeeView {
                            case 1:
                                employees =  employeeController.showList();
                                if (employees.isEmpty()){
-                                   System.out.println("Khong nhan vien nao!!");
+                                   System.out.println("Dont have employee in this!!");
                                    break;
                                }
                                for (Employee employee: employees){
@@ -50,28 +50,22 @@ public class EmployeeView {
                                }
                                break;
                            case 2:
-                                id = inputId();
-                               System.out.println(id);
-//                               while (true){
-//                                   id = inputId();
-//                                   employee = employeeController.findId(id);
-//                                   System.out.println(employee);
-//                                   if (employee == null){
-//
-//                                       System.out.println("Have a id other employee. You should input new id");
-//                                       break;
-//                                   }else {
-//                                       employee = inputInfor();
-//                                       employee.setCode(id);
-//                                       employeeController.addEmployee(employee);
-//                                       System.out.println("Add Succesful!!");
-//                                       break;
-//                                   }
-//                               }
+                               employees = employeeController.showList();
+                               id = inputId();
+                               isBoolean = employeeController.findId(id);
+                               while (isBoolean){
+                                   System.out.println("The id already matches another id!!");
+                                   id = inputId();
+                                   isBoolean = employeeController.findId(id);
+                               }
+                               employee = inputInfor();
+                               employee.setCode(id);
+                               employeeController.addEmployee(employee);
+                                break;
                            case 3:
                                id = inputId();
-                               employee = employeeController.findId(id);
-                               if (employee == null){
+                               isBoolean = employeeController.findId(id);
+                               if (!isBoolean){
                                    System.out.println("Not find id");
                                }else {
                                    employeeController.editEmployee(id,inputInfor());
@@ -135,8 +129,8 @@ public class EmployeeView {
     private static Employee inputInfor() {
         System.out.println("Input name employee");
         String name = EmployeeCondition.checkString();
-        System.out.println("Input date employee");
-        String date = EmployeeCondition.checkString();
+        System.out.println("Input date (dd/MM/yyyy) employee");
+        String date = EmployeeCondition.checkDate();
         System.out.println("Input gender employee");
         String gender = EmployeeCondition.checkString();
         System.out.println("Input identify employee");
@@ -144,7 +138,7 @@ public class EmployeeView {
         System.out.println("Input number employee");
         int number  = EmployeeCondition.checkNumber();
         System.out.println("Input email employee");
-        String email  = EmployeeCondition.checkString();
+        String email  = EmployeeCondition.checkMail();
         System.out.println("Input level employee");
         String level  = EmployeeCondition.checkString();
         System.out.println("Input position employee");
@@ -156,17 +150,6 @@ public class EmployeeView {
 
     private static int inputId() {
         System.out.println("Input id employee");
-        int  id;
-      while (true){
-            id =  EmployeeCondition.checkNumber();
-          employee = employeeController.findId(id);
-          if (employee == null){
-
-          } else {
-              return id;
-          }
-      }
-
-
+        return EmployeeCondition.checkNumber();
     }
 }

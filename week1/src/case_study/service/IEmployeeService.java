@@ -14,7 +14,7 @@ public interface IEmployeeService {
 
     Employee findName(String name);
 
-    Employee findId(int id);
+    boolean findId(int id);
 
     void editEmployee(int id, Employee employee);
 }

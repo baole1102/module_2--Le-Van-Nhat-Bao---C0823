@@ -10,9 +10,11 @@ public class WriteFile {
     private static final String PATH = "ss16_io_biobanry/exc/bt1/doc/baopro.doc";
 
     public static void writeFile(List<Product> products) {
+        OutputStream outputStream = null;
+        ObjectOutputStream objectOutputStream = null;
         try {
-            OutputStream outputStream = new FileOutputStream(PATH);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            outputStream = new FileOutputStream(PATH);
+            objectOutputStream = new ObjectOutputStream(outputStream);
             for (Product product1 : products) {
                 objectOutputStream.writeObject(product1);
             }
@@ -23,22 +25,37 @@ public class WriteFile {
             e.printStackTrace();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                outputStream.close();
+                objectOutputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
-    public static List<Product> readFile(List<Product> products){
+
+    public static List<Product> readFile(List<Product> products) {
+        InputStream inputStream = null;
+        ObjectInputStream objectIntputStream = null;
         try {
-            InputStream inputStream = new FileInputStream(PATH);
-           ObjectInputStream objectIntputStream = new ObjectInputStream(inputStream);
+            inputStream = new FileInputStream(PATH);
+            objectIntputStream = new ObjectInputStream(inputStream);
             products = (List<Product>) objectIntputStream.readObject();
             System.out.println(products);
             objectIntputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("File ton tai");
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+                objectIntputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return products;
     }

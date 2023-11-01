@@ -13,7 +13,7 @@ public class DocFile {
     public static void writeFile(List<Employee> employees){
         try {
             File file = new File(PATH);
-            FileWriter fileWriter = new FileWriter(file, true);
+            FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             String line = "";
             for (Employee string : employees){
