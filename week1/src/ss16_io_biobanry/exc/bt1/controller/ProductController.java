@@ -8,9 +8,9 @@ import ss16_io_biobanry.exc.bt1.service.ProductService;
 import java.util.List;
 
 public class ProductController {
-    IProductService iProductService = new ProductService() ;
+    private IProductService iProductService = new ProductService() ;
 
-    public Product findName(String name) {
+    public List<Product> findName(String name) {
         return iProductService.findName(name);
     }
 

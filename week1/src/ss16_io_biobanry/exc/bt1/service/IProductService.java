@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductService {
 
-    Product findName(String name);
+    List<Product> findName(String name);
 
     List<Product> showList();
 

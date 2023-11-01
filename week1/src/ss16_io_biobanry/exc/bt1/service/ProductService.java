@@ -7,13 +7,10 @@ import ss16_io_biobanry.exc.bt1.repository.ProductRepository;
 import java.util.List;
 
 public class  ProductService implements IProductService {
-IProductRepository iProductRepository = new ProductRepository();
-
-
-
+private IProductRepository iProductRepository = new ProductRepository();
 
     @Override
-    public Product findName(String name) {
+    public List<Product> findName(String name) {
         return iProductRepository.findName(name);
     }
 

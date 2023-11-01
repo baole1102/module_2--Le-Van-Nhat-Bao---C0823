@@ -2,10 +2,8 @@ package case_study.untils;
 
 import case_study.model.Employee;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DocFile {
@@ -27,5 +25,30 @@ public class DocFile {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static List<Employee> readFile(List<Employee> employees){
+        File file = new File(PATH);
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            if (!file.exists()){
+                throw new FileNotFoundException();
+            }
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+        //    employees = (List<Employee>)  bufferedReader.read();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                fileReader.close();
+                bufferedReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return employees;
     }
 }

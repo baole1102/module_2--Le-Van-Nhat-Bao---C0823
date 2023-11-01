@@ -7,56 +7,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteFile {
-    private static final String PATH = "ss16_io_biobanry/exc/bt1/doc/baopro.doc";
+    private static final String PATH = "ss16_io_biobanry/exc/bt1/doc/bao.csv";
 
     public static void writeFile(List<Product> products) {
-        OutputStream outputStream = null;
+        FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            outputStream = new FileOutputStream(PATH);
-            objectOutputStream = new ObjectOutputStream(outputStream);
-            for (Product product1 : products) {
-                objectOutputStream.writeObject(product1);
-            }
+            fileOutputStream = new FileOutputStream(PATH);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+                objectOutputStream.writeObject(products);
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File ton tai");
-            e.printStackTrace();
+            System.err.println("File ton tai");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+           System.err.println("XXX");
         } finally {
             try {
-                outputStream.close();
-                objectOutputStream.close();
+                if (objectOutputStream != null){
+                    objectOutputStream.close();
+                    objectOutputStream.close();
+                }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("XXX");
             }
         }
     }
 
-    public static List<Product> readFile(List<Product> products) {
-        InputStream inputStream = null;
+    public static List<Product> readFile() {
+        List<Product> products = null;
+        FileInputStream inputStream = null;
         ObjectInputStream objectIntputStream = null;
         try {
             inputStream = new FileInputStream(PATH);
             objectIntputStream = new ObjectInputStream(inputStream);
-            products = (List<Product>) objectIntputStream.readObject();
-            System.out.println(products);
-            objectIntputStream.close();
-        } catch (FileNotFoundException e) {
+                products = (List<Product>) objectIntputStream.readObject();
+        } catch (EOFException e) {
             System.out.println("File ton tai");
-            e.printStackTrace();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+
+        }catch (ClassNotFoundException e){
+            System.out.println("a");
+        }
+        catch (IOException e)  {
+            System.out.println("File ton tai");
         } finally {
             try {
-                inputStream.close();
-                objectIntputStream.close();
+                if (objectIntputStream != null){
+                    objectIntputStream.close();
+                }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("XXX");
             }
         }
-        return products;
+        return products == null ? new ArrayList<>() : products ;
     }
 }

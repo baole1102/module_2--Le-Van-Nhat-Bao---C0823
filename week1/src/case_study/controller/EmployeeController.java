@@ -16,7 +16,7 @@ public class EmployeeController {
         iEmployeeService.addEmployee(employee);
     }
 
-    public Boolean remove(int id) {
+    public Boolean remove(String id) {
         return iEmployeeService.remove(id);
     }
 
@@ -24,11 +24,11 @@ public class EmployeeController {
        return iEmployeeService.findName(name);
     }
 
-    public boolean findId(int id) {
+    public boolean findId(String id) {
        return   iEmployeeService.findId(id);
     }
 
-    public void editEmployee(int id, Employee employee) {
+    public void editEmployee(String id, Employee employee) {
         iEmployeeService.editEmployee(id,employee);
     }
 }

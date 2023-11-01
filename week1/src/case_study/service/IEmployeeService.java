@@ -10,11 +10,12 @@ public interface IEmployeeService {
 
     void addEmployee(Employee employee);
 
-    Boolean remove(int id);
 
     Employee findName(String name);
 
-    boolean findId(int id);
+    boolean findId(String id);
 
-    void editEmployee(int id, Employee employee);
+    void editEmployee(String id, Employee employee);
+
+    Boolean remove(String id);
 }

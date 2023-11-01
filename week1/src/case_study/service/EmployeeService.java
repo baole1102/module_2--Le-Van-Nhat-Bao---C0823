@@ -20,8 +20,9 @@ public class EmployeeService implements IEmployeeService{
         iEmployeeRepository.addEmployee(employee);
     }
 
+
     @Override
-    public Boolean remove(int id) {
+    public Boolean remove(String id) {
         boolean employee = iEmployeeRepository.findId(id);
         if (!employee){
             return false;
@@ -37,12 +38,12 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public boolean findId(int id) {
+    public boolean findId(String id) {
         return iEmployeeRepository.findId(id);
     }
 
     @Override
-    public void editEmployee(int id, Employee employee) {
+    public void editEmployee(String id, Employee employee) {
         iEmployeeRepository.editEmployee(id,employee);
     }
 }

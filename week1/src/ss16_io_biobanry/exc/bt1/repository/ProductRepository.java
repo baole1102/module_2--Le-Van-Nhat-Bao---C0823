@@ -9,27 +9,21 @@ import java.util.List;
 public class ProductRepository implements IProductRepository {
     private static List<Product> products = new ArrayList<>();
 
-    static {
-        products.add(new Product(1, "Quan ao", 500, "TQ", "New"));
-        products.add(new Product(2, "Bikini", 600, "VN", "New"));
-        products.add(new Product(3, "Giay", 700, "HQ", "New"));
-        products.add(new Product(4, "Mu", 800, "NB", "New"));
-    }
-
-
     @Override
-    public Product findName(String name) {
+    public List<Product> findName(String name) {
+        products = WriteFile.readFile();
+        List<Product> products1 = new ArrayList<>();
         for (Product product : products) {
             if (product.getName().toLowerCase().contains(name.toLowerCase())) {
-                return product;
+                products1.add(product);
             }
         }
-        return null;
+        return products1;
     }
 
     @Override
     public List<Product> showList() {
-        return products;
+        return WriteFile.readFile();
 
     }
 

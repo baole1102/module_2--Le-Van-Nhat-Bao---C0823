@@ -50,11 +50,15 @@ public class ProductMain {
     private static void showProduct(ProductController productController) {
         products = productController.showList();
         if (products.isEmpty()){
+            System.out.println("Danh sach rong!!");
+        }else {
+        if (products == null){
             System.out.println("Danh sach rong!!!");
         }else {
             for (Product temp: products){
                 System.out.println(temp);
             }
+        }
         }
     }
 
@@ -68,19 +72,17 @@ public class ProductMain {
     }
 
     private static void searchProduct(ProductController productController) {
-        if (products.isEmpty()){
-            System.out.println("Khong co san pham nao");
-        }else {
             System.out.println("Nhap ten san pham muon tim");
             String name = CheckCondintion.checkName();
-            product = productController.findName(name);
+            products =  productController.findName(name);
             if (product == null){
                 System.out.println("Khong co san pham");
             }else {
                 System.out.println("San pham cua ban dang tim!!");
-                System.out.println(product);
+                for (Product product1: products) {
+                    System.out.println(product1);
+                }
             }
-        }
     }
 
     private static Product inputInfor() {
@@ -97,22 +99,7 @@ public class ProductMain {
 
     private static int inputId() {
         System.out.println("Nhap id san pham");
-        int id;
-        boolean isBoolean;
-        while (true){
-             id =  CheckCondintion.checkId();
-             isBoolean = false;
-            for (Product product: products){
-                if (product.getId() == id){
-                    System.out.println("Trung id san pham khac roi");
-                    isBoolean = true;
-                    break;
-                }
-            }
-            if (!isBoolean){
-                return id;
-            }
-        }
+       return   CheckCondintion.checkId();
     }
 
 }

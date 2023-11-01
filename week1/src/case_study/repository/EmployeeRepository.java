@@ -11,9 +11,9 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static List<Employee> employees = new ArrayList<>();
 
     static {
-        employees.add(new Employee(1, "Bao", "11/02/2001", "Male", 11, 4, "levannhatbao29@gmail.com", "Ki Su", "Top", 2000));
-        employees.add(new Employee(2, "Do", "02/05/2002", "Male", 12, 5, "levando@gmail.com", "Student", "Bottom", 1000));
-        employees.add(new Employee(3, "Vi", "20/09/2009", "FeMale", 13, 6, "tieuvi@gmail.com", "Student", "Bottom", 3000));
+        employees.add(new Employee("NV-1000", "Bao", "11/02/2001", "Male", 11, 4, "levannhatbao29@gmail.com", "Ki Su", "Top", 2000));
+        employees.add(new Employee("NV-1000", "Do", "02/05/2002", "Male", 12, 5, "levando@gmail.com", "Student", "Bottom", 1000));
+        employees.add(new Employee("NV-1000", "Vi", "20/09/2009", "FeMale", 13, 6, "tieuvi@gmail.com", "Student", "Bottom", 3000));
     }
 
     @Override
@@ -28,7 +28,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(String id) {
         for (Employee employee : employees) {
             if (Objects.equals(employee.getCode(), id)) {
                 employees.remove(employee);
@@ -39,9 +39,9 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public boolean findId(int id) {
+    public boolean findId(String id) {
         for (Employee employee : employees) {
-            if (employee.getCode() == id) {
+            if (employee.getCode().equals(id)) {
                 return true;
             }
         }
@@ -59,7 +59,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public void editEmployee(int id, Employee employee) {
+    public void editEmployee(String id, Employee employee) {
         for (Employee employee1 : employees) {
             if (Objects.equals(employee1.getCode(), id)) {
                 employee1.setName(employee.getName());

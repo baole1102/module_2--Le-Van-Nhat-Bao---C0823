@@ -1,7 +1,7 @@
 package case_study.model;
 
 public class Employee {
-    private int code;
+    private String code;
     private String name;
     private String date;
     private String gender;
@@ -28,7 +28,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(int code, String name, String date, String gender, int identify,
+    public Employee(String code, String name, String date, String gender, int identify,
                     int number, String email, String level, String position, double salary) {
         this.code = code;
         this.name = name;
@@ -42,11 +42,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

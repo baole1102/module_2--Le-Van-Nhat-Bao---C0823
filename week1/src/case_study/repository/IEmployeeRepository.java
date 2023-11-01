@@ -9,11 +9,11 @@ public interface IEmployeeRepository {
 
     void addEmployee(Employee employee);
 
-    void remove(int id);
+    void remove(String id);
 
-    boolean findId(int id);
+    boolean findId(String id);
 
     Employee findName(String name);
 
-    void editEmployee(int id, Employee employee);
+    void editEmployee(String id, Employee employee);
 }
