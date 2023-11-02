@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValidateNumber {
     private static Pattern pattern;
     private Matcher matcher;
-    private static final String REGEX = "[(]\\d{2}[)][-][(][0]+\\d{9}[)]";
+    private static final String REGEX = "\\(\\d{2}\\)-\\(0\\d{9}\\)$";
     public ValidateNumber(){}
     public boolean checkValidate(String regex){
         pattern = Pattern.compile(REGEX);

@@ -5,8 +5,8 @@ public class Employee {
     private String name;
     private String date;
     private String gender;
-    private long identify;
-    private long number;
+    private String identify;
+    private String number;
     private String email;
     private String level;
     private String position;
@@ -15,8 +15,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String date, String gender, long identify,
-                    long number, String email, String level, String position, double salary) {
+    public Employee(String name, String date, String gender, String identify,
+                    String number, String email, String level, String position, double salary) {
         this.name = name;
         this.date = date;
         this.gender = gender;
@@ -28,8 +28,8 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(String code, String name, String date, String gender, long identify,
-                    long number, String email, String level, String position, double salary) {
+    public Employee(String code, String name, String date, String gender, String identify,
+                    String number, String email, String level, String position, double salary) {
         this.code = code;
         this.name = name;
         this.date = date;
@@ -41,6 +41,7 @@ public class Employee {
         this.position = position;
         this.salary = salary;
     }
+
 
     public String getCode() {
         return code;
@@ -74,19 +75,19 @@ public class Employee {
         this.gender = gender;
     }
 
-    public long getIdentify() {
+    public String getIdentify() {
         return identify;
     }
 
-    public void setIdentify(long identify) {
+    public void setIdentify(String identify) {
         this.identify = identify;
     }
 
-    public long getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -124,7 +125,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Employee: " +
                 "code='" + code +
                 ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
@@ -134,8 +135,8 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", level='" + level + '\'' +
                 ", position='" + position + '\'' +
-                ", salary=" + salary +
-                '}';
+                 salary
+                ;
     }
 
 }

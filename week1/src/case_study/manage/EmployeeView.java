@@ -42,7 +42,6 @@ public class EmployeeView {
                                 "6. Return main menu");
                         choice = EmployeeCondition.checkChoice(0,6);
                     }while (true);
-
                 case 3:
                     break;
                 case 4:
@@ -57,7 +56,6 @@ public class EmployeeView {
             }
         }while (true);
     }
-
     private static void ManagementEmployee() throws ParseException {
         String id;
         int choice;
@@ -74,13 +72,14 @@ public class EmployeeView {
             switch (choice){
                 case 1:
                     employees =  employeeController.showList();
-                    if (employees.isEmpty()){
-                        System.out.println("Dont have employee in this!!");
-                        break;
-                    }
-                    for (Employee employee: employees){
-                        System.out.println(employee);
-                    }
+                    System.out.println(employees);
+//                    if (employees.isEmpty()){
+//                        System.out.println("Dont have employee in this!!");
+//                        break;
+//                    }
+//                    for (Employee employee: employees){
+//                        System.out.println(employee);
+//                    }
                     break;
                 case 2:
                     employees = employeeController.showList();
@@ -152,9 +151,9 @@ public class EmployeeView {
         System.out.println("Input gender employee");
         String gender = EmployeeCondition.checkString();
         System.out.println("Input identify employee");
-        long identify = EmployeeCondition.checkIndentify();
+        String identify = EmployeeCondition.checkIndentify();
         System.out.println("Input number employee");
-        long number  = EmployeeCondition.checkNumberPhone();
+        String number  = EmployeeCondition.checkNumberPhone();
         System.out.println("Input email employee");
         String email  = EmployeeCondition.checkMail();
         System.out.println("Input level employee");

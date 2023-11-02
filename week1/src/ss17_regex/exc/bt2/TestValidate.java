@@ -9,9 +9,9 @@ public class TestValidate {
 
     public static void main(String[] args) {
         validateNumber = new ValidateNumber();
-        for (String str : number){
-            boolean isValidate = validateNumber.checkValidate(str);
-            System.out.println("Value: "+str + " check validate: "+isValidate);
+        for (String temp : number){
+            boolean isValidate = validateNumber.checkValidate(temp);
+            System.out.println("Value: "+temp + " check validate: "+isValidate);
         }
         for (String str : inNumber){
             boolean isValidate = validateNumber.checkValidate(str);

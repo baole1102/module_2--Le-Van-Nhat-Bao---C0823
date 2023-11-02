@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValiadateNameClass {
     private static Pattern pattern;
     private Matcher matcher;
-    private static final String REGEX = "^[A|C|P]\\d{4}[G|H|I|K]";
+    private static final String REGEX = "^[ACP]\\d{4}[GHIK]$";
     public ValiadateNameClass(){
 
     }

@@ -1,9 +1,5 @@
 package case_study.untils;
 
-import com.sun.javafx.iio.gif.GIFImageLoaderFactory;
-import com.sun.media.sound.AiffFileReader;
-import com.sun.media.sound.AiffFileWriter;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,7 +50,7 @@ public class EmployeeCondition {
     public static double checkDouble() {
         while (true) {
             try {
-                return Double.parseDouble(scanner.nextLine());
+                return Double.parseDouble(scanner.nextLine().trim());
             } catch (NumberFormatException e) {
                 System.err.println("Require input number. Enter again!!");
             }
@@ -104,27 +100,27 @@ public class EmployeeCondition {
             }
         }
     }
-    public static long checkIndentify(){
+    public static String checkIndentify(){
         do {
             try {
                 String input = (scanner.nextLine());
                 if (!input.matches("^[0-9]\\d{8,11}$")){
                     throw new NumberFormatException();
                 }
-                return Long.parseLong(input);
+                return input;
             }catch (NumberFormatException e){
                 System.err.println("You need input less than 9 numbers");
             }
         }while (true);
     }
-    public static long checkNumberPhone(){
+    public static String checkNumberPhone(){
         while (true){
             try {
                 String input = scanner.nextLine();
                 if (!input.matches("^0\\d{9}$")){
                     throw new NumberFormatException();
                 }
-                return Long.parseLong(input);
+                return input;
             }catch (NumberFormatException e){
                 System.err.println("You need input less than 10 numbers");
             }

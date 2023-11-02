@@ -5,8 +5,8 @@ public class Customer {
     private String name;
     private String date;
     private String gender;
-    private int indentify;
-    private int number;
+    private long indentify;
+    private long number;
     private String email;
     private String level;
     private String address;
