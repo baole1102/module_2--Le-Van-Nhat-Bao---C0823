@@ -43,10 +43,9 @@ public class WriteFile {
             objectIntputStream = new ObjectInputStream(inputStream);
                 products = (List<Product>) objectIntputStream.readObject();
         } catch (EOFException e) {
-            System.out.println("File ton tai");
-
+           e.printStackTrace();
         }catch (ClassNotFoundException e){
-            System.out.println("a");
+           e.printStackTrace();
         }
         catch (IOException e)  {
             System.out.println("File ton tai");
@@ -56,7 +55,7 @@ public class WriteFile {
                     objectIntputStream.close();
                 }
             } catch (IOException e) {
-                System.err.println("XXX");
+               e.printStackTrace();
             }
         }
         return products == null ? new ArrayList<>() : products ;

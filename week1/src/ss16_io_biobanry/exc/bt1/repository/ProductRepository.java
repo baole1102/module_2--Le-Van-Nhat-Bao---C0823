@@ -20,7 +20,6 @@ public class ProductRepository implements IProductRepository {
         }
         return products1;
     }
-
     @Override
     public List<Product> showList() {
         return WriteFile.readFile();

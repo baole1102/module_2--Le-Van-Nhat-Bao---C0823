@@ -72,10 +72,11 @@ public class ProductMain {
     }
 
     private static void searchProduct(ProductController productController) {
+             products =productController.showList();
             System.out.println("Nhap ten san pham muon tim");
             String name = CheckCondintion.checkName();
             products =  productController.findName(name);
-            if (product == null){
+            if (products.isEmpty()){
                 System.out.println("Khong co san pham");
             }else {
                 System.out.println("San pham cua ban dang tim!!");
@@ -99,7 +100,7 @@ public class ProductMain {
 
     private static int inputId() {
         System.out.println("Nhap id san pham");
-       return   CheckCondintion.checkId();
+       return  CheckCondintion.checkId();
     }
 
 }
