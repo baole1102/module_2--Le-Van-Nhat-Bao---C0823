@@ -28,6 +28,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void addProduct(Product product) {
+        products = WriteFile.readFile();
         products.add(product);
         WriteFile.writeFile(products);
     }

@@ -1,6 +1,6 @@
 package case_study.controller;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 import case_study.service.EmployeeService;
 import case_study.service.IEmployeeService;
 
@@ -20,7 +20,7 @@ public class EmployeeController {
         return iEmployeeService.remove(id);
     }
 
-    public Employee findName(String name) {
+    public List<Employee> findName(String name) {
        return iEmployeeService.findName(name);
     }
 

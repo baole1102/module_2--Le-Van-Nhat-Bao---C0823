@@ -21,6 +21,19 @@ public class EmployeeCondition {
             }
         }while (true);
     }
+    public static String codeCustomer(){
+        do {
+            try {
+                String input = scanner.nextLine();
+                if (!input.matches("^KH-\\d{4}$")) {
+                    throw new NumberFormatException();
+                }
+                return input;
+            } catch (NumberFormatException e) {
+                System.err.println("Require input KH-XXXX. Enter again!!");
+            }
+        }while (true);
+    }
 
     public static String checkString() {
         while (true) {
@@ -125,5 +138,44 @@ public class EmployeeCondition {
                 System.err.println("You need input less than 10 numbers");
             }
         }
+    }
+    public static String checkInputVilla(){
+        do {
+            try {
+                String input = scanner.nextLine();
+                if (!input.matches("^SVVL-\\d{4}$")) {
+                    throw new NumberFormatException();
+                }
+                return input;
+            } catch (NumberFormatException e) {
+                System.err.println("Require input SVVL-YYYY. Enter again!!");
+            }
+        }while (true);
+    }
+    public static String checkInputHouse(){
+        do {
+            try {
+                String input = scanner.nextLine();
+                if (!input.matches("^SVHO-\\d{4}$")) {
+                    throw new NumberFormatException();
+                }
+                return input;
+            } catch (NumberFormatException e) {
+                System.err.println("Require input SVHO-YYYY. Enter again!!");
+            }
+        }while (true);
+    }
+    public static String checkInputRoom(){
+        do {
+            try {
+                String input = scanner.nextLine();
+                if (!input.matches("^SVRO-\\d{4}$")) {
+                    throw new NumberFormatException();
+                }
+                return input;
+            } catch (NumberFormatException e) {
+                System.err.println("Require input SVRO-YYYY. Enter again!!");
+            }
+        }while (true);
     }
 }

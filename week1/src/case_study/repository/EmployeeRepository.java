@@ -1,21 +1,15 @@
 package case_study.repository;
 
-import case_study.model.Employee;
-import case_study.untils.DocFile;
-import case_study.untils.ReadFile;
+import case_study.model.modulePerson.Employee;
+import case_study.untils.readandWriteEmployee.DocFile;
+import case_study.untils.readandWriteEmployee.ReadFile;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class EmployeeRepository implements IEmployeeRepository {
-    private static List<Employee> employees = new ArrayList<>();
-
-//    static {
-//        employees.add(new Employee("NV-1000", "Bao", "11/02/2001", "Male", 11, 4, "levannhatbao29@gmail.com", "Ki Su", "Top", 2000));
-//        employees.add(new Employee("NV-1000", "Do", "02/05/2002", "Male", 12, 5, "levando@gmail.com", "Student", "Bottom", 1000));
-//        employees.add(new Employee("NV-1000", "Vi", "20/09/2009", "FeMale", 13, 6, "tieuvi@gmail.com", "Student", "Bottom", 3000));
-//    }
+    private static List<Employee> employees = ReadFile.readFile();
 
     @Override
     public List<Employee> showList() {
@@ -24,19 +18,21 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void addEmployee(Employee employee) {
+        employees = ReadFile.readFile();
         employees.add(employee);
         DocFile.writeFile(employees);
     }
 
     @Override
     public void remove(String id) {
+        employees = ReadFile.readFile();
         for (Employee employee : employees) {
             if (Objects.equals(employee.getCode(), id)) {
                 employees.remove(employee);
-                DocFile.writeFile(employees);
                 break;
             }
         }
+        DocFile.writeFile(employees);
     }
 
     @Override
@@ -50,13 +46,15 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public Employee findName(String name) {
+    public List<Employee> findName(String name) {
+        employees = ReadFile.readFile();
+        List<Employee> employees1 = new ArrayList<>();
         for (Employee employee : employees) {
             if (employee.getName().toLowerCase().contains(name.toLowerCase())) {
-                return employee;
+                 employees1.add(employee);
             }
         }
-        return null;
+        return employees1;
     }
 
     @Override
@@ -75,5 +73,6 @@ public class EmployeeRepository implements IEmployeeRepository {
                 break;
             }
         }
+        DocFile.writeFile(employees);
     }
 }

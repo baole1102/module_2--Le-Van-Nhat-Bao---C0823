@@ -1,6 +1,6 @@
 package case_study.service;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface IEmployeeService {
     void addEmployee(Employee employee);
 
 
-    Employee findName(String name);
+    List<Employee> findName(String name);
 
     boolean findId(String id);
 

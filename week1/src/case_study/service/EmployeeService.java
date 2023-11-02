@@ -1,6 +1,6 @@
 package case_study.service;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 import case_study.repository.EmployeeRepository;
 import case_study.repository.IEmployeeRepository;
 
@@ -33,7 +33,7 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee findName(String name) {
+    public List<Employee> findName(String name) {
         return iEmployeeRepository.findName(name);
     }
 

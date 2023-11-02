@@ -1,6 +1,6 @@
 package case_study.repository;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface IEmployeeRepository {
 
     boolean findId(String id);
 
-    Employee findName(String name);
+    List<Employee> findName(String name);
 
     void editEmployee(String id, Employee employee);
 }

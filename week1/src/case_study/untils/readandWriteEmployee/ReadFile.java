@@ -1,12 +1,10 @@
-package case_study.untils;
+package case_study.untils.readandWriteEmployee;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.Double.parseDouble;
 
 public class ReadFile {
     private static final String PATH = "case_study/docfile/Bao.txt";
@@ -51,6 +49,6 @@ public class ReadFile {
                 throw new RuntimeException();
             }
         }
-        return employees == null ? new ArrayList<>() : employees;
+        return employees;
     }
 }

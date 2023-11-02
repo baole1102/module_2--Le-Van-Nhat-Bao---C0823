@@ -1,9 +1,8 @@
-package case_study.untils;
+package case_study.untils.readandWriteEmployee;
 
-import case_study.model.Employee;
+import case_study.model.modulePerson.Employee;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DocFile {
@@ -12,22 +11,20 @@ public class DocFile {
         File file = new File(PATH);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
-        Employee employee = null;
         try {
              fileWriter = new FileWriter(file);
              bufferedWriter = new BufferedWriter(fileWriter);
             String line = "";
-          for (Employee string : employees){
-                bufferedWriter.write(string.toString());
-                bufferedWriter.newLine();
-//              if (string != null){
-//                 line = employee.getCode() + "," + employee.getName() + "," + employee.getDate() + "," +
-//                          employee.getGender() + "," + employee.getIdentify() + "," + employee.getNumber() + "," +
-//                          employee.getEmail() + "," + employee.getLevel() + "," + employee.getPosition() + "," +
-//                          employee.getSalary();
-//                 bufferedWriter.write(line);
-//                  bufferedWriter.newLine();
-//              }
+          for (Employee employee : employees){
+
+              if (employee != null){
+                 line = employee.getCode() + "," + employee.getName() + "," + employee.getDate() + "," +
+                          employee.getGender() + "," + employee.getIdentify() + "," + employee.getNumber() + "," +
+                          employee.getEmail() + "," + employee.getLevel() + "," + employee.getPosition() + "," +
+                          employee.getSalary();
+                 bufferedWriter.write(line);
+                  bufferedWriter.newLine();
+              }
           }
         } catch (RuntimeException e) {
            e.printStackTrace();
