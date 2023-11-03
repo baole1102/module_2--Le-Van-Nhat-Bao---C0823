@@ -6,8 +6,8 @@ private String attrachFreeService;
     public Room() {
     }
 
-    public Room(String code, String name, long cost, String location, String status, String attrachFreeService) {
-        super(code, name, cost, location, status);
+    public Room(String code, String name, int countPerson, long cost, String location, String status, String attrachFreeService) {
+        super(code, name, countPerson, cost, location, status);
         this.attrachFreeService = attrachFreeService;
     }
 

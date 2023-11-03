@@ -19,4 +19,12 @@ public class FacilityController {
     public boolean findId(String id) {
         return iFacilityService.findId(id);
     }
+
+    public void addFacility(Facility facility, int count) {
+        iFacilityService.addVilla(facility,count);
+    }
+
+    public boolean remove(String id) {
+        return iFacilityService.remove(id);
+    }
 }

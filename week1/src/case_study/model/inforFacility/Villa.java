@@ -1,6 +1,10 @@
 package case_study.model.inforFacility;
 
-public class Villa extends Facility{
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+
+public class Villa extends Facility  {
     private String standar;
     private long acreage;
     private int numberFloor;
@@ -14,12 +18,13 @@ public class Villa extends Facility{
         this.numberFloor = numberFloor;
     }
 
-    public Villa(String code, String name, long cost, String location, String status, String standar, long acreage, int numberFloor) {
-        super(code, name, cost, location, status);
+    public Villa(String code, String name, int countPerson, long cost, String location, String status, String standar, long acreage, int numberFloor) {
+        super(code, name, countPerson, cost, location, status);
         this.standar = standar;
         this.acreage = acreage;
         this.numberFloor = numberFloor;
     }
+
 
     public String getStandar() {
         return standar;
@@ -53,4 +58,5 @@ public class Villa extends Facility{
                 ", numberFloor=" + numberFloor +
                 '}';
     }
+
 }

@@ -6,13 +6,15 @@ public abstract class  Facility {
     private long cost;
     private String location;
     private String status;
+    private int countPerson;
 
-    public Facility(String code, String name, long cost, String location, String status) {
+    public Facility(String code, String name,int countPerson, long cost, String location, String status) {
         this.code = code;
         this.name = name;
         this.cost = cost;
         this.location = location;
         this.status = status;
+        this.countPerson =countPerson;
     }
 
     public Facility() {
@@ -58,10 +60,19 @@ public abstract class  Facility {
         this.status = status;
     }
 
+    public int getCountPerson() {
+        return countPerson;
+    }
+
+    public void setCountPerson(int countPerson) {
+        this.countPerson = countPerson;
+    }
+
     @Override
     public String toString() {
         return ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
+                ", countPerson='" + countPerson + '\'' +
                 ", cost=" + cost +
                 ", location='" + location + '\'' +
                 ", status='" + status + '\'' ;

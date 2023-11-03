@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class EmployeeCondition {
     private static Scanner scanner = new Scanner(System.in);
     public static String codeEmployee(){
+        String input;
         do {
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (!input.matches("^NV-\\d{4}$")) {
                   throw new NumberFormatException();
                 }
@@ -22,9 +23,10 @@ public class EmployeeCondition {
         }while (true);
     }
     public static String codeCustomer(){
+        String input;
         do {
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (!input.matches("^KH-\\d{4}$")) {
                     throw new NumberFormatException();
                 }
@@ -36,9 +38,10 @@ public class EmployeeCondition {
     }
 
     public static String checkString() {
+        String input;
         while (true) {
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (input.matches(".*\\d.*")) {
                     System.out.println("Require input word. Enter again!!");
                 } else {
@@ -86,8 +89,9 @@ public class EmployeeCondition {
     }
 
     public static String checkMail() {
+        String input;
         while (true) {
-            String input = scanner.nextLine();
+            input = scanner.nextLine();
             try {
                 if (input.matches("^[a-zA-Z0-9]+[a-zA-Z0-9]*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)$")) {
                     return input;
@@ -101,9 +105,10 @@ public class EmployeeCondition {
     }
 
     public static int checkChoice(int min, int max) {
+        int input;
         while (true) {
             try {
-                int input = Integer.parseInt(scanner.nextLine());
+                input = Integer.parseInt(scanner.nextLine());
                 if (input < min || input > max) {
                     throw new NumberFormatException();
                 }
@@ -114,9 +119,10 @@ public class EmployeeCondition {
         }
     }
     public static String checkIndentify(){
+        String input;
         do {
             try {
-                String input = (scanner.nextLine());
+                input  = (scanner.nextLine());
                 if (!input.matches("^[0-9]\\d{8,11}$")){
                     throw new NumberFormatException();
                 }
@@ -127,9 +133,10 @@ public class EmployeeCondition {
         }while (true);
     }
     public static String checkNumberPhone(){
+        String input;
         while (true){
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (!input.matches("^0\\d{9}$")){
                     throw new NumberFormatException();
                 }
@@ -140,9 +147,10 @@ public class EmployeeCondition {
         }
     }
     public static String checkInputVilla(){
+        String input;
         do {
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (!input.matches("^SVVL-\\d{4}$")) {
                     throw new NumberFormatException();
                 }
@@ -153,9 +161,10 @@ public class EmployeeCondition {
         }while (true);
     }
     public static String checkInputHouse(){
+        String input;
         do {
             try {
-                String input = scanner.nextLine();
+                input  = scanner.nextLine();
                 if (!input.matches("^SVHO-\\d{4}$")) {
                     throw new NumberFormatException();
                 }
@@ -166,9 +175,10 @@ public class EmployeeCondition {
         }while (true);
     }
     public static String checkInputRoom(){
+        String input;
         do {
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 if (!input.matches("^SVRO-\\d{4}$")) {
                     throw new NumberFormatException();
                 }

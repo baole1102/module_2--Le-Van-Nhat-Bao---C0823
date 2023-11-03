@@ -4,6 +4,9 @@ import case_study.controller.CustomerController;
 import case_study.controller.EmployeeController;
 import case_study.controller.FacilityController;
 import case_study.model.inforFacility.Facility;
+import case_study.model.inforFacility.House;
+import case_study.model.inforFacility.Room;
+import case_study.model.inforFacility.Villa;
 import case_study.model.modulePerson.Customer;
 import case_study.model.modulePerson.Employee;
 import case_study.untils.EmployeeCondition;
@@ -27,6 +30,7 @@ public class ManageView {
     private static Map<Facility, Integer> facilitys;
     private static Facility facility;
     private static boolean isBoolean;
+    private static int count = 0;
 
     public static void main(String[] args) throws ParseException {
         String id;
@@ -130,35 +134,77 @@ public class ManageView {
             switch (choice) {
                 case 1:
                     facilitys = facilityController.showList();
-                    if (facilitys.isEmpty()){
+                    if (facilitys.isEmpty()) {
                         System.out.println("Nothing is this!!");
-                    }else {
-                        for (Map.Entry<Facility,Integer> map : facilitys.entrySet()) {
+                    } else {
+                        for (Map.Entry<Facility, Integer> map : facilitys.entrySet()) {
                             System.out.println(map.getKey() + " - " + map.getValue());
                         }
                     }
                     break;
                 case 2:
-                    System.out.println("1. Add New Villa \n"+
-                            "2. Add New House \n +" +
-                            "3. Add New Room \n " +
+                    System.out.println("1. Add New Villa \n" +
+                            "2. Add New House \n" +
+                            "3. Add New Room \n" +
                             "4. Back to menu");
-                    choice = EmployeeCondition.checkChoice(1,4);
-                    switch (choice){
+                    choice = EmployeeCondition.checkChoice(1, 4);
+                    switch (choice) {
                         case 1:
                             facilitys = facilityController.showList();
-                            if (facilitys.isEmpty()){
+                            if (facilitys.isEmpty()) {
                                 System.out.println("Nothing is this!!");
-                            }else {
+                            } else {
                                 id = inputIdVilla();
                                 isBoolean = facilityController.findId(id);
-
+                                while (isBoolean) {
+                                    System.out.println("The id already matches another id!!");
+                                    id = inputIdVilla();
+                                    isBoolean = facilityController.findId(id);
+                                }
+                                facility = inputInforVilla(id);
+                                facility.setCode(id);
+                                facilityController.addFacility(facility, count);
+                                count++;
                                 System.out.println("Add completely !!!");
                             }
                             break;
                         case 2:
+                            facilitys = facilityController.showList();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing is this!!");
+                            } else {
+                                id = inputIdHouse();
+                                isBoolean = facilityController.findId(id);
+                                while (isBoolean) {
+                                    System.out.println("The id already matches another id!!");
+                                    id = inputIdHouse();
+                                    isBoolean = facilityController.findId(id);
+                                }
+                                facility = inputInforHouse(id);
+                                facility.setCode(id);
+                                facilityController.addFacility(facility, count);
+                                count++;
+                                System.out.println("Add completely !!!");
+                            }
                             break;
                         case 3:
+                            facilitys = facilityController.showList();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing is this!!");
+                            } else {
+                                id = inputIdRoom();
+                                isBoolean = facilityController.findId(id);
+                                while (isBoolean) {
+                                    System.out.println("The id already matches another id!!");
+                                    id = inputIdRoom();
+                                    isBoolean = facilityController.findId(id);
+                                }
+                                facility = inputInforRoom(id);
+                                facility.setCode(id);
+                                facilityController.addFacility(facility, count);
+                                count++;
+                                System.out.println("Add completely !!!");
+                            }
                             break;
                         case 4:
                             System.out.println("See you not again!!");
@@ -166,14 +212,64 @@ public class ManageView {
                     }
                     break;
                 case 3:
+
                     break;
                 case 4:
+                    facilitys = facilityController.showList();
+                    System.out.println("What is you want to delete ??");
+                    System.out.println("-----------------------");
+                    System.out.println("1. Villa \n" +
+                            "2. House \n" +
+                            "3. Room ");
+                    choice = EmployeeCondition.checkChoice(1, 3);
+                    switch (choice) {
+                        case 1:
+                            id = inputIdVilla();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing!!!!");
+                            } else {
+                                isBoolean = facilityController.remove(id);
+                                if (isBoolean) {
+                                    System.out.println("Succesful!!");
+                                } else {
+                                    System.out.println("I cant find id you input!!");
+                                }
+                            }
+                            break;
+                        case 2:
+                            id = inputIdHouse();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing!!!!");
+                            } else {
+                                isBoolean = facilityController.remove(id);
+                                if (isBoolean) {
+                                    System.out.println("Succesful!!");
+                                } else {
+                                    System.out.println("I cant find id you input!!");
+                                }
+                            }
+                            break;
+                        case 3:
+                            id = inputIdRoom();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing!!!!");
+                            } else {
+                                isBoolean = facilityController.remove(id);
+                                if (isBoolean) {
+                                    System.out.println("Succesful!!");
+                                } else {
+                                    System.out.println("I cant find id you input!!");
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case 5:
+                    
                     break;
                 case 6:
                     System.out.println("See you latter!!");
-                    System.exit(0);
+                    return;
             }
         } while (true);
     }
@@ -339,7 +435,7 @@ public class ManageView {
                     } else {
                         System.out.println("Input name employee u want to find them!!");
                         String name = scanner.nextLine();
-                        List<Employee> list =  employeeController.findName(name);
+                        List<Employee> list = employeeController.findName(name);
                         if (employees.isEmpty()) {
                             System.out.println("Cant find this name");
                         } else {
@@ -351,7 +447,7 @@ public class ManageView {
                     }
                     break;
                 case 6:
-                    System.exit(0);
+                    return;
                 default:
                     System.out.println("You need input about 1--> 6");
             }
@@ -365,20 +461,75 @@ public class ManageView {
         String date = EmployeeCondition.checkDate();
         System.out.println("Input gender employee");
         String gender = EmployeeCondition.checkString();
-        System.out.println("Input identify employee");
-        String identify = EmployeeCondition.checkIndentify();
+        String identify = inputLevel();
         System.out.println("Input number employee");
         String number = EmployeeCondition.checkNumberPhone();
         System.out.println("Input email employee");
         String email = EmployeeCondition.checkMail();
         System.out.println("Input level employee");
         String level = EmployeeCondition.checkString();
-        System.out.println("Input position employee");
-        String position = EmployeeCondition.checkString();
+        String position = inputPosition();
         System.out.println("Input salary employee");
         double salary = EmployeeCondition.checkDouble();
         return new Employee(name, date, gender, identify, number, email, level, position, salary);
     }
+
+    private static String inputLevel() {
+        int choice;
+        do {
+            System.out.println("Level");
+            System.out.println("-----------------");
+            System.out.println("1. Intermediate \n" +
+                    "2. College \n" +
+                    "3. University \n" +
+                    "4. After University");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Intermediate";
+                case 2:
+                    return "College";
+                case 3:
+                    return "University";
+                case 4:
+                    return "After University";
+                default:
+                    System.out.println("Input 1-->4 !!!");
+            }
+        } while (true);
+    }
+
+    private static String inputPosition() {
+        int choice;
+        do {
+            System.out.println("Position");
+            System.out.println("-----------------");
+            System.out.println("1. Receptionist \n" +
+                    "2. Serve \n" +
+                    "3. Expert \n" +
+                    "4. Supervisor \n" +
+                    "5. Manager \n" +
+                    "6. Director");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Receptionist";
+                case 2:
+                    return "Serve";
+                case 3:
+                    return "Expert";
+                case 4:
+                    return "Supervisor";
+                case 5:
+                    return "Manager";
+                case 6:
+                    return "Director";
+                default:
+                    System.out.println("Input 1-->6 !!!");
+            }
+        } while (true);
+    }
+
 
     private static Customer inputInforCustomer() throws ParseException {
         System.out.println("Input name customer");
@@ -393,11 +544,95 @@ public class ManageView {
         String number = EmployeeCondition.checkNumberPhone();
         System.out.println("Input email customer");
         String email = EmployeeCondition.checkMail();
-        System.out.println("Input level customer");
-        String level = EmployeeCondition.checkString();
+        String level = inputLevelCustomer();
         System.out.println("Input address customer");
         String address = EmployeeCondition.checkString();
         return new Customer(name, date, gender, identify, number, email, level, address);
+    }
+
+    private static String inputLevelCustomer() {
+        int choice;
+        do {
+            System.out.println("CustomerType");
+            System.out.println("-----------------");
+            System.out.println("1. Diamond \n" +
+                    "2. Platinum \n" +
+                    "3. Gold \n" +
+                    "4. Silver \n" +
+                    "5. Member ");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Diamond";
+                case 2:
+                    return "Platinum";
+                case 3:
+                    return "Gold";
+                case 4:
+                    return "Silver";
+                case 5:
+                    return "Member";
+                default:
+                    System.out.println("Input 1-->5 !!!");
+            }
+        } while (true);
+    }
+
+    private static Villa inputInforVilla(String id) {
+        System.out.println("Input name Villa");
+        String name = EmployeeCondition.checkString();
+        System.out.println("Input countPerson Villa");
+        int countPerson = EmployeeCondition.checkNumber();
+        System.out.println("Input cost Villa");
+        long cost = EmployeeCondition.checkNumber();
+        System.out.println("Input location Villa");
+        String location = EmployeeCondition.checkString();
+        System.out.println("Input status Villa");
+        String status = EmployeeCondition.checkString();
+        System.out.println("Input standar Villa");
+        String standar = EmployeeCondition.checkString();
+        System.out.println("Input acreage Villa");
+        long acreage = EmployeeCondition.checkNumber();
+        System.out.println("Input numberfloor Villa");
+        int numberfloor = EmployeeCondition.checkNumber();
+        Villa villa = new Villa(id, name, countPerson, cost, location, status, standar, acreage, numberfloor);
+        return villa;
+    }
+
+    private static House inputInforHouse(String id) {
+        System.out.println("Input name House");
+        String name = EmployeeCondition.checkString();
+        System.out.println("Input countPerson House");
+        int countPerson = EmployeeCondition.checkNumber();
+        System.out.println("Input cost House");
+        long cost = EmployeeCondition.checkNumber();
+        System.out.println("Input location House");
+        String location = EmployeeCondition.checkString();
+        System.out.println("Input status House");
+        String status = EmployeeCondition.checkString();
+        System.out.println("Input standar House");
+        String standar = EmployeeCondition.checkString();
+        System.out.println("Input numberfloor House");
+        int numberfloor = EmployeeCondition.checkNumber();
+        House house = new House(id, name, countPerson, cost, location, status, standar, numberfloor);
+        return house;
+    }
+
+    private static Room inputInforRoom(String id) {
+        System.out.println("Input name Room");
+        String name = EmployeeCondition.checkString();
+        System.out.println("Input countPerson Room");
+        int countPerson = EmployeeCondition.checkNumber();
+        System.out.println("Input cost Room");
+        long cost = EmployeeCondition.checkNumber();
+        System.out.println("Input location Room");
+        String location = EmployeeCondition.checkString();
+        System.out.println("Input status Room");
+        String status = EmployeeCondition.checkString();
+        System.out.println("Input attrachFreeService Room");
+        String attrachFreeService = EmployeeCondition.checkString();
+        Room room = new Room(id, name, countPerson, cost, location, status, attrachFreeService);
+        return room;
     }
 
     private static String inputId() {
@@ -409,15 +644,18 @@ public class ManageView {
         System.out.println("Input id Customer");
         return EmployeeCondition.codeCustomer();
     }
-    private static String inputIdVilla(){
+
+    private static String inputIdVilla() {
         System.out.println("Input code service");
         return EmployeeCondition.checkInputVilla();
     }
-    private static String inputIdHouse(){
+
+    private static String inputIdHouse() {
         System.out.println("Input code service");
         return EmployeeCondition.checkInputHouse();
     }
-    private static String inputIdRoom(){
+
+    private static String inputIdRoom() {
         System.out.println("Input code service");
         return EmployeeCondition.checkInputRoom();
     }
