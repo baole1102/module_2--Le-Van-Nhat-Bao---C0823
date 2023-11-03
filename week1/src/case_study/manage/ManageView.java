@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class ManageView {
 
@@ -154,11 +155,11 @@ public class ManageView {
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing is this!!");
                             } else {
-                                id = inputIdVilla();
+                                id = String.valueOf(inputIdVilla());
                                 isBoolean = facilityController.findId(id);
                                 while (isBoolean) {
                                     System.out.println("The id already matches another id!!");
-                                    id = inputIdVilla();
+                                    id = String.valueOf(inputIdVilla());
                                     isBoolean = facilityController.findId(id);
                                 }
                                 facility = inputInforVilla(id);
@@ -208,11 +209,56 @@ public class ManageView {
                             break;
                         case 4:
                             System.out.println("See you not again!!");
-                            System.exit(0);
+                            return;
                     }
                     break;
                 case 3:
-
+                    facilitys = facilityController.showList();
+                    System.out.println("What is you want to edit ??");
+                    System.out.println("-----------------------");
+                    System.out.println("1. Villa \n" +
+                            "2. House \n" +
+                            "3. Room ");
+                    choice = EmployeeCondition.checkChoice(1, 3);
+                    switch (choice) {
+                        case 1:
+                            id = String.valueOf(inputIdVilla());
+                            isBoolean = facilityController.findId(id);
+                            if (!isBoolean){
+                                System.out.println("Not find id!!");
+                            }else {
+                                facility = inputIdVilla();
+                                facilityController.editFacility(id,facilirty);
+                                System.out.println("Edit Successful!!!");
+                            }
+                            break;
+                        case 2:
+                            id = inputIdHouse();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing!!!!");
+                            } else {
+                                isBoolean = facilityController.remove(id);
+                                if (isBoolean) {
+                                    System.out.println("Succesful!!");
+                                } else {
+                                    System.out.println("I cant find id you input!!");
+                                }
+                            }
+                            break;
+                        case 3:
+                            id = inputIdRoom();
+                            if (facilitys.isEmpty()) {
+                                System.out.println("Nothing!!!!");
+                            } else {
+                                isBoolean = facilityController.remove(id);
+                                if (isBoolean) {
+                                    System.out.println("Succesful!!");
+                                } else {
+                                    System.out.println("I cant find id you input!!");
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case 4:
                     facilitys = facilityController.showList();
@@ -224,7 +270,7 @@ public class ManageView {
                     choice = EmployeeCondition.checkChoice(1, 3);
                     switch (choice) {
                         case 1:
-                            id = inputIdVilla();
+                            id = String.valueOf(inputIdVilla());
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing!!!!");
                             } else {
@@ -265,7 +311,22 @@ public class ManageView {
                     }
                     break;
                 case 5:
-                    
+                    facilitys = facilityController.showList();
+                    if (facilitys.isEmpty()){
+                        System.out.println("Nothing!!!");
+                    }else {
+                        System.out.println("Input name you want to find!!!");
+                        String name = scanner.nextLine();
+                     Set<Facility> facilityList = facilityController.findName(name);
+                     if (facilityList.isEmpty()){
+                         System.out.println("Cant find this name");
+                     }else {
+                         System.out.println("This is list Facility: ");
+                         for (Facility facility1 : facilityList){
+                             System.out.println(facility1);
+                         }
+                     }
+                    }
                     break;
                 case 6:
                     System.out.println("See you latter!!");
@@ -578,7 +639,7 @@ public class ManageView {
         } while (true);
     }
 
-    private static Villa inputInforVilla(String id) {
+    private static Facility inputInforVilla(String id) {
         System.out.println("Input name Villa");
         String name = EmployeeCondition.checkString();
         System.out.println("Input countPerson Villa");
@@ -645,7 +706,7 @@ public class ManageView {
         return EmployeeCondition.codeCustomer();
     }
 
-    private static String inputIdVilla() {
+    private static Facility inputIdVilla() {
         System.out.println("Input code service");
         return EmployeeCondition.checkInputVilla();
     }

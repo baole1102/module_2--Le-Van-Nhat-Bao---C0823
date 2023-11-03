@@ -7,6 +7,7 @@ import case_study.service.IFacilityService;
 
 
 import java.util.Map;
+import java.util.Set;
 
 public class FacilityController {
 
@@ -26,5 +27,13 @@ public class FacilityController {
 
     public boolean remove(String id) {
         return iFacilityService.remove(id);
+    }
+
+    public Set<Facility> findName(String name) {
+        return iFacilityService.findName(name);
+    }
+
+    public void editFacility(String id, Facility facility) {
+        iFacilityService.editFacility(id,facility);
     }
 }

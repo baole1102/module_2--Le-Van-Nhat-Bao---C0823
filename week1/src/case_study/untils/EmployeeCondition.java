@@ -1,5 +1,7 @@
 package case_study.untils;
 
+import case_study.model.inforFacility.Facility;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -146,7 +148,7 @@ public class EmployeeCondition {
             }
         }
     }
-    public static String checkInputVilla(){
+    public static Facility checkInputVilla(){
         String input;
         do {
             try {

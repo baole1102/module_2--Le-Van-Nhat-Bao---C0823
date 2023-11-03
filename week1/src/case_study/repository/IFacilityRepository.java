@@ -5,6 +5,7 @@ package case_study.repository;
 import case_study.model.inforFacility.Facility;
 
 import java.util.Map;
+import java.util.Set;
 
 public interface IFacilityRepository {
 
@@ -15,4 +16,8 @@ public interface IFacilityRepository {
     void addVilla(Facility facility, int count);
 
     void remove(String id);
+
+    Set<Facility> findName(String name);
+
+    void editFacility(String id, String s);
 }

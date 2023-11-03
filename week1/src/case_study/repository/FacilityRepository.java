@@ -51,4 +51,28 @@ public class FacilityRepository implements IFacilityRepository {
             keySet.remove(facility);
         }
     }
+
+    @Override
+    public Set<Facility> findName(String name) {
+        Set<Facility> keySet = facilitys.keySet();
+        Set<Facility> newKeySet = new LinkedHashSet<>();
+        for (Facility key : keySet) {
+            if (key.getName().toLowerCase().contains(name.toLowerCase())){
+                newKeySet.add(key);
+            }
+        }
+       return newKeySet;
+    }
+
+    @Override
+    public void editFacility(String id, String s) {
+        Set<Facility> keySet = facilitys.keySet();
+        for (Facility key : keySet) {
+            if (key.getCode().equals(id)){
+                key.setCode(id);
+                key.setName(s);
+            }
+        }
+    }
+
 }
