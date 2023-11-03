@@ -1,6 +1,9 @@
 package case_study.service;
 
 import case_study.model.inforFacility.Facility;
+import case_study.model.inforFacility.House;
+import case_study.model.inforFacility.Room;
+import case_study.model.inforFacility.Villa;
 
 import java.util.List;
 import java.util.Map;
@@ -18,5 +21,9 @@ public interface IFacilityService {
 
     Set<Facility> findName(String name);
 
-    void editFacility(String id, String s);
+    void editVilla(String id, Villa villa);
+
+    void editHouse(String id, House house);
+
+    void editRoom(String id, Room room);
 }

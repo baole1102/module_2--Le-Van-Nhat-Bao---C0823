@@ -1,6 +1,9 @@
 package case_study.service;
 
 import case_study.model.inforFacility.Facility;
+import case_study.model.inforFacility.House;
+import case_study.model.inforFacility.Room;
+import case_study.model.inforFacility.Villa;
 import case_study.repository.FacilityRepository;
 import case_study.repository.IFacilityRepository;
 
@@ -45,7 +48,17 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void editFacility(String id, String s) {
-        iFacilityRepository.editFacility(id,s);
+    public void editVilla(String id, Villa villa) {
+        iFacilityRepository.editVilla(id,villa);
+    }
+
+    @Override
+    public void editHouse(String id, House house) {
+        iFacilityRepository.editHouse(id,house);
+    }
+
+    @Override
+    public void editRoom(String id, Room room) {
+        iFacilityRepository.editRoom(id,room);
     }
 }

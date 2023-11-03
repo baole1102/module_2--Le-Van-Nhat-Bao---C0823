@@ -65,14 +65,53 @@ public class FacilityRepository implements IFacilityRepository {
     }
 
     @Override
-    public void editFacility(String id, String s) {
+    public void editVilla(String id, Villa villa) {
         Set<Facility> keySet = facilitys.keySet();
         for (Facility key : keySet) {
-            if (key.getCode().equals(id)){
+            if (key instanceof Villa) {
                 key.setCode(id);
-                key.setName(s);
+               key.setName(villa.getName());
+               key.setCountPerson(villa.getCountPerson());
+               key.setCost(villa.getCost());
+               key.setLocation(villa.getLocation());
+               key.setStatus(villa.getStatus());
+               ((Villa) key).setStandar(villa.getStandar());
+               ((Villa) key).setAcreage(villa.getAcreage());
+               ((Villa) key).setNumberFloor(villa.getNumberFloor());
             }
         }
     }
 
+    @Override
+    public void editHouse(String id, House house) {
+        Set<Facility> keySet = facilitys.keySet();
+        for (Facility key : keySet) {
+            if (key instanceof House) {
+                key.setCode(id);
+                key.setName(house.getName());
+                key.setCountPerson(house.getCountPerson());
+                key.setCost(house.getCost());
+                key.setLocation(house.getLocation());
+                key.setStatus(house.getStatus());
+                ((House) key).setStandar(house.getStandar());
+                ((House) key).setNumberFloor(house.getNumberFloor());
+            }
+        }
+    }
+
+    @Override
+    public void editRoom(String id, Room room) {
+        Set<Facility> keySet = facilitys.keySet();
+        for (Facility key : keySet) {
+            if (key instanceof Room) {
+                key.setCode(id);
+                key.setName(room.getName());
+                key.setCountPerson(room.getCountPerson());
+                key.setCost(room.getCost());
+                key.setLocation(room.getLocation());
+                key.setStatus(room.getStatus());
+                ((Room) key).setAttrachFreeService(room.getAttrachFreeService());
+            }
+        }
+    }
 }

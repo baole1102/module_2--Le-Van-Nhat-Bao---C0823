@@ -49,6 +49,7 @@ public class CustomerRepository implements ICustomerRepository {
                 break;
             }
         }
+        WriteFileCustomer.writeFile(customers);
     }
 
     @Override
