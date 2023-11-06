@@ -5,7 +5,7 @@ import case_study.model.inforFacility.Facility;
 import case_study.model.inforFacility.House;
 import case_study.model.inforFacility.Room;
 import case_study.model.inforFacility.Villa;
-import case_study.service.FacilityService;
+import case_study.service.impl.FacilityService;
 import case_study.service.IFacilityService;
 
 

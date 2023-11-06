@@ -1,7 +1,7 @@
 package case_study.controller;
 
 import case_study.model.modulePerson.Customer;
-import case_study.service.CustomerService;
+import case_study.service.impl.CustomerService;
 import case_study.service.ICustomerService;
 
 import java.util.List;

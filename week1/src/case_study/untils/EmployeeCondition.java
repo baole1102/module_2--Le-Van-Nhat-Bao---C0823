@@ -53,7 +53,6 @@ public class EmployeeCondition {
                     return input;
                 }
             } catch (InputMismatchException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -63,13 +62,12 @@ public class EmployeeCondition {
         while (true) {
             try {
                 input = scanner.nextLine();
-                if (!input.matches("^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$")) {
+                if (!input.matches("^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,50}$")) {
                     System.out.println("Require input (Upper) the first letter of the name. Enter again!!");
                 } else {
                     return input;
                 }
             } catch (InputMismatchException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -94,33 +92,17 @@ public class EmployeeCondition {
         }
     }
 
-    public static String checkDate() throws ParseException, RuntimeException {
-        SimpleDateFormat simpleDateFormat;
-        Date date;
-        do {
-            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            date = null;
-            try {
-                date = simpleDateFormat.parse(scanner.nextLine());
-                return simpleDateFormat.format(date);
-            } catch (ParseException e) {
-                System.err.println("Require input email. Enter again!!");
-            }
-        } while (true);
-    }
-
     public static String checkMail() {
         String input;
         while (true) {
             input = scanner.nextLine();
             try {
-                if (input.matches("^[a-zA-Z0-9]+[a-zA-Z0-9]*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)$")) {
+                if (input.matches("^[a-zA-Z0-9]+[a-zA-Z0-9]{5,10}.*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)$")) {
                     return input;
                 } else {
                     System.out.println("You should input like pattern!! Input Again");
                 }
             } catch (InputMismatchException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -257,10 +239,10 @@ public class EmployeeCondition {
         int input;
         while (true) {
             input = Integer.parseInt(scanner.nextLine());
-            if (input > 0 && input < 20) {
-                System.out.println("Require input ( 0 < number Person < 20 !!! )");
-            } else {
+            if (input > 0 || input < 20) {
                 return input;
+            } else {
+                System.out.println("Require input ( 0 < number Person < 20 !!! )");
             }
         }
     }
@@ -320,7 +302,7 @@ public class EmployeeCondition {
             System.out.println("1. 5 Star \n" +
                     "2. 4 Star \n" +
                     "3. 3 Star \n" +
-                    "4. 2 Star \n +" +
+                    "4. 2 Star \n" +
                     "5. 1 Star \n");
             choice = checkChoice(1, 5);
             switch (choice) {

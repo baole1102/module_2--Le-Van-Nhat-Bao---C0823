@@ -23,10 +23,10 @@ import static case_study.manage.FacilityView.managementFacility;
 
 public class ManageView {
 
-    private static EmployeeController employeeController = new EmployeeController();
-    private static CustomerController customerController = new CustomerController();
-    private static FacilityController facilityController = new FacilityController();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final EmployeeController employeeController = new EmployeeController();
+    private static final CustomerController customerController = new CustomerController();
+    private static final FacilityController facilityController = new FacilityController();
+    private static final Scanner scanner = new Scanner(System.in);
     private static List<Customer> customers;
     private static Customer customer;
     private static List<Employee> employees;
@@ -37,7 +37,7 @@ public class ManageView {
     private static House house;
     private static Room room;
     private static boolean isBoolean;
-    private static int count = 0;
+    private static final int count = 0;
 
     public static void main(String[] args) throws ParseException {
         String id;

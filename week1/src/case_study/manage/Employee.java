@@ -111,8 +111,8 @@ public class Employee {
         System.out.println("Input name employee");
         String name = EmployeeCondition.checkName();
         String date = EmployeeCondition.inputBirthday();
-        System.out.println("Input gender employee");
-        String gender = EmployeeCondition.checkString();
+        String gender = checkGender();
+        System.out.println("Input identify employee");
         String identify = EmployeeCondition.checkIndentify();
         System.out.println("Input number employee");
         String number = EmployeeCondition.checkNumberPhone();
@@ -179,5 +179,24 @@ public class Employee {
                     System.out.println("Input 1-->6 !!!");
             }
         } while (true);
+    }
+    public static String checkGender() {
+        while (true) {
+            int choice;
+            System.out.println("Gender");
+            System.out.println("------------------");
+            System.out.println("1. Male \n" +
+                    "2. Female \n" +
+                    "3. Gay \n" );
+            choice = EmployeeCondition.checkChoice(1, 3);
+            switch (choice) {
+                case 1:
+                    return "Male";
+                case 2:
+                    return "Female";
+                case 3:
+                    return "Gay";
+            }
+        }
     }
 }

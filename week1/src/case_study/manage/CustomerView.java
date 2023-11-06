@@ -3,6 +3,7 @@ package case_study.manage;
 import case_study.controller.CustomerController;
 import case_study.model.modulePerson.Customer;
 import case_study.untils.EmployeeCondition;
+import com.sun.javafx.iio.gif.GIFImageLoaderFactory;
 
 import java.text.ParseException;
 import java.util.List;
@@ -10,10 +11,11 @@ import java.util.Scanner;
 
 public class CustomerView {
     private static final Scanner scanner = new Scanner(System.in);
-    private static CustomerController customerController = new CustomerController();
+    private static final CustomerController customerController = new CustomerController();
     private static List<Customer> customers;
     private static Customer customer;
     private static boolean isBoolean;
+
     public static void managementCustomer() throws ParseException {
         int choice;
         String id;
@@ -40,27 +42,26 @@ public class CustomerView {
                     break;
                 case 2:
                     customers = customerController.showList();
-                    id = inputIdCustomer();
-                    isBoolean = customerController.findId(id);
-                    while (isBoolean) {
-                        System.out.println("The id already matches another id!!");
+                    do {
                         id = inputIdCustomer();
                         isBoolean = customerController.findId(id);
-                    }
+                        if (isBoolean) {
+                            System.out.println("The id already matches another id!!");
+                        }
+                    } while (isBoolean);
                     customer = inputInforCustomer();
                     customer.setCode(id);
                     customerController.addCustomer(customer);
                     System.out.println("Add Completely!!");
                     break;
                 case 3:
-                    System.out.println("Input id customer. You want to edit!!!");
-                    id = inputIdCustomer();
-                    isBoolean = customerController.findId(id);
-                    while (isBoolean) {
-                        System.out.println("Not find this id!!");
+                    do {
                         id = inputIdCustomer();
                         isBoolean = customerController.findId(id);
-                    }
+                        if (!isBoolean) {
+                            System.out.println("Not find this id!!");
+                        }
+                    } while (!isBoolean);
                     customer = inputInforCustomer();
                     customer.setCode(id);
                     customerController.editCustomer(id, customer);
@@ -100,16 +101,16 @@ public class CustomerView {
                     break;
                 case 6:
                     System.out.println("See you latter!!");
-                    System.exit(0);
+                    return;
             }
         } while (true);
     }
+
     private static Customer inputInforCustomer() throws ParseException {
         System.out.println("Input name customer");
         String name = EmployeeCondition.checkName();
         String date = EmployeeCondition.inputBirthday();
-        System.out.println("Input gender customer");
-        String gender = EmployeeCondition.checkString();
+        String gender = Employee.checkGender();
         System.out.println("Input identify customer");
         String identify = EmployeeCondition.checkIndentify();
         System.out.println("Input number customer");
@@ -121,6 +122,7 @@ public class CustomerView {
         String address = EmployeeCondition.checkString();
         return new Customer(name, date, gender, identify, number, email, level, address);
     }
+
     private static String inputIdCustomer() {
         System.out.println("Input id Customer");
         return EmployeeCondition.codeCustomer();

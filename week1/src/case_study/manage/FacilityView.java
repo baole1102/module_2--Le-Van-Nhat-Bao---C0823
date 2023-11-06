@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class FacilityView {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private static Map<Facility, Integer> facilitys;
     private static Facility facility;
     private static Villa villa;
@@ -20,7 +20,7 @@ public class FacilityView {
     private static Room room;
     private static boolean isBoolean;
     private static int count = 0;
-    private static FacilityController facilityController = new FacilityController();
+    private static final FacilityController facilityController = new FacilityController();
     public static void managementFacility() {
         String id;
         int choice;
@@ -57,13 +57,13 @@ public class FacilityView {
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing is this!!");
                             } else {
-                                id = inputIdVilla();
-                                isBoolean = facilityController.findId(id);
-                                while (isBoolean) {
-                                    System.out.println("The id already matches another id!!");
+                                do {
                                     id = inputIdVilla();
                                     isBoolean = facilityController.findId(id);
-                                }
+                                    if (isBoolean){
+                                        System.out.println("The id already matches another id!!");
+                                    }
+                                }while (isBoolean);
                                 facility = inputInforVilla(id);
                                 facility.setCode(id);
                                 facilityController.addFacility(facility, count);
@@ -76,13 +76,13 @@ public class FacilityView {
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing is this!!");
                             } else {
-                                id = inputIdHouse();
-                                isBoolean = facilityController.findId(id);
-                                while (isBoolean) {
-                                    System.out.println("The id already matches another id!!");
+                                do {
                                     id = inputIdHouse();
                                     isBoolean = facilityController.findId(id);
-                                }
+                                    if (isBoolean){
+                                        System.out.println("The id already matches another id!!");
+                                    }
+                                }while (isBoolean);
                                 facility = inputInforHouse(id);
                                 facility.setCode(id);
                                 facilityController.addFacility(facility, count);
@@ -95,13 +95,13 @@ public class FacilityView {
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing is this!!");
                             } else {
-                                id = inputIdRoom();
-                                isBoolean = facilityController.findId(id);
-                                while (isBoolean) {
-                                    System.out.println("The id already matches another id!!");
+                                do {
                                     id = inputIdRoom();
                                     isBoolean = facilityController.findId(id);
-                                }
+                                    if (isBoolean){
+                                        System.out.println("The id already matches another id!!");
+                                    }
+                                }while (isBoolean);
                                 facility = inputInforRoom(id);
                                 facility.setCode(id);
                                 facilityController.addFacility(facility, count);
@@ -124,37 +124,40 @@ public class FacilityView {
                     choice = EmployeeCondition.checkChoice(1, 3);
                     switch (choice) {
                         case 1:
-                            id = inputIdVilla();
-                            isBoolean = facilityController.findId(id);
-                            if (!isBoolean) {
-                                System.out.println("Not find id!!");
-                            } else {
+                            do {
+                                id = inputIdVilla();
+                                isBoolean = facilityController.findId(id);
+                                if (!isBoolean) {
+                                    System.out.println("Not find id!!");
+                                }
+                            }while (!isBoolean);
                                 villa = inputInforVilla(id);
                                 facilityController.editVilla(id, villa);
                                 System.out.println("Edit Successful!!!");
-                            }
                             break;
                         case 2:
-                            id = inputIdHouse();
-                            isBoolean = facilityController.findId(id);
-                            if (!isBoolean) {
-                                System.out.println("Not find id!!");
-                            } else {
+                            do {
+                                id = inputIdHouse();
+                                isBoolean = facilityController.findId(id);
+                                if (!isBoolean) {
+                                    System.out.println("Not find id!!");
+                                }
+                            }while (!isBoolean);
                                 house = inputInforHouse(id);
                                 facilityController.editHouse(id, house);
                                 System.out.println("Edit Successful!!!");
-                            }
                             break;
                         case 3:
-                            id = inputIdRoom();
-                            isBoolean = facilityController.findId(id);
-                            if (!isBoolean) {
-                                System.out.println("Not find id!!");
-                            } else {
+                            do {
+                                id = inputIdRoom();
+                                isBoolean = facilityController.findId(id);
+                                if (!isBoolean) {
+                                    System.out.println("Not find id!!");
+                                }
+                            }while (!isBoolean);
                                 room = inputInforRoom(id);
                                 facilityController.editRoom(id, room);
                                 System.out.println("Edit Successful!!!");
-                            }
                             break;
                     }
                     break;
@@ -168,42 +171,45 @@ public class FacilityView {
                     choice = EmployeeCondition.checkChoice(1, 3);
                     switch (choice) {
                         case 1:
-                            id = inputIdVilla();
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing!!!!");
                             } else {
-                                isBoolean = facilityController.remove(id);
-                                if (isBoolean) {
+                                do {
+                                    id = inputIdVilla();
+                                    isBoolean = facilityController.remove(id);
+                                    if (!isBoolean){
+                                        System.out.println("I cant find id you input!!");
+                                    }
+                                }while (!isBoolean);
                                     System.out.println("Succesful!!");
-                                } else {
-                                    System.out.println("I cant find id you input!!");
-                                }
                             }
                             break;
                         case 2:
-                            id = inputIdHouse();
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing!!!!");
                             } else {
-                                isBoolean = facilityController.remove(id);
-                                if (isBoolean) {
+                                do {
+                                    id = inputIdHouse();
+                                    isBoolean = facilityController.remove(id);
+                                    if (!isBoolean){
+                                        System.out.println("I cant find id you input!!");
+                                    }
+                                }while (!isBoolean);
                                     System.out.println("Succesful!!");
-                                } else {
-                                    System.out.println("I cant find id you input!!");
-                                }
                             }
                             break;
                         case 3:
-                            id = inputIdRoom();
                             if (facilitys.isEmpty()) {
                                 System.out.println("Nothing!!!!");
                             } else {
-                                isBoolean = facilityController.remove(id);
-                                if (isBoolean) {
+                                do {
+                                    id = inputIdRoom();
+                                    isBoolean = facilityController.remove(id);
+                                    if (!isBoolean){
+                                        System.out.println("I cant find id you input!!");
+                                    }
+                                }while (!isBoolean);
                                     System.out.println("Succesful!!");
-                                } else {
-                                    System.out.println("I cant find id you input!!");
-                                }
                             }
                             break;
                     }
@@ -216,6 +222,7 @@ public class FacilityView {
                         System.out.println("Input name you want to find!!!");
                         String name = scanner.nextLine();
                         Set<Facility> facilityList = facilityController.findName(name);
+
                         if (facilityList.isEmpty()) {
                             System.out.println("Cant find this name");
                         } else {
@@ -250,8 +257,7 @@ public class FacilityView {
         long acreage = EmployeeCondition.checkAcreage();
         System.out.println("Input numberfloor Villa");
         int numberfloor = EmployeeCondition.checkFloor();
-        Villa villa = new Villa(id, name, countPerson, cost, location, status, standar, acreage, numberfloor);
-        return villa;
+        return new Villa(id, name, countPerson, cost, location, status, standar, acreage, numberfloor);
     }
 
     private static House inputInforHouse(String id) {
@@ -269,8 +275,7 @@ public class FacilityView {
         String standard = EmployeeCondition.checkStandard();
         System.out.println("Input numberfloor House");
         int numberfloor = EmployeeCondition.checkFloor();
-        House house = new House(id, name, countPerson, cost, location, status, standard, numberfloor);
-        return house;
+        return new House(id, name, countPerson, cost, location, status, standard, numberfloor);
     }
 
     private static Room inputInforRoom(String id) {
@@ -286,8 +291,7 @@ public class FacilityView {
         String status = EmployeeCondition.checkStatus();
         System.out.println("Input attrachFreeService Room");
         String attrachFreeService = EmployeeCondition.checkString();
-        Room room = new Room(id, name, countPerson, cost, location, status, attrachFreeService);
-        return room;
+        return new Room(id, name, countPerson, cost, location, status, attrachFreeService);
     }
 
     private static String inputIdVilla() {

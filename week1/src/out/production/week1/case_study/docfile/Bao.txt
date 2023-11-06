@@ -1,2 +1,3 @@
 NV-1123,Bao,11/02/2001,Nam,After University,0987654321,l@g.cp,a,Receptionist,4124.0
 NV-1234,a,11/10/2212,a,Trung Cấp,0123123123,l@g.c,a,a,123.0
+NV-1233,Bao,11/02/2001,Male,123123123,0123123123,levannhatbao29@gmail.com,Intermediate,Serve,430.0
