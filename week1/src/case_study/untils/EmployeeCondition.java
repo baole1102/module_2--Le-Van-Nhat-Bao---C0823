@@ -239,7 +239,7 @@ public class EmployeeCondition {
         int input;
         while (true) {
             input = Integer.parseInt(scanner.nextLine());
-            if (input > 0 || input < 20) {
+            if (input > 0 && input < 20) {
                 return input;
             } else {
                 System.out.println("Require input ( 0 < number Person < 20 !!! )");
