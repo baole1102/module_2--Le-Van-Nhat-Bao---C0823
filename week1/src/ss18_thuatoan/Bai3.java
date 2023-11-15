@@ -14,7 +14,7 @@ public class Bai3 {
 //            newArr[i] = Integer.parseInt(scanner.nextLine());
 //        }
 //        System.out.println(Arrays.toString(newArr));
-        int[] newArr = {1,2,3,2};
+        int[] newArr = {1,2,3,4};
         boolean isBoolean = true;
         for (int i = 0; i < newArr.length; i++) {
             if (i == newArr.length-1){

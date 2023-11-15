@@ -90,7 +90,7 @@ public class ManageView {
                     break;
                 case 3:
                     System.out.println("See you latter!!");
-                    System.exit(0);
+                    return;
             }
         } while (true);
     }
@@ -120,7 +120,7 @@ public class ManageView {
                     break;
                 case 6:
                     System.out.println("See you latter!!");
-                    System.exit(0);
+                    return;
             }
         } while (true);
     }

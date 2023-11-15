@@ -5,6 +5,10 @@ import ss11_java_collection.exc.linkedlist.module.Product;
 import java.util.Comparator;
 
 public class Comparetor implements Comparator<Product> {
+//    @Override
+//    public int compare(Product o1, Product o2) {
+//        return 0;
+//    }
     private final boolean condition;
 
     public Comparetor(boolean condition) {

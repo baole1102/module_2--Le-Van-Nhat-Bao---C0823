@@ -15,6 +15,6 @@ public class Bai8 {
                 count ++;
             }
         }
-        System.out.println(count    );
+        System.out.println(count);
     }
 }

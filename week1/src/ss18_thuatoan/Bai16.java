@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Bai16 {
     public static void main(String[] args) {
         Scanner sc  = new Scanner( System.in);
-        String str = "Hello";
+        String str = "Bao Dep Trai";
         str = str.replaceAll("\\s+", " ");
         str = str.trim();
         String [] newArr = str.split(" ");

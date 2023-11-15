@@ -3,9 +3,9 @@ package ss18_thuatoan;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bai1 {
+public class    Bai1 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap so phan tu muon nhap!!");
         int number = Integer.parseInt(scanner.nextLine());
         int[] newArr = new int[number];
@@ -14,6 +14,7 @@ public class Bai1 {
             newArr[i] = Integer.parseInt(scanner.nextLine());
         }
            System.out.println(Arrays.toString(newArr));
+
         int count1 = 0;
         int count2 = 0;
         for (int i = 0; i < newArr.length; i++) {

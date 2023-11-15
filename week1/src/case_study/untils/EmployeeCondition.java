@@ -47,12 +47,13 @@ public class EmployeeCondition {
         while (true) {
             try {
                 input = scanner.nextLine();
-                if (input.matches(".*\\d.*")) {
-                    System.out.println("Require input word. Enter again!!");
-                } else {
+                if (input.matches("^[A-Z][a-zA-Z\\s]{1,50}$")) {
                     return input;
+                } else {
+                    System.out.println("Require input word (Ex: VN - Viet Nam). Enter again!!");
                 }
             } catch (InputMismatchException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -68,6 +69,7 @@ public class EmployeeCondition {
                     return input;
                 }
             } catch (InputMismatchException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -97,12 +99,13 @@ public class EmployeeCondition {
         while (true) {
             input = scanner.nextLine();
             try {
-                if (input.matches("^[a-zA-Z0-9]+[a-zA-Z0-9]{5,10}.*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)$")) {
+                if (input.matches("^[a-zA-Z0-9._%+-]{5,20}+@gmail.com$")) {
                     return input;
                 } else {
-                    System.out.println("You should input like pattern!! Input Again");
+                    System.out.println("You should input like pattern ( abd123@gmail.com )!! Input Again");
                 }
             } catch (InputMismatchException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -226,35 +229,48 @@ public class EmployeeCondition {
     public static long checkCost() {
         long input;
         while (true) {
-            input = Long.parseLong(scanner.nextLine());
-            if (input < 0) {
-                System.out.println("Require input positive cost !!!");
-            } else {
-                return input;
+            try {
+                input = Long.parseLong(scanner.nextLine());
+                if (input < 0) {
+                    System.out.println("Require input positive cost !!!");
+                } else {
+                    return input;
+                }
+            }catch (NumberFormatException e){
+                System.err.println("Require input number !!!");
             }
         }
     }
 
+
     public static int checkCountPerson() {
         int input;
         while (true) {
-            input = Integer.parseInt(scanner.nextLine());
-            if (input > 0 && input < 20) {
-                return input;
-            } else {
-                System.out.println("Require input ( 0 < number Person < 20 !!! )");
-            }
+           try {
+               input = Integer.parseInt(scanner.nextLine());
+               if (input > 0 && input < 20) {
+                   return input;
+               } else {
+                   System.out.println("Require input ( 0 < number Person < 20 !!! )");
+               }
+           }catch (NumberFormatException e){
+               System.err.println("Require input number !!!");
+           }
         }
     }
 
     public static int checkFloor() {
         int input;
         while (true) {
-            input = Integer.parseInt(scanner.nextLine());
-            if (input <= 0) {
-                System.out.println("Require input positive floor !!!");
-            } else {
-                return input;
+            try {
+                input = Integer.parseInt(scanner.nextLine());
+                if (input <= 0) {
+                    System.out.println("Require input positive floor !!!");
+                } else {
+                    return input;
+                }
+            }catch (NumberFormatException e){
+                System.err.println("Require input number !!!");
             }
         }
     }
@@ -262,11 +278,15 @@ public class EmployeeCondition {
     public static long checkAcreage() {
         long input;
         while (true) {
-            input = Long.parseLong(scanner.nextLine());
-            if (input < 30) {
-                System.out.println("Require input ( Arcreage > 30m2 !!! )");
-            } else {
-                return input;
+            try {
+                input = Long.parseLong(scanner.nextLine());
+                if (input < 30) {
+                    System.out.println("Require input ( Acreage > 30m2 !!! )");
+                } else {
+                    return input;
+                }
+            }catch (NumberFormatException e){
+                System.err.println("Require input number !!!");
             }
         }
     }

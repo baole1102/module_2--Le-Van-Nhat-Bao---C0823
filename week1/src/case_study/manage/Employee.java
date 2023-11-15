@@ -22,7 +22,7 @@ public class Employee {
         String id;
         int choice;
         do {
-            System.out.println("Function Manager");
+            System.out.println("Employee Manager");
             System.out.println("--------------------------");
             System.out.println("1. Display list employee \n" +
                     "2. Add new employee \n" +
@@ -161,7 +161,7 @@ public class Employee {
                     "4. Supervisor \n" +
                     "5. Manager \n" +
                     "6. Director");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = EmployeeCondition.checkChoice(1, 6);
             switch (choice) {
                 case 1:
                     return "Receptionist";
@@ -175,8 +175,6 @@ public class Employee {
                     return "Manager";
                 case 6:
                     return "Director";
-                default:
-                    System.out.println("Input 1-->6 !!!");
             }
         } while (true);
     }

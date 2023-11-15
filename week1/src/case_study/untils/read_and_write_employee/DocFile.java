@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.List;
 
 public class DocFile {
-    private static final String PATH = "case_study/docfile/Bao.txt";
+    private static final String PATH = "case_study/docfile/Employee.txt";
     public static void writeFile(List<Employee> employees){
         File file = new File(PATH);
         FileWriter fileWriter = null;

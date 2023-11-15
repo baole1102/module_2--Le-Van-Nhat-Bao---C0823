@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFile {
-    private static final String PATH = "case_study/docfile/Bao.txt";
+    private static final String PATH = "case_study/docfile/Employee.txt";
 
     public static List<Employee> readFile() {
         File file = new File(PATH);

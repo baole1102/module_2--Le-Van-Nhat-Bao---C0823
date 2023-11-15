@@ -292,8 +292,7 @@ public class FacilityView {
         System.out.println("Input location Room");
         String location = EmployeeCondition.checkString();
         String status = EmployeeCondition.checkStatus();
-        System.out.println("Input attachFreeService Room");
-        String attachFreeService = EmployeeCondition.checkString();
+        String attachFreeService = attachFreeService();
         return new Room(id, name, countPerson, cost, location, status, attachFreeService);
     }
 
@@ -328,5 +327,30 @@ public class FacilityView {
                     break;
             }
         }
+    }
+    private static String attachFreeService() {
+        int choice;
+        do {
+            System.out.println("Free Service");
+            System.out.println("-----------------");
+            System.out.println("1. Free Swimming \n" +
+                    "2. Free boating \n" +
+                    "3. Free bicyle riding \n" +
+                    "4. Free shuttle \n" +
+                    "5. Free massage ");
+            choice = EmployeeCondition.checkChoice(1, 5);
+            switch (choice) {
+                case 1:
+                    return "Free Swimming";
+                case 2:
+                    return "Free boating";
+                case 3:
+                    return "Free bicyle riding";
+                case 4:
+                    return "Free shuttle";
+                case 5:
+                    return "Free massage";
+            }
+        } while (true);
     }
 }

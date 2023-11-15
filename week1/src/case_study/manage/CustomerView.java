@@ -20,7 +20,7 @@ public class CustomerView {
         int choice;
         String id;
         do {
-            System.out.println("Function Manager");
+            System.out.println("Customer Manager");
             System.out.println("--------------------------");
             System.out.println("1. Display list customers \n" +
                     "2. Add new customers \n" +
