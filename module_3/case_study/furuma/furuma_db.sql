@@ -73,14 +73,15 @@ id int primary key auto_increment not null,
 create table service(
 id int primary key auto_increment not null,
 `name` varchar(45) not null,
-acreage_room varchar(45) not null,
-expense int not null,
+acreage_room int ,
+expense double not null,
 amount_peson int not null,
-stardard_room varchar(45) not null,
-description_convinient varchar(45) not null,
-acreage_pool varchar(45) not null,
-number_floor int default 0,
-free_service varchar(45) not null,
+stardard_room varchar(45),
+description_convinient varchar(45) ,
+acreage_pool double ,
+
+number_floor int ,
+free_service text ,
 type_service_id int,
 type_retail_id int,
 foreign key (type_service_id) references type_service (id),
@@ -89,7 +90,7 @@ foreign key (type_retail_id) references type_retail (id)
 
 -- Hợp đồng
 create table contract(
-id int primary key auto_increment not null,
+id int primary key auto_increment,
 start_day datetime,
 end_day datetime,
 deposite_money double,
@@ -99,7 +100,7 @@ service_id int,
 foreign key (employee_id) references employee (id),
 foreign key (customer_id) references customer (id),
 foreign key (service_id) references service (id)
-);
+);	
 
 -- Dịch vụ đi kèm
 create table companied_service(
@@ -113,10 +114,9 @@ unit varchar(10),
 -- Hợp đồng chi tiết
 create table contract_detail(
 id int primary key auto_increment not null,
-contract_detail_id int,
+count int not null,
 contract_id int,
 companied_service_id int,
-count int,
 foreign key (companied_service_id) references companied_service(id),
 foreign key (contract_id) references contract(id)
 );
@@ -161,7 +161,25 @@ values ('year'),
 ('day'),
 ('hour');
 
+-- Dịch vụ đi kèm
+insert into companied_service (`name`,price,unit,`status`)
+values ('Karaoke',10000,'giờ','tiện nghi, hiện tại'),
+('Thuê xe máy',10000,'chiếc','hỏng 1 xe'),
+('Thuê xe đạp',20000,'chiếc','tốt'),
+('Buffet buổi sáng',15000,'suất','đầy đủ đồ ăn, tráng miệng'),
+('Buffet buổi trưa',90000,'suất','đầy đủ đồ ăn, tráng miệng'),
+('Buffet buổi tối',16000,'suất','đầy đủ đồ ăn, tráng miệng');
 
+-- Dịch vụ
+insert into service(`name`,acreage_room,expense,amount_peson,stardard_room,description_convinient,acreage_pool,number_floor,free_service,type_retail_id,type_service_id)
+values ('Villa Beach Front',25000,10000000,10,'vip','Có hồ bơi',500,null,4,3,1),
+('House Princess 01',14000,5000000,7,'vip','Có thêm bếp nướng',null,null,3,2,2),
+('Room Twin 01',5000,1000000,2,'normal','Có tivi',null,null,'1 Xe máy, 1 Xe đạp',4,3),
+('Villa No Beach Front',22000,9000000,8,'normal','Có hồ bơi',300,3,null,3,1),
+('House Princess 02',10000,4000000,5,'normal','Có thêm bếp nướng',null,2,null,3,2),
+('Room Twin 02',3000,900000,2,'normal','Có tivi',null,null,'1 Xe máy',4,3);
+
+-- Nhân viên
 insert into employee(`name`,birthday,identify,saraly,`number`,email,address,position_id,level_id,part_id)
 values ('Nguyễn Văn An','1970-11-07','456231786',10000000,'0901234121','annguyen@gmail.com','295 Nguyễn Tất Thành, Đà Nẵng',1,3,1),
 ('Lê Văn Bình','1997-04-09','654231234',7000000,'0934212314','binhlv@gmail.com','22 Yên Bái, Đà Nẵng',1,2,2),
@@ -174,6 +192,7 @@ values ('Nguyễn Văn An','1970-11-07','456231786',10000000,'0901234121','anngu
 ('Tòng Hoang','1982-09-03','256781231',6000000,'0245144444','hoangtong@gmail.com','213 Hàm Nghi, Đà Nẵng',2,4,4),
 ('Nguyễn Công Đạo','1994-01-08','755434343',8000000,'0988767111','nguyencongdao12@gmail.com','6 Hoà Khánh, Đồng Nai',2,3,2);
 
+-- Khách Hàng
 insert into customer(`name`,birthday,gender,identify,`number`,email,address,type_customer_id)
 values ('Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao07@gmail.com','23 Nguyễn Hoàng, Đà Nẵng',5),
 ('Phạm Xuân Diệu','1992-08-08',1,'865342123','0954333333','xuandieu92@gmail.com','K77/22 Thái Phiên, Quảng Trị',3),
@@ -186,6 +205,8 @@ values ('Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao07@
 ('Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt, Quảng Ngãi',1),
 ('Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng',2);
 
+
+-- Hợp đồng
 insert into contract (start_day,end_day,deposite_money,employee_id,customer_id,service_id)
 values ('2020-12-08','2020-12-08',0,3,1,3),
 ('2020-07-14','2020-07-21',200000,7,3,1),
@@ -199,3 +220,14 @@ values ('2020-12-08','2020-12-08',0,3,1,3),
 ('2021-04-12','2021-04-14',0,10,3,5),		
 ('2021-04-25','2021-04-25',0,2,2,1),
 ('2021-05-25','2021-05-27',0,7,10,1);
+
+-- Hợp đồng chi tiết
+insert into contract_detail(count,contract_id,companied_service_id)
+values (5,2,4),
+(8,2,5),
+(15,2,6),
+(1,3,1),
+(11,3,2),
+(1,1,3),
+(2,1,2),
+(2,12,2);
