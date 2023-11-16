@@ -6,8 +6,8 @@ id int primary key auto_increment,
 `name` varchar (50),
 age int,
 country varchar(50),
-id int,
-foreign key (id) references class(id)
+class_id int,
+foreign key (class_id) references class(id)
 );
 
 create table teacher(
@@ -15,8 +15,8 @@ id int primary key auto_increment,
 `name` varchar (50),
 age int,
 country varchar(50),
-id int,
-foreign key (id) references class(id)
+class_id int,
+foreign key (class_id) references class(id)
 );
 
 create table class(
