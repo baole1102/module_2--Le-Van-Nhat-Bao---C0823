@@ -2,25 +2,28 @@ CREATE DATABASE db_school ;
 use db_school;
 
 create table student(
-student_id int primary key auto_increment,
+id int primary key auto_increment,
 `name` varchar (50),
 age int,
 country varchar(50),
-class_id int,
-foreign key (class_id) references class(class_id)
+id int,
+foreign key (id) references class(id)
 );
+
 create table teacher(
-teacher_id int primary key auto_increment,
+id int primary key auto_increment,
 `name` varchar (50),
 age int,
 country varchar(50),
-class_id int,
-foreign key (class_id) references class(class_id)
+id int,
+foreign key (id) references class(id)
 );
+
 create table class(
-class_id int primary key auto_increment,
+id int primary key auto_increment,
 `name` varchar (50)
 );
+
 insert into student (`name`,age,country)
 values ("Bao",18,"Huế"),
 ("Độ",17,"Quãng Nam"),
