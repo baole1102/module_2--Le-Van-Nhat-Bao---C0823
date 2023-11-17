@@ -1,5 +1,6 @@
 create database convert_erd;
 use convert_erd;
+
 -- đây là phiếu xuất
 create table bill(
 id int primary key auto_increment not null,
@@ -18,6 +19,7 @@ price int not null,
 bill_id int not null,
 supplies_id int not null,
 `number` int not null,
+primary key (bill_id,supplies_id),
 foreign key (bill_id) references bill (id),
 foreign key (supplies_id) references supplies (id)
 );
@@ -34,6 +36,7 @@ price int not null,
 `number` int not null,
 supplies_id int,
 enter_coupon_id int,
+primary key(supplies_id,enter_coupon_id),
 foreign key (enter_coupon_id) references enter_coupon (id),
 foreign key (supplies_id) references supplies (id)
 );
@@ -64,7 +67,7 @@ foreign key (supplier_id) references supplier (id)
 create table details_order(
 supplies_id int,
 order_id int,
-unique(supplies_id,order_id ),
+primary key(supplies_id,order_id ),
 foreign key (order_id) references `order` (id),
 foreign key (supplies_id) references supplies (id)
 );
