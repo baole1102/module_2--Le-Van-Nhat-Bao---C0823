@@ -1,5 +1,5 @@
-CREATE DATABASE quanlysinhsien;
-USE quanlysinhsien;
+CREATE DATABASE quan_ly_sinh_vien;
+USE quan_ly_sinh_vien;
 
 -- Class
 create table class (
