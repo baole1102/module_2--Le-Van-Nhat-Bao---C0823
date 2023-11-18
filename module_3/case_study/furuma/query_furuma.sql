@@ -20,6 +20,28 @@ join contract ct on c.id = ct.customer_id
 group by  ct.customer_id 
 order by count(ct.customer_id) ;
 
+-- Task 5
+select c.id,
+ c.`name`,
+ tc.`name`,
+ co.id,
+ se.`name`,
+ co.start_day,
+ co.end_day,
+sum(se.expense+(cd.count*cs.price)) as 'tong tien'
+from customer c 
+left join type_customer tc on c.type_customer_id = tc.id
+left join contract co on c.id = co.customer_id
+left join service se on co.service_id = se.id
+left join contract_detail cd on co.id = cd.contract_id
+left join companied_service cs on cd.companied_service_id = cs.id
+group by c.id,
+    c.`name`,
+    tc.`name`,
+    co.id,
+    se.`name`,
+    co.start_day,
+    co.end_day;
 
 -- task 6
 select s.id, s.`name`,s.acreage_room,s.expense,ts.`name`
@@ -66,12 +88,15 @@ select month(co.start_day) as 'Thang',count(co.customer_id) as 'so_luong_khach_h
 from contract co
 where year(co.start_day) = 2021  
 group by month(co.start_day)
-order by month(co.start_day)
+order by month(co.start_day);
 
 -- Task 10
-select co.id as 'Ma hop dong',
-
-
+select co.id as 'Ma hop dong',co.start_day,co.end_day,co.deposite_money,sum(cd.count) as 'so luong'
+from contract co
+left join contract_detail cd on co.id = cd.contract_id
+left join companied_service cs on cd.companied_service_id = cs.id
+group by (co.id);
+-- Task 11
 
 
 
