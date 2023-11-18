@@ -79,7 +79,6 @@ amount_peson int not null,
 stardard_room varchar(45),
 description_convinient varchar(45) ,
 acreage_pool double ,
-
 number_floor int ,
 free_service text ,
 type_service_id int,
