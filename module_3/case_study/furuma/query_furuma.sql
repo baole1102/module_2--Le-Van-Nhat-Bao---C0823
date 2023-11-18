@@ -65,5 +65,15 @@ group by c.`name`
 select month(co.start_day) as 'Thang',count(co.customer_id) as 'so_luong_khach_hang'
 from contract co
 where year(co.start_day) = 2021  
-group by co.customer_id
+group by month(co.start_day)
 order by month(co.start_day)
+
+-- Task 10
+select co.id as 'Ma hop dong',
+
+
+
+
+
+
+
