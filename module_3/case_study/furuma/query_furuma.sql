@@ -96,6 +96,8 @@ from contract co
 left join contract_detail cd on co.id = cd.contract_id
 left join companied_service cs on cd.companied_service_id = cs.id
 group by (co.id);
+
+
 -- Task 11
 
 
