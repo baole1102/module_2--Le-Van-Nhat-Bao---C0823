@@ -31,34 +31,34 @@ where  co.start_day not between '2021-01-01' and '2021-03-30'
 and co.end_day not between '2021-01-01' and '2021-03-30';
 
 -- task 7
-	select s.id, s.`name`,s.acreage_room,s.expense,ts.`name`
-	from customer c
-	join contract co on c.id = co.customer_id
-	join service s on co.service_id = s.id
-	join type_service ts on s.type_service_id = ts.id
-	join type_retail tr on s.type_retail_id = tr.id
-	where year(co.start_day) = 2020
-	and s.id not in (
-    select s.id
-    from service s
-    join contract co on co.service_id = s.id
-    where  year(co.start_day) = 2021);
-    
-    -- Task 8
-    -- C1:
-    select distinct c.`name`
-	from customer c;
-    -- C2:
-    select c.`name`
-    from customer c
-   group by (c.`name`);
-    -- C3:
-    select c.`name`
-    from customer c
-    join ( 
-    select c.`name`
-    from customer c
-    group by c.`name`
+select s.id, s.`name`,s.acreage_room,s.expense,ts.`name`
+from customer c
+join contract co on c.id = co.customer_id
+join service s on co.service_id = s.id
+join type_service ts on s.type_service_id = ts.id
+join type_retail tr on s.type_retail_id = tr.id
+where year(co.start_day) = 2020
+and s.id not in (
+select s.id
+from service s
+join contract co on co.service_id = s.id
+where  year(co.start_day) = 2021);
+
+-- Task 8
+-- C1:
+select distinct c.`name`
+from customer c;
+-- C2:
+select c.`name`
+from customer c
+group by (c.`name`);
+-- C3:
+select c.`name`
+from customer c
+join ( 
+select c.`name`
+from customer c
+group by c.`name`
 ) new_c on c.`name` = new_c.`name`;
     
     -- Task 9
