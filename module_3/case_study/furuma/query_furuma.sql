@@ -61,6 +61,9 @@ from customer c
 group by c.`name`
 ) new_c on c.`name` = new_c.`name`;
     
-    -- Task 9
-    
-    
+-- Task 9
+select month(co.start_day) as 'Thang',count(co.customer_id) as 'so_luong_khach_hang'
+from contract co
+where year(co.start_day) = 2021  
+group by co.customer_id
+order by month(co.start_day)
