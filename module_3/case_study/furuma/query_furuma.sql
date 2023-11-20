@@ -44,14 +44,7 @@ left join contract co on c.id = co.customer_id
 left join service se on co.service_id = se.id
 left join contract_detail cd on co.id = cd.contract_id
 left join companied_service cs on cd.companied_service_id = cs.id
-group by c.id,
-    c.`name`,
-    tc.`name`,
-    co.id,
-    se.`name`,
-    co.start_day,
-    co.end_day;
-
+group by c.id,co.id;
 -- Task 6
 -- Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ chưa 
 -- từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
@@ -175,9 +168,32 @@ group by  cd.companied_service_id) as temp
 -- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung 
 -- (được tính dựa trên việc count các ma_dich_vu_di_kem).
 
-select cd.contract_id,ts.`name`,cs.`name`,count(cd.companied_service_id)
+select cd.contract_id,ts.`name`,cs.`name`,count(cd.companied_service_id) as so_lan_su_dung
 from service se 
 join type_service ts on se.type_service_id = ts.id 
 join contract co on se.id = co.service_id 
 join contract_detail cd on cd.contract_id = co.id
-join conpanied_service cs 
+join companied_service cs on cs.id = cd.companied_service_id
+group by cs.`name`
+having so_lan_su_dung = 1;
+
+
+-- Task 15
+-- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai,
+-- dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
+
+select e.id,e.`name`,l.`name`,p.`name`,e.`number`,e.address,count(co.employee_id)
+from employee e
+join level l on e.level_id = l.id
+join position p on e.position_id = p.id
+join contract co on co.employee_id = e.id
+where co.start_day between '2020-01-01' and '2021-12-30'
+group by co.employee_id
+having count(co.employee_id) <= 3
+order by e.id;
+
+
+-- Task 16
+-- Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021
+
+select 
