@@ -49,9 +49,8 @@ from customer c
 join contract co on c.id = co.customer_id
 join service s on co.service_id = s.id
 join type_service ts on s.type_service_id = ts.id
-where  co.start_day not between '2021-01-01' and '2021-03-30'
-and co.end_day not between '2021-01-01' and '2021-03-30';
-
+where year(co.start_day) = 2021 and quarter(co.start_day) > 1
+group by s.id;
 -- task 7
 select s.id, s.`name`,s.acreage_room,s.expense,ts.`name`
 from customer c
@@ -97,8 +96,32 @@ left join contract_detail cd on co.id = cd.contract_id
 left join companied_service cs on cd.companied_service_id = cs.id
 group by (co.id);
 
-
 -- Task 11
+select cs.id as 'ma dich vu di kem',
+cs.`name` as 'ten dich vu di kem'
+from customer c
+join type_customer tc on c.type_customer_id = tc.id
+join contract ct on c.id = ct.customer_id
+join contract_detail cd on ct.id = cd.contract_id
+join companied_service cs on cd.companied_service_id = cs.id
+where tc.`name` = 'Diamond' and c.address like '%Vinh' or c.address like '%Quảng Ngãi';
+
+-- Task 12
+select co.id, e.`name`,c.`name`,c.`number`,s.id,s.`name`,sum(cs.id),co.deposite_money
+from contract co 
+join employee e on co.employee_id = e.id
+join customer c on co.customer_id  = c.id
+join service s on co.service_id = s.id
+join contract_detail cd on co.id = cd.contract_id
+join companied_service cs on cd.companied_service_id = cs.id
+where year(co.start_day) = 2020 and quarter(co.start_day) = 4 and 
+co.start_day not in (
+select co.start_day
+from contract co 
+where  year(co.start_day) = 2021 and quarter(co.start_day) = 1 and quarter(co.start_day) = 2)
+
+
+
 
 
 
