@@ -19,8 +19,9 @@ left join `order` o  on c.id = o.customer_id
 where o.customer_id is null;
 
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn 
-select c.`name`,p.`name`,o.id, o.`date`,p.price*od.od_qty as 'Giá bán'
+select c.`name`,p.`name`,o.id, o.`date`,sum(p.price*od.od_qty) as Tong_Tien
 from customer c
  join `order` o  on c.id = o.customer_id
  join order_detail od  on o.id = od.order_id
- join product p on od.product_id = p.id;
+ join product p on od.product_id = p.id
+ group by o.id;

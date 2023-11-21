@@ -2,9 +2,9 @@
 -- Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 select *
 from employee e
-where substring_index(e.`name`," ",1) like "H%" 
-or substring_index(e.`name`," ",1) like "T%"
-or substring_index(e.`name`," ",1) like "K%" 
+where substring_index(e.`name`," ",1) like "%H%" 
+or substring_index(e.`name`," ",1) like "%T%"
+or substring_index(e.`name`," ",1) like "%K%" 
 and char_length(e.`name`)<=15;
 
 -- Task 3  
@@ -195,5 +195,77 @@ order by e.id;
 
 -- Task 16
 -- Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021
+set sql_safe_updates = 0 ;
+set sql_safe_updates = 1;
 
-select 
+delete from employee e
+where e.id not in (
+select co.employee_id
+from contract co 
+where year(co.start_day) between 2019 and 2021
+group by co.employee_id
+);
+
+select *
+from employee;
+
+
+-- Task 17
+-- Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, 
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+
+CREATE TEMPORARY TABLE temp_table AS
+select c.id,sum()
+from customer c
+join type_customer tc on c.type_customer_id = tc.id
+join contract co on co.customer_id = c.id 
+join service se on co.service_id = se.id
+where  year(co.start_day) = 2021 
+and se.expense >= 10000000 
+and tc.id = 2;
+
+update customer
+set customer.type_customer_id = 1
+where customer.id in (select temp_table.id from temp_table ) and customer.type_customer_id = 2;
+
+-- Task 18
+-- Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+-- delete from name.... where
+
+set sql_safe_updates = 0;
+set sql_safe_updates = 1;
+delete from customer c
+where c.id in (
+select co.customer_id
+from contract co 
+where year(co.start_day) < 2021
+group by co.customer_id
+);
+
+-- Task 19
+-- Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+
+CREATE TEMPORARY TABLE temp AS
+select cs.id, cs.`name`
+from companied_service cs
+left join contract_detail cd on cs.id = cd.companied_service_id
+left join contract co on co.id = cd.contract_id
+where year(co.start_day) = 2020 and cd.count > 10;
+
+update companied_service cs
+set cs.price = cs.price*2
+where cs.id in (
+select temp.id from temp ) ;
+
+-- Task 20
+-- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang),
+-- ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+
+select e.id,e.`name`,e.email,e.number,e.birthday,e.address
+from employee e
+union
+select c.id,c.`name`,c.email,c.number,c.birthday,c.address
+from customer c
+
+
+-- Task 21

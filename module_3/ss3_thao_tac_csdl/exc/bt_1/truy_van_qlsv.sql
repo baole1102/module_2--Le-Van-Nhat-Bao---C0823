@@ -21,7 +21,8 @@ where `name` = 'Hung';
 set sql_safe_updates = 1;
 
 -- Hiển thị các thông tin: StudentName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
-select s.`name`, sub.`name`,mark
+select s.`name`, sub.`name`,m.mark
 from student s
 left join mark m on s.id = m.student_id
-left join subject sub on sub.id = m.subject_id;
+left join subject sub on sub.id = m.subject_id
+order by m.mark desc;
