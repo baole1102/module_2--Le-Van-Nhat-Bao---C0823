@@ -215,14 +215,17 @@ from employee;
 -- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
 
 CREATE TEMPORARY TABLE temp_table AS
-select c.id,sum()
+select c.id,sum(se.expense+(cd.count*cs.price)+co.deposite_money) as SumMoney
 from customer c
 join type_customer tc on c.type_customer_id = tc.id
 join contract co on co.customer_id = c.id 
 join service se on co.service_id = se.id
+join contract_detail cd on cd.contract_id = co.id
+join companied_service cs on cs.id = cd.companied_service_id
 where  year(co.start_day) = 2021 
-and se.expense >= 10000000 
-and tc.id = 2;
+and tc.id = 2
+group by c.id
+having SumMoney >= 1000000;
 
 update customer
 set customer.type_customer_id = 1
