@@ -209,7 +209,6 @@ group by co.employee_id
 select *
 from employee;
 
-
 -- Task 17
 -- Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, 
 -- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
@@ -237,8 +236,10 @@ where customer.id in (select temp_table.id from temp_table ) and customer.type_c
 
 set sql_safe_updates = 0;
 set sql_safe_updates = 1;
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;
 delete from customer c
-where c.id in (
+where c.id  in (
 select co.customer_id
 from contract co 
 where year(co.start_day) < 2021
