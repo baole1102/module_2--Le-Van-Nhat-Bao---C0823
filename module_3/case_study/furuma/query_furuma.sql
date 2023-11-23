@@ -269,7 +269,87 @@ select e.id,e.`name`,e.email,e.number,e.birthday,e.address
 from employee e
 union
 select c.id,c.`name`,c.email,c.number,c.birthday,c.address
-from customer c
+from customer c;
 
 
 -- Task 21
+-- Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” 
+-- và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
+create  view v_employee as
+select e.id,e.`name`,e.address
+from employee e
+join contract co on e.id = co.employee_id
+where e.address like '%Hải Châu%' 
+and co.start_day = '2019-12-12'; 
+
+drop view v_employee;
+
+select *
+from v_employee;
+
+-- Task 22
+-- 22.	Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với tất 
+-- cả các nhân viên được nhìn thấy bởi khung nhìn này.
+set sql_safe_updates = 0;
+set sql_safe_updates = 1;
+
+update v_employee
+set v_employee.address = 'Huee'
+where v_employee.address like '%Gia Lai%';
+
+-- Task 23
+-- Tạo Stored Procedure sp_xoa_khach_hang dùng để xóa thông tin của một khách hàng nào đó với
+-- ma_khach_hang được truyền vào như là 1 tham số của sp_xoa_khach_hang.
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;
+
+delimiter //
+create procedure sp_xoa_khach_hang (d_id int)
+begin
+delete from customer c
+where c.id = d_id;
+end
+// delimiter ;
+
+call   sp_xoa_khach_hang (2);
+
+
+-- Task 23 a. Tạo Stored Procedure sp_them_moi_hop_dong dùng để thêm mới vào bảng hop_dong với yêu cầu sp_them_moi_hop_dong phải 
+-- thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung, với nguyên tắc không được trùng khóa chính và 
+-- đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
+
+delimiter //
+create procedure sp_them_moi_hop_dong (
+-- n_id int ,
+n_start_day datetime,
+n_end_day datetime,
+n_deposite_money double,
+n_employee_id int,
+n_customer_id int,
+n_service_id int
+-- foreign key (employee_id) references employee (id),
+-- foreign key (customer_id) references customer (id),
+-- foreign key (service_id) references service (id)
+)
+begin
+insert into contract (start_day,end_day,deposite_money,employee_id,customer_id,service_id)
+values (n_start_day,n_end_day,n_deposite_money,n_employee_id,n_customer_id,n_service_id);
+end //
+delimiter ;
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;
+call sp_them_moi_hop_dong ('2021-09-02','2021-09-05',100000,7,4,4);
+
+
+-- Task 24 Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng hop_dong thì hiển thị tổng số lượng bản ghi 
+-- còn lại có trong bảng hop_dong ra giao diện console của database.
+-- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
+
+
+
+
+
+
+
+
