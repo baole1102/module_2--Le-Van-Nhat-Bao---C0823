@@ -67,7 +67,6 @@ from customer c
 join contract co on c.id = co.customer_id
 join service s on co.service_id = s.id
 join type_service ts on s.type_service_id = ts.id
-join type_retail tr on s.type_retail_id = tr.id
 where year(co.start_day) = 2020
 and s.id not in (
 select s.id
@@ -124,12 +123,12 @@ join type_customer tc on c.type_customer_id = tc.id
 join contract ct on c.id = ct.customer_id
 join contract_detail cd on ct.id = cd.contract_id
 join companied_service cs on cd.companied_service_id = cs.id
-where tc.`name` = 'Diamond' and c.address like '%Vinh' or c.address like '%Quảng Ngãi';
+where tc.`name` = 'Diamond' and c.address like '%Vinh%' or c.address like '%Quảng Ngãi%';
 
 -- Task 12
 -- 12.	Hiển thị thông tin ma_hop_dong, ho_ten (nhân viên), ho_ten (khách hàng), so_dien_thoai (khách hàng), ten_dich_vu,
 -- so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), tien_dat_coc của tất cả các dịch vụ đã từng được khách 
-
+-- hàng đặt vào 3 tháng cuối năm 2020 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
 select co.id, e.`name`,c.`name`,c.`number`,s.id,s.`name`,count(cd.contract_id),co.deposite_money
 from contract co 
 join employee e on co.employee_id = e.id
