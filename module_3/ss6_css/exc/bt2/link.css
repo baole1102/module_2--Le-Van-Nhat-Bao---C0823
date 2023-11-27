@@ -1,0 +1,13 @@
+a {
+    text-decoration: none;
+}
+p {
+    text-indent: 50px;
+    font-size: 30px;
+}
+.header {
+    font-size: 50px;
+}
+.header__link {
+    font-size: 35px;
+}
