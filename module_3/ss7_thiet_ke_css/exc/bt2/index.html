@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="navbar">
+    <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=w600-h300-pc0xffffff-pd"
+         alt="">
+</div>
+<div class="navbar__link">
+    <ul>
+        <li><a href="">Phim hoạt hình |</a></li>
+        <li><a href="">Phim hoạt hình yêu thích |</a></li>
+        <li><a href="">Nhân vật hoạt hình |</a></li>
+        <li><a href="">Góp ý</a></li>
+    </ul>
+</div>
+<div class="row">
+    <div class="container__content-left col-4 col-m-12">
+
+        <img src="https://i.ytimg.com/vi/US-BzYBVttA/maxresdefault.jpg">
+        <a href="#">[S11] Doraemon - Tập 531 - Bán Đêm Tối - Hoạt Hình Tiếng Việt</a>
+        <img src="https://i.ytimg.com/vi/WutTkSWpp_s/maxresdefault.jpg" alt="">
+        <a id="video-1" onclick="playVideo()" href="#">[S11] Doraemon - Tập 537 - Tụi Con Muốn Ăn Nấm Tùng Nhung - Hoạt
+            Hình Tiếng Viêt</a>
+
+
+    </div>
+    <div class="right__content col-7 col-m-12">
+        <iframe style="width: 100%;height: 30em" src="https://www.youtube.com/embed/US-BzYBVttA?si=gyJghEIeba-qIdyS"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <p>Bộ phim hoạt hình Doraemon là một trong những bộ phim được yêu thích nhất tại Việt Nam. Câu chuyện xoay quanh
+            chú mèo máy đến từ tương lai và cậu nhóc Nobita. Doraemon cùng đội bạn Nobita, Shizuka và Suneo đã có nhiều
+            cuộc phiêu lưu khác nhau thông qua các chiếc cánh cổng thời gian. Bên cạnh những tình huống hài hước, bộ
+            phim còn mang lại cho khán giả nhiều giá trị ý nghĩa về tình bạn và gia đình. Hãy cùng đón xem Doraemon để
+            cảm nhận những giây phút thư giãn, cùng thưởng thức những thông điệp tích cực và đầy ý nghĩa từ bộ phim
+            này.</p>
+        <iframe style="visibility: hidden" width="100%" height="100%"
+                src="https://www.youtube.com/embed/WutTkSWpp_s?si=P4kzNSMIK6aecXXX" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+
+    </div>
+
+</div>
+<div class="end">
+    <p>© 2023- Thiết kế web bởi trang haipro.net</p>
+</div>
+</body>
+</html>
+<script>
+    function playVideo() {
+        document.getElementById("video-1").innerHTML = <div className="right__content">
+            // <iframe width="700px" height="500px" src="https://www.youtube.com/embed/US-BzYBVttA?si=gyJghEIeba-qIdyS"
+                       title="YouTube video player" frameBorder="0"
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                       allowFullScreen></iframe>
+            <p>Bộ phim hoạt hình Doraemon là một trong những bộ phim được yêu thích nhất tại Việt Nam. Câu chuyện xoay
+                quanh chú mèo máy đến từ tương lai và cậu nhóc Nobita. Doraemon cùng đội bạn Nobita, Shizuka và Suneo đã
+                có nhiều cuộc phiêu lưu khác nhau thông qua các chiếc cánh cổng thời gian. Bên cạnh những tình huống hài
+                hước, bộ phim còn mang lại cho khán giả nhiều giá trị ý nghĩa về tình bạn và gia đình. Hãy cùng đón xem
+                Doraemon để cảm nhận những giây phút thư giãn, cùng thưởng thức những thông điệp tích cực và đầy ý nghĩa
+                từ bộ phim này.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WutTkSWpp_s?si=P4kzNSMIK6aecXXX"
+                    title="YouTube video player" frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen></iframe>
+        </div>
+    }
+</script>
