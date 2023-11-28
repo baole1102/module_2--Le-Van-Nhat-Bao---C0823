@@ -57,6 +57,11 @@ a {
     width: 100%;
 }
 
+.right__content iframe {
+    width: 100%;
+    height: 480px;
+}
+
 
 .row:after {
     content: "";
