@@ -235,17 +235,20 @@ p {
 .price__products-container {
     position: relative;
     background-color: #344654;
-    padding: 5px;
+    padding: 0 5px;
     z-index: 99;
 }
 
 .price__products {
+    height: 32px;
     display: flex;
     position: absolute;
     top: 84%;
     transform: translateX(105%);
     border: 2px solid black;
-    
+    border-radius: 2px;
+    left: -20px;
+    text-align: right;
 }
 
 .discount {
@@ -256,12 +259,15 @@ p {
     font-weight: 500;
     color: #BEEE11;
     background: #4c6b22;
+    line-height: 16px;
 }
 
 .discount__price {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--new-text);
     position: relative;
+    display: inline;
+    font-family: "Motiva Sans", Sans-serif;
 }
 
 .discount__price::before {
@@ -276,9 +282,10 @@ p {
 }
 
 .discount__price-final {
-    font-size: 16px;
+    font-size: 14px;
     color: #BEEE11;
-    margin-left: 5px;
+    font-family: "Motiva Sans", Sans-serif;
+    
 }
 
 .description-products {
@@ -467,7 +474,7 @@ p {
 }
 
 .container__body-products {
-    padding-top: 100px;
+    padding-top: 60px;
     max-width: 100%;
     display: flex;
 }
@@ -479,6 +486,7 @@ p {
 .name__product {
     display: flex;
     justify-content: space-between;
+    margin-top: 68px;
 }
 
 .name__product span {
@@ -506,8 +514,8 @@ p {
 
 .body__wed-product {
     display: flex;
-    margin-top: 20px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .products__video {
@@ -518,13 +526,30 @@ p {
 .products__video video {
     width: 100%;
     display: block;
+    margin-top: 28px;
 }
+.right__column {
+    width: 350px;
+    margin-top: 28px;
+    margin-left: 14px;
 
+}
+.righlt__column-description1 .righlt__column-description2 {
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
+    padding: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+}
 .products_description {
     width: 350px;
-    margin: 0;
-    padding: 0;
+    margin-top: 28px;
+    margin-left: 14px;
+    float: right;
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
+    padding: 14px;
+    margin-bottom: 8px;
 }
+
 
 .products_description img {
     width: 100%;
@@ -558,9 +583,13 @@ p {
 .wed__category span {
     color: #556772;
 }
+.left__column {
+    width: 550px;
+}
 
 .products__buy {
     position: relative;
+    margin-top: 30px;
     height: 98px;
     width: 550px;
     border: 1px solid black;
@@ -574,11 +603,16 @@ p {
     margin-right: 10px;
 
 }
+
+.products__buy-products {
+    display: inline;
+   width: 550px;
+   margin-top: 100px;
+}
 .products__buy-games {
 max-width: 100%;
 margin-top: 20px;
 margin-left: 20px;
-
 }
 
 .products__buy-games h1 {
@@ -596,15 +630,66 @@ margin-left: 20px;
 }
 
 .price__products button{
+    display: inline-block;
+    align-items: center;
     max-height: 100%;
     font-weight: bold;
     color: #d2efa9;
-    border-radius: 3px;
-    border: 2px solid black;
+    border-radius: 1px;
+    border: 1px solid black;
     background: linear-gradient( to right, #75b022 5%, #588a1b 95%);
+}
+
+.price__products button span{
+    display: block;
+    padding: 0 15px;
+    font-size: 15px;    
+    cursor: pointer;
+    
 }
 
 .price__products button:hover {
     background: linear-gradient( to right, #b3e868 5%, #b4e874 95%);
 }
 
+.description__select {
+    padding-left: 18px;
+    color: #969696;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.description__select span {
+    color: #969696;
+    font-size: 14px;
+    line-height: 25px;
+    margin-bottom: 3px;
+}
+.description__header {
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.feature__list {
+    margin-bottom: 2px;
+    background-color: rgba( 0, 0, 0, 0.2 );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon {
+    padding: 0px 6px;
+    display: flex;
+}
+.lable {
+    display: flex;
+    padding: 6px 8px;
+    height: 100%;
+    background: rgba( 103, 193, 245, 0.1 );
+    width: 100%;
+    border-radius: 1px;
+}

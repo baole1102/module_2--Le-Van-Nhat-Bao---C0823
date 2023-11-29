@@ -1,3 +1,6 @@
-h3{
+.font__word {
+    color: rgb(234, 198, 131);
+}
+.font__word  p{
     color: rgb(234, 198, 131);
 }
