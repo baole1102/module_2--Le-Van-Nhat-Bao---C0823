@@ -13,6 +13,7 @@ ul {
 body {
     margin: 0;
     background: #1b2838;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -115,8 +116,10 @@ p {
 }
 
 .container_body {
-    position: relative;
+   width: 100%;
+   position: relative;
 }
+
 
 .page_background_holder {
     display: flex;
@@ -408,9 +411,9 @@ p {
 }
 
 .end__container {
-    margin-top: 100px;
-    max-width: 100%;
+    width: 100%;
     background: black;
+    margin-bottom: 100px;
 }
 
 .container__content {
@@ -534,7 +537,13 @@ p {
     margin-left: 14px;
 
 }
-.righlt__column-description1 .righlt__column-description2 {
+.righlt__column-description1,.righlt__column-description2 {
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
+    padding: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.righlt__column-description3{
     background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
     padding: 14px;
     margin-bottom: 8px;
@@ -585,6 +594,7 @@ p {
 }
 .left__column {
     width: 550px;
+
 }
 
 .products__buy {
@@ -656,8 +666,9 @@ margin-left: 20px;
     padding-left: 18px;
     color: #969696;
     font-size: 14px;
-    margin-top: 10px;
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
 }
+
 
 .description__select span {
     color: #969696;
@@ -674,16 +685,20 @@ margin-left: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.feature__list {
-    margin-bottom: 2px;
-    background-color: rgba( 0, 0, 0, 0.2 );
+.feature__list a {
     display: flex;
+    margin-bottom: 5px;
+    background-color: rgba( 0, 0, 0, 0.2 );
     align-items: center;
-    justify-content: space-between;
 }
 .icon {
     padding: 0px 6px;
     display: flex;
+    justify-content: center;
+}
+.icon i {
+padding: 0 5px;
+color: #fff;
 }
 .lable {
     display: flex;
@@ -692,4 +707,73 @@ margin-left: 20px;
     background: rgba( 103, 193, 245, 0.1 );
     width: 100%;
     border-radius: 1px;
+    color: #185FC3;
+    font-size: 12px;
+}
+
+.category_icon {
+    width: 26px;
+    height: 16px;
+}
+.feature__list-control {
+    color: #8f98a0;
+   margin: 15px 0 5px 0;
+    font-size: 12px;
+}
+.description3__header {
+    font-size: 12px;
+    color: #8f98a0;
+    margin-bottom: 2px;
+}
+.game_language_options {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #c6d4df;
+    font-size: 12px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 100%;  
+}
+
+.game_language_options tr {
+    border-bottom: 1px solid #626366;
+}
+.checkcol {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #c6d4df;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px 0;
+    align-items: center;
+}
+.products__buy-description {
+    max-width: 100%;
+    position: relative;
+    margin-top: 100px;
+    height: 98px;
+    width: 550px;
+}
+
+.products__description-product-left {
+width: 100%;
+}
+.left__about-game {
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 10px;
+    font-weight: normal;
+    padding-top: 2px;
+}
+.products__description-product-left hr {
+    border: 1px solid rgb(70, 70, 147);
+}
+.products__description-product-left p {
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #acb2b8;
+    margin: 0 0 10px;
+    letter-spacing: 0.03em;
+    font-weight: normal;
 }
