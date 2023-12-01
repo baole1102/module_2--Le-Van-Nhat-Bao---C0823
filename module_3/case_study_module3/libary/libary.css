@@ -198,6 +198,7 @@ p {
     position: relative;
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 }
 .header__name-img {
     margin: 0 30px;
@@ -206,7 +207,115 @@ p {
     color: #ebebeb;
     font-size: 26px;
 }
+.game {
+    color: #ebebeb;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.body__list {
+    display: block;
+}
+.body__list-game {
+    max-width: 936px;
+    margin: auto;
+}
+.bode__list-search {
+    margin-top: 4px;
+    position: relative;
+    display: flex;
+    height: 33px;
+    color: #969696;
+    font-family: "Motiva Sans",Arial,Helvetica,sans-serif;
+}
+.bode__list-search input {
+    background: rgba(24,26,33,.5);
+    color: var(--typography-color-primary);
+    border: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 7px 8px 7px 14px;
+}
+.icon-find {
+    position: absolute;
+    width: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    right: 4px;
+    pointer-events: none;
+}
+.list__game-have {
+    height: 1000px;
+    margin: auto;
+    position: relative;
+}
+.contain__list-game-have {
+    max-width: 936px;
+    margin: auto;
+}
+.list__game-first {
+    margin-bottom: 10px;
+    width: 100%;
+    top: 0;
+}
+.detail__desciption-game {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    box-sizing: border-box;
+    height: 250px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.picture__game {
+    position: relative;
+    cursor: pointer;
+    width: 259px;
+    height: 100%;
+    margin: 0 20px;
+    box-shadow: 1px 1.5px 1.5px rgb(234, 234, 141);
+    border-radius: 4px;
+   
+}
+.picture__game a img {
+    width: 100%;
+    height: 100%;
+}
+.detail__desciption-game-name {
+    grid-area: title;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    flex-wrap: wrap;
+}
 
+
+
+.achive-game-number {
+    grid-area: fraction;
+    font-size: var(--typography-font-size-medium);
+    margin-right: 8px;
+    justify-self: flex-end;
+    text-align: end;
+    min-width: 2.5rem;
+}
+.achive-game-name {
+    grid-area: label;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-right: 8px;
+    color: inherit;
+    letter-spacing: .03em;
+}
+.achive-game {
+    margin-top: 38px;
+}
 
 /* End */
 .end__container {

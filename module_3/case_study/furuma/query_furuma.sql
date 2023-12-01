@@ -57,7 +57,6 @@ join type_service ts on s.type_service_id = ts.id
 where year(co.start_day) = 2021 and quarter(co.start_day) > 1
 group by s.id;
 
-
 -- Task 7
 -- Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ đã 
 -- từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
@@ -107,7 +106,7 @@ order by month(co.start_day);
 -- 10.	Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm. Kết quả hiển thị bao gồm ma_hop_dong,
 -- ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
 
-select co.id as 'Ma hop dong',co.start_day,co.end_day,co.deposite_money,sum(cd.count) as 'so luong'
+select co.id as 'Ma hop dong',co.start_day,co.end_day,co.deposite_money,sum(ifnull(cd.count,0)) as 'so luong'
 from contract co
 left join contract_detail cd on co.id = cd.contract_id
 left join companied_service cs on cd.companied_service_id = cs.id
@@ -251,8 +250,8 @@ group by co.customer_id
 CREATE TEMPORARY TABLE temp AS
 select cs.id, cs.`name`
 from companied_service cs
-left join contract_detail cd on cs.id = cd.companied_service_id
-left join contract co on co.id = cd.contract_id
+join contract_detail cd on cs.id = cd.companied_service_id
+join contract co on co.id = cd.contract_id
 where year(co.start_day) = 2020 and cd.count > 10;
 
 update companied_service cs

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8f079f33-2299-4e3d-a9e2-ffadb4ba9efd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo4/src/main/java/Calculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_module3/libary/libary.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_module3/libary/libary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_module3/libary/libary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_module3/libary/libary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo1/src/main/java/ProductDiscountCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo1/src/main/java/ProductDiscountCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/.idea/pratice.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/pratice/First.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2YtrHVVz1BpKzMBQq4BcFVxdcEf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/module_2--Le-Van-Nhat-Bao---C0823/module_3/ss10/pratice/th2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f079f33-2299-4e3d-a9e2-ffadb4ba9efd" name="Changes" comment="" />
+      <created>1701355629101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701355629101</updated>
+      <workItem from="1701355630085" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
