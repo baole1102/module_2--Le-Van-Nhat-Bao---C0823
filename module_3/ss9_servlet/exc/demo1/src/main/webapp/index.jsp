@@ -14,6 +14,10 @@
   <input type="text" name="discount" placeholder="Discount Percent">
   <br>
   <button type="submit">Calculate Discount</button>
+  <hr>
+  <br>
+  <div>${description}</div>
+  Result: ${result}
 </form>
 </body>
 </html>
