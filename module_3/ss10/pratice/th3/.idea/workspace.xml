@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13ea3337-c242-4b34-a5b8-ba953c002553" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/controller/SearchAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/CustomerDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/Java.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../th2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../th2/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +12,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2YvSKLwjVUWhadXGn1MrC74vDvg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +26,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/module_2--Le-Van-Nhat-Bao---C0823/module_3/ss10/pratice/th3",
+    "last_opened_file_path": "D:/module_2--Le-Van-Nhat-Bao---C0823/module_3/ss9_servlet/exc/demo3",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -48,6 +39,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701404494691</updated>
       <workItem from="1701404495673" duration="50000" />
+      <workItem from="1701420913680" duration="11000" />
     </task>
     <servers />
   </component>

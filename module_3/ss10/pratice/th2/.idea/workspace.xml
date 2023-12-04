@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f079f33-2299-4e3d-a9e2-ffadb4ba9efd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/bthl/src/main/java/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/bthl/src/main/webapp/result.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/controller/SearchAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/CustomerDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/java/util/Java.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_servlet/exc/demo5/src/main/webapp/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="8f079f33-2299-4e3d-a9e2-ffadb4ba9efd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +25,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/module_2--Le-Van-Nhat-Bao---C0823/module_3/ss10/pratice/th3/.idea",
+    "last_opened_file_path": "D:/module_2--Le-Van-Nhat-Bao---C0823/module_3/ss10/pratice/th3",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -52,6 +39,7 @@
       <updated>1701355629101</updated>
       <workItem from="1701355630085" duration="14000" />
       <workItem from="1701418147892" duration="43000" />
+      <workItem from="1701420908042" duration="5000" />
     </task>
     <servers />
   </component>
