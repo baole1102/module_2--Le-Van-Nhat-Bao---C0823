@@ -109,7 +109,6 @@ public class ProductServlet extends HttpServlet {
                 showViewProduct(req, resp);
                 break;
             case "search":
-
                 searchProduct(req, resp);
                 break;
             default:
