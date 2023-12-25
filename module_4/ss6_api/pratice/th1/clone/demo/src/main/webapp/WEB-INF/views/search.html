@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>View Student</h3>
+<p>
+    <a th:href="@{/}">
+        Back to list student
+    </a>
+</p>
+<table>
+    <tr>
+        <td>STT</td>
+        <td>Tên sinh viên</td>
+        <td>Giới tính</td>
+        <td>Tuổi</td>
+        <td>Địa chỉ</td>
+    </tr>
+    <tr th:each="student,count: ${student}">
+        <td th:text="${count.count}"></td>
+        <td th:text="${student.getName()}"></td>
+        <td th:text="${student.getGender()}"></td>
+        <td th:text="${student.getAge()}"></td>
+        <td th:text="${student.getAddress()}"></td>
+    </tr>
+</table>
+</body>
+</html>

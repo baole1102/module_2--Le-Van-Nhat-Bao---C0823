@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 <h1>Quản Lý Sản Phẩm</h1>
@@ -12,7 +14,7 @@
     </p>
 </div>
 <div>
-    <form th:action="@{/search}" >
+    <form th:action="@{/search}">
         <input type="text" name="name">
         <input type="submit" value="Tìm Kiếm">
     </form>
@@ -34,8 +36,43 @@
         <td><a th:href="@{/edit/{id}(id=${product.getId()})}">Edit</a></td>
         <td><a th:href="@{/detail/{id}(id=${product.getId()})}">Chi tiết</a></td>
         <td><a th:href="@{/delete/{id}(id=${product.getId()})}">Xóa</a></td>
+        <td>
+            <button
+               th:attr="onclick=|sendInf('${product.id}','${product.name}')|" type="button" class="btn btn-danger"
+               data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa
+            </button>
+        </td>
     </tr>
 </table>
-
+<!--MODAL-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Chắc chưa?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:action="@{/delete}">
+                <div class="modal-body">
+                    <input type="hidden" id="id" name="id">
+                    <span>Bạn chắc chắn muốn xóa <span id="name"></span> này chứ?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chưa chắc</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Chắc</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script>
+    function sendInf(id, name) {
+        document.getElementById("name").innerText = name;
+        document.getElementById("id").value = id;
+    }
+</script>
 </body>
 </html>

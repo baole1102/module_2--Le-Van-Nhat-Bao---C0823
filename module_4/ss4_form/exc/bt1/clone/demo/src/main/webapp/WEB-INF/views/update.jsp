@@ -13,8 +13,7 @@
     <title>Setting</title>
 </head>
 <body>
-<%--@elvariable id="mailBox" type=""--%>
-<form:form modelAttribute="mailBox" method="post" action="/update">
+<form:form modelAttribute="mail" method="post" action="/update">
     <table>
         <tr>
             <td>

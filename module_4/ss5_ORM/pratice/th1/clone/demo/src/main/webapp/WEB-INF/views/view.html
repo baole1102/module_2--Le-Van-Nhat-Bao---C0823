@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>View Customer</h3>
+<p>
+    <a th:href="@{/}">
+        Back to customer list
+    </a>
+</p>
+<div id="detail">
+    <div class="cus-detail">
+        <label>Name:</label>
+        <label th:text="${view.name}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Email:</label>
+        <label th:text="${view.email}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Address:</label>
+        <label th:text="${view.address}"></label>
+    </div>
+</div>
+</body>
+</html>

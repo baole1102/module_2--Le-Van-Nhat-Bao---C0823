@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+            rel="stylesheet"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h3>List Product</h3>
+<br/>
+<form>
+    <table class="table">
+        <thead class="table-light"></thead>
+        <tbody>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Describe</th>
+            <th>Producer</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="products,loop : ${products}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${products.getName()}"></td>
+            <td th:text="${products.getPrice()}"></td>
+            <td th:text="${products.getPDescribe()}"></td>
+            <td th:text="${products.getProducer()}"></td>
+            <td><a th:href="@{/{id}/edit(id=${products.getId()})}">edit</a> -
+            <a th:href="@{/{id}/delete(id=${products.getId()})}">delete</a>
+            - <a th:href="@{/{id}/details(id=${products.getId()})}">details</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="create">add new product</a>
+    <a th:href="search">Search product</a>
+</form>
+</body>
+<footer th:insert="/layout::footer"></footer>
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+></script>
+</html>
