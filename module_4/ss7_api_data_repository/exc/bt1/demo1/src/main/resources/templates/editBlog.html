@@ -27,24 +27,36 @@
         </div>
     </div>
 </nav>
-<h1 style="margin-left: 38%">Chỉnh Sửa Sinh Viên</h1>
+<h1 style="margin-left: 38%">Chỉnh Sửa Blog</h1>
 <div class="row">
-    <form th:action="@{/edit}" method="post" novalidate="novalidate" th:object="${customer}">
+    <form th:action="@{/blog/editBlogs}"  method="post" novalidate="novalidate" th:object="${blogs}">
         <input type="hidden" th:field="*{id}">
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Tên Khách Hàng</label>
+            <label for="formGroupExampleInput" class="form-label">Tên Blog</label>
             <input type="text" th:field="*{name}" required class="form-control" id="formGroupExampleInput">
         </div>
-        <div>
-            <label class="form-label">Email</label>
-            <input th:field="*{email}" required name
-                    ="tienChi" type="text" class="form-control"
-                   id="formGroupExampleInput4">
+        <div class="mb-3">
+            <label  class="form-label">Content</label>
+            <textarea th:field="*{content}" required name="tienChi" type="text" class="form-control"   id="formGroupExampleInput4"></textarea>
+            <!--            <input  th:field="*{email}" required name="tienChi" type="text" class="form-control"   id="formGroupExampleInput4">-->
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput7" class="form-label">Địa Chỉ</label>
-            <input th:field="*{address}" required name="moTaThem" type="text" class="form-control"
-                   id="formGroupExampleInput7">
+            <label for="formGroupExampleInput7" class="form-label">Date</label>
+            <input th:field="*{date}" required name="moTaThem" type="date" class="form-control" id="formGroupExampleInput7">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput7" class="form-label">Author</label>
+            <input th:field="*{author}" required name="moTaThem" type="text" class="form-control" id="formGroupExampleInput6">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput7" class="form-label">Image</label>
+            <input th:field="*{img}" required name="moTaThem" type="text" class="form-control" id="formGroupExampleInput5">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput7" class="form-label">Catelogy</label>
+            <select th:field="*{catelogy}" >
+                <option th:each="catelogys,status: ${catelogy}" th:text="${catelogys.getName()}"  th:value="${catelogys.getId()}" required >
+            </select>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Xác nhận</button>

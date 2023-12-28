@@ -1,7 +1,8 @@
 package com.example.controller;
 
-import com.example.model.Customer;
-import com.example.service.ICustomerService;
+import com.example.model.Blog;
+import com.example.repository.IBlogRepository;
+import com.example.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,45 +14,51 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class CustomerController {
+public class BlogController {
     @Autowired
-    ICustomerService iCustomerService;
+    IBlogService iBlogService;
 
     @GetMapping("/")
     public String home(Model model) {
-        List<Customer> list = iCustomerService.findAll();
-        model.addAttribute("customer", list);
+        List<Blog> list = iBlogService.findAll();
+        model.addAttribute("blog", list);
         return "/home";
     }
 
     @GetMapping("/add")
     public String addGet(Model model) {
-        model.addAttribute("save", new Customer());
+        model.addAttribute("save", new Blog());
         return "/add";
     }
 
     @PostMapping("/newAdd")
-    public String addPost(Customer customer) {
-        iCustomerService.save(customer);
+    public String addPost(Blog blog) {
+        iBlogService.save(blog);
         return "redirect:/";
     }
 
     @GetMapping("/delete")
     public String remove(@RequestParam(name = "idEdit") Long id) {
-        iCustomerService.remove(id);
+        iBlogService.remove(id);
         return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
     public String editGet(@PathVariable Long id, Model model){
-        Customer customer = iCustomerService.findById(id);
-        model.addAttribute("customer",customer);
+        Blog blog = iBlogService.findById(id);
+        model.addAttribute("blog",blog);
         return "/edit";
     }
 
     @PostMapping("/edit")
-    public String editPost(Customer customer){
-        iCustomerService.save(customer);
+    public String editPost(Blog blog){
+        iBlogService.save(blog);
         return "redirect:/";
+    }
+    @GetMapping("/detail/{id}")
+    public String detail (@PathVariable Long id,Model model){
+        Blog blog = iBlogService.findById(id);
+        model.addAttribute("blog",blog);
+        return "/detail";
     }
 }

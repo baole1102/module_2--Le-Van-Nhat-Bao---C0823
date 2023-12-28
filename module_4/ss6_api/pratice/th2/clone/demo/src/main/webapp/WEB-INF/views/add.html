@@ -27,24 +27,20 @@
         </div>
     </div>
 </nav>
-<h1 style="margin-left: 38%">Chỉnh Sửa Sinh Viên</h1>
+<h1 style="margin-left: 38%">Thêm Sinh Viên</h1>
 <div class="row">
-    <form th:action="@{/edit}" method="post" novalidate="novalidate" th:object="${customer}">
-        <input type="hidden" th:field="*{id}">
+    <form th:action="@{/newAdd}" method="post" novalidate="novalidate" th:object="${save}">
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Tên Khách Hàng</label>
+            <label for="formGroupExampleInput" class="form-label">Tên Khach Hang</label>
             <input type="text" th:field="*{name}" required class="form-control" id="formGroupExampleInput">
         </div>
-        <div>
-            <label class="form-label">Email</label>
-            <input th:field="*{email}" required name
-                    ="tienChi" type="text" class="form-control"
-                   id="formGroupExampleInput4">
+        <div class="mb-3">
+            <label  class="form-label">Email</label>
+            <input  th:field="*{email}" required name="tienChi" type="text" class="form-control"   id="formGroupExampleInput4">
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput7" class="form-label">Địa Chỉ</label>
-            <input th:field="*{address}" required name="moTaThem" type="text" class="form-control"
-                   id="formGroupExampleInput7">
+            <label for="formGroupExampleInput7" class="form-label">Địa chỉ</label>
+            <input th:field="*{address}" required name="moTaThem" type="text" class="form-control" id="formGroupExampleInput7">
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Xác nhận</button>

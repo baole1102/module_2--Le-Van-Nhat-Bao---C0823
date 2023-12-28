@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h3>View Student</h3>
+<p>
+  <a th:href="@{/}">
+    Back to Blog
+  </a>
+</p>
+<div id="detail">
+  <div class="cus-detail">
+    <label>Tên Blog:</label>
+    <label th:text="${blog.name}"></label>
+  </div>
+  <div class="cus-detail">
+    <label>Content:</label>
+    <label th:text="${blog.content}"></label>
+  </div>
+  <div class="cus-detail">
+    <label>Ngày xuất bản:</label>
+    <label th:text="${blog.date}"></label>
+  </div>
+  <div class="cus-detail">
+    <label>Author</label>
+    <label th:text="${blog.author}"></label>
+  </div>
+  <div class="cus-detail">
+    <label>IMG</label>
+    <img th:src="${blog.img}">
+  </div>
+</div>
+</body>
+</html>
