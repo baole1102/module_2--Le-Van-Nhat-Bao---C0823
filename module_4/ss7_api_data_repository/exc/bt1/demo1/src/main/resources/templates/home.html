@@ -59,7 +59,7 @@
                 <a th:href="@{/blog/detailBlog/{id}(id=${blog.getId()})}" type="button" class="btn btn-warning">Chi
                     Tiết</a>
             </div>
-        </div>
+        </div>  
 
         <div th:each="searchCatelogys,count : ${searchCatelogy}" class="card" style="width: 18rem;">
             <img th:src="${searchCatelogys.getImg()}"> >

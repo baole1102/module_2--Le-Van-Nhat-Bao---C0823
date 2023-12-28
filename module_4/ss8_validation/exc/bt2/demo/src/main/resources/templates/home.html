@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List Song</h1>
+<a th:href="@{/add}">Thêm</a>
+<table>
+    <tr>
+        <td>Ten Song</td>
+        <td>Nghe Si</td>
+        <td>Loai Nhac</td>
+        <td>Loai</td>
+    </tr>
+    <tr th:each="songs,count:${songAll}">
+        <td th:text="${songs.name}"></td>
+        <td th:text="${songs.singer}"></td>
+        <td th:text="${songs.tyleSong}"></td>
+        <td><a th:href="@{/edit/{id}(id=${songs.getId()})}">Sua</a></td>
+    </tr>
+</table>
+</body>
+</html>
