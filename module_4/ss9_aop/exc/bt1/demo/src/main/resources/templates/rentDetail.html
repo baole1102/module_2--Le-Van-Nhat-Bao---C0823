@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>View Book</h3>
+<p>
+    <a th:href="@{/book}">
+        Back to Blog
+    </a>
+</p>
+
+<div th:if="books" id="detail">
+    <div class="cus-detail">
+        <label>Tên Book:</label>
+        <label th:text="${books.name}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Author:</label>
+        <label th:text="${books.author}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>So luong sach:</label>
+        <label th:text="${books.soLuongSach}"></label>
+    </div>
+</div>
+<a th:href="@{/borrow/{id}(id=${books.getId()})}">Muon</a>
+<div th:if="${errors}">
+    <span th:text="${errors}"></span>
+</div>
+
+</body>
+</html>

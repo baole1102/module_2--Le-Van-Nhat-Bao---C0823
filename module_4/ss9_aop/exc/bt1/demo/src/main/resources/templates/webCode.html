@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Code Book</h3>
+<p>
+
+</p>
+
+<div id="detail">
+    <div class="cus-detail">
+        <label>Tên Book:</label>
+        <label th:text="${codes.code}"></label>
+    </div>
+    <a th:href="@{/book}">
+        Back to Trang Chu
+    </a>
+</div>
+
+</body>
+</html>

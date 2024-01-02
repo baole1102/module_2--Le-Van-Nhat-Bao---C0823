@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>View Shop</h3>
+<p>
+    <a th:href="@{/shop}">
+        Back to Shop
+    </a>
+</p>
+<div id="detail">
+    <div class="cus-detail">
+        <label>Tên Sản Phẩm:</label>
+        <label th:text="${products.getName()}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Description:</label>
+        <label th:text="${products.getDescription()}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Giá sản phẩm:</label>
+        <label th:text="${products.price}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>IMG</label>
+        <img th:src="${products.getImg()}">
+    </div>
+</div>
+</body>
+</html>
